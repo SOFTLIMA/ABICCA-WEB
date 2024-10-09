@@ -1,0 +1,12 @@
+.toolbar {
+    display:flexbox;
+    justify-content: flex-end;
+}
+.abicca {
+    /* display: ; */
+    border: 1px, solid, black;
+}
+.buttons {
+    
+    border: 1px, solid, black;
+}
