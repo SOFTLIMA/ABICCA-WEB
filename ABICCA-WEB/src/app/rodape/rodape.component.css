@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Urbanist", sans-serif;
+}
+
+.interface {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #000850;
+    color: white;
+    padding: 40px 0;
+}
+
+footer .line-footer1 {+
+    text-align:center;
+    border-bottom: 1px solid white;
+    padding-bottom: 40px;
+}
+
+.line-footer1 {
+    font-size: 2.5rem;
+}
+
+.line-footer1 p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+.line-footer1 form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+footer .line-footer2 {
+    padding: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid white;    
+}
+
+.box-line-footer {
+    flex: 1; /* Faz os boxes crescerem igualmente */
+    margin: 10px; /* Espaço entre os boxes */
+    min-width: 200px; /* Largura mínima para evitar que os boxes fiquem pequenos demais */
+}
+
+.line-footer1 form input[type=email] {
+    width: 300px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 10px;
+    outline: 0;
+}
+
+.line-footer1 form input[type=submit] {
+    width: 80px;
+    height: 40px;
+    background-color: red;
+    border: 0;
+    color: white;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.line-footer1 form input[type=submit]:hover {
+    background-color: white;
+    color: #f20744;  
+}
+
+footer .box-line-footer img {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+.line-footer2 .box-line-footer h3 {
+    color: #f20744;
+    margin-bottom: 10px;
+}
+
+.btn-redes {
+    display: flex;
+    gap: 10px;
+}
+
+.social-btn {
+    display: inline-block;
+    padding: 10px;
+    background-color: #000850; 
+    color: white;
+    border: none;
+    border-radius: 5px; 
+    font-size: 1.2rem;
+    transition: 0.2s; 
+}
+
+.social-btn:hover {
+    background-color: #f20744; 
+}
