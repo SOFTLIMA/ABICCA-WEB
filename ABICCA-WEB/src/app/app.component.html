@@ -1,13 +1,21 @@
 <header>
-    <app-menu-nav></app-menu-nav>
+    <div class="cabecalho">
+        <app-menu-nav></app-menu-nav>
+    </div>
 </header>
 
-<body>
-    <app-sobre></app-sobre>
-    <app-associados></app-associados>
-</body>
+<div class="corpo">
+  <app-sobre></app-sobre>
+  <app-associados></app-associados>
+  <app-galeria [images]="images"
+    [autoSlide]="false"
+    [controls]="false"
+  ></app-galeria>
+</div>
 
 <footer>
-
+    <div class="rodape">
+        <a>footer</a>
+    </div>
 </footer>
 <router-outlet />

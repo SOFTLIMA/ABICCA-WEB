@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './sobre.component.html',
   styleUrl: './sobre.component.css'
 })
-export class SOBREComponent {
+export class SobreComponent {
 
 }

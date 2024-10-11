@@ -8,6 +8,6 @@ import { MatButtonModule } from "@angular/material/button";
   templateUrl: './associados.component.html',
   styleUrl: './associados.component.css'
 })
-export class ASSOCIADOSComponent {
+export class AssociadosComponent {
 
 }

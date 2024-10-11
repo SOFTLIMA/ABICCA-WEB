@@ -9,6 +9,6 @@ import { MatButtonModule } from "@angular/material/button";
   templateUrl: './menu-nav.component.html',
   styleUrl: './menu-nav.component.css'
 })
-export class MENUNAVComponent {
+export class MenuNavComponent {
 
 }
