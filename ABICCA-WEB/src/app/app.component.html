@@ -5,6 +5,7 @@
 </header>
 
 <div class="corpo">
+  <app-imagens></app-imagens>
   <app-sobre></app-sobre>
   <app-associados></app-associados>
   <app-galeria [images]="images"
@@ -13,9 +14,6 @@
   ></app-galeria>
 </div>
 
-<footer>
-    <div class="rodape">
-        <a>footer</a>
-    </div>
-</footer>
+<app-rodape></app-rodape>
+
 <router-outlet />
