@@ -6,7 +6,6 @@
     row-gap: 20px;
     flex-direction: column;
     /* background-color: #00ced1; */
-    background: linear-gradient(125deg, #00ced1, #084d6e)
 }
 
 .imagem {
@@ -27,18 +26,16 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
     -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
+    -moz-text-fill-color: red;
 }
 
 .imagem_ord {
     display: flex;
-    column-gap: 5%;
+    column-gap:auto;
     justify-content: center;
 }
 
 .imagem img{
-    width: 247px;
-    height: 204px;
 }
 
 .texto {
@@ -94,8 +91,8 @@
 }
 
 *::selection {
+    -webkit-text-fill-color: white; 
     background-color: #027274;
-    color: white;
 }
 
 p::first-letter {

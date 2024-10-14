@@ -1,16 +1,19 @@
 <header>
-    <app-menu-nav></app-menu-nav>
+    <div class="cabecalho">
+        <app-menu-nav></app-menu-nav>
+    </div>
 </header>
 
-<div>
-    <app-imagens></app-imagens>
-    <app-sobre></app-sobre>
-    <app-associados></app-associados>
-    <app-rodape></app-rodape>
-    
+<div class="corpo">
+  <app-imagens></app-imagens>
+  <app-sobre></app-sobre>
+  <app-associados></app-associados>
+  <app-galeria [images]="images"
+    [autoSlide]="false"
+    [controls]="false"
+  ></app-galeria>
 </div>
 
-<footer>
+<app-rodape></app-rodape>
 
-</footer>
 <router-outlet />
