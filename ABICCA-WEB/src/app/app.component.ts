@@ -7,12 +7,13 @@ import { GaleriaComponent } from './galeria/galeria.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ImagensComponent } from './imagens/imagens.component';
 import { RodapeComponent } from './rodape/rodape.component';
+import { AnimacaoRodapeComponent } from './animacao-rodape/animacao-rodape.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MenuNavComponent, SobreComponent, AssociadosComponent, GaleriaComponent, ImagensComponent,RodapeComponent],
+  imports: [RouterOutlet, MenuNavComponent, SobreComponent, AssociadosComponent, GaleriaComponent, ImagensComponent,RodapeComponent, AnimacaoRodapeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -22,22 +23,22 @@ export class AppComponent {
   images = [
     {
       imageSrc:
-        '../../public/Galeria/ABICCA.jpg',
+        'Galeria/ABICCA.jpg',
       imageAlt: 'A.B.I.C.C.A',
     },
     {
       imageSrc:
-        '../../public/Galeria/EXEMPLO.png',
+        'Galeria/EXEMPLO.png',
       imageAlt: 'EXEMPLO',
     },
     {
       imageSrc:
-        '../../public/Galeria/CORRENTES.png',
+        'Galeria/CORRENTES.png',
       imageAlt: 'CORRENTES',
     },
     {
       imageSrc:
-        '../../public/Galeria/METALURGICA.png',
+        'Galeria/METALURGICA.png',
       imageAlt: 'METALURGICA',
     },
   ];

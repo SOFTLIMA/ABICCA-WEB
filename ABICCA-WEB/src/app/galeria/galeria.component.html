@@ -2,7 +2,8 @@
     <div class="separador">
         <h1>GALERIA DE FOTOS</h1>
     </div>
-    <div *ngIf="images && images.length > 0" class="carousel-container">
+    <div class="containerImgs">
+      <div *ngIf="images && images.length > 0" class="carousel-container">
         <img *ngFor="let image of images; let i=index"
             [src]="image.imageSrc" [alt]="image.imageAlt"
             [ngClass]="{'image-active': selectedIndex === i}"
@@ -26,5 +27,6 @@
         >
           <fa-icon [icon]="faArrowCircleRight" class="icon-carousel icon-next"></fa-icon>
         </button>
+      </div>
     </div>
 </div>

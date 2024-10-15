@@ -1,4 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --primaria: #00CED1;
+  --secundaria: #084D6E;
+  --terciaria: #000850;
+  --destaque: #333333;
+  --neutra: #F5F5F5;
+  --acao: #FF6F30;
+  --texto1: #f5f5f5;
+  --texto2: #a0a0a0;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  --fundoSite: linear-gradient(125deg, #00ced1, #084d6e);
+  --fontDegrade1: linear-gradient(45deg, #f5f5f5, #a0a0a0);
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather', serif; /* Fontes para os títulos */
+}

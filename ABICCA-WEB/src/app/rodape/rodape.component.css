@@ -16,7 +16,7 @@ footer {
     padding: 40px 0;
 }
 
-footer .line-footer1 {+
+footer .line-footer1 {
     text-align:center;
     border-bottom: 1px solid white;
     padding-bottom: 40px;
@@ -43,7 +43,7 @@ footer .line-footer2 {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    border-bottom: 1px solid white;    
+    border-bottom: 1px solid white;
 }
 
 .box-line-footer {
@@ -74,7 +74,7 @@ footer .line-footer2 {
 
 .line-footer1 form input[type=submit]:hover {
     background-color: white;
-    color: #f20744;  
+    color: #f20744;
 }
 
 footer .box-line-footer img {
@@ -95,14 +95,14 @@ footer .box-line-footer img {
 .social-btn {
     display: inline-block;
     padding: 10px;
-    background-color: #000850; 
+    background-color: #000850;
     color: white;
     border: none;
-    border-radius: 5px; 
+    border-radius: 5px;
     font-size: 1.2rem;
-    transition: 0.2s; 
+    transition: 0.2s;
 }
 
 .social-btn:hover {
-    background-color: #f20744; 
+    background-color: #f20744;
 }
