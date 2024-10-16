@@ -6,8 +6,8 @@
     padding: 0;
     width: 100%;
     height: fit-content;
-    background-color: #fff;
-    border-bottom: 1px solid black;
+    background-color: var(--neutra);
+    /* border-bottom: 1px solid black; */
 }
 
 .separador {
@@ -34,9 +34,9 @@
 }
 
 .containerImgs {
-  width: 60%;
+  width: 100%;
   margin: 0 auto;
-  border-bottom: 2px solid var(--primaria);
+  /* border-bottom: 2px solid var(--terciaria); */
 }
 
 .carousel-container {

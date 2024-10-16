@@ -7,13 +7,15 @@
 
 .interface {
     max-width: 1280px;
-    margin: 0 auto;
+    margin: 100px auto 0;
+    /* border: 1px solid black; */
 }
 
 footer {
     background-color: #000850;
     color: white;
     padding: 40px 0;
+    border: 1px solid black;
 }
 
 footer .line-footer1 {
