@@ -12,19 +12,20 @@ export class ImagensComponent implements AfterViewInit {
   autoAdvanceInterval: any; // Intervalo para autoavançar imagens
 
   ngAfterViewInit() {
-    const imagensContainer = document.getElementById('imagens') as HTMLElement;
-    this.imagens = Array.from(imagensContainer.getElementsByTagName('img'));
+    if (typeof document !== 'undefined') {
+      const imagensContainer = document.getElementById('imagens') as HTMLElement;
+      this.imagens = Array.from(imagensContainer.getElementsByTagName('img'));
+      // Mostra a primeira imagem como ativa
+      this.updateImagePosition();
 
-    // Mostra a primeira imagem como ativa
-    this.updateImagePosition();
+      // Adiciona eventos de clique nos botões
+      document.getElementById('btnEsquerda')?.addEventListener('click', () => this.prevImage());
+      document.getElementById('btnDireita')?.addEventListener('click', () => this.nextImage());
 
-    // Adiciona eventos de clique nos botões
-    document.getElementById('btnEsquerda')?.addEventListener('click', () => this.prevImage());
-    document.getElementById('btnDireita')?.addEventListener('click', () => this.nextImage());
-
-    // Inicia autoavançar
-    this.startAutoAdvance();
-  }
+      // Inicia autoavançar
+      this.startAutoAdvance();
+    }
+  }
 
   updateImagePosition() {
     this.imagens.forEach((img, index) => {
