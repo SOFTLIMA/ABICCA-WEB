@@ -28,8 +28,8 @@ export class ImagensComponent implements AfterViewInit {
 
       // Inicia autoavançar
       this.startAutoAdvance();
-    }
-  }
+    }
+  }
 
   updateImagePosition() {
     this.imagens.forEach((img, index) => {
