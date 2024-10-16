@@ -1,8 +1,11 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+
 
 @Component({
   selector: 'app-imagens',
   standalone: true,
+  imports: [],
   templateUrl: './imagens.component.html',
   styleUrls: ['./imagens.component.css']
 })
@@ -10,6 +13,7 @@ export class ImagensComponent implements AfterViewInit {
   currentIndex: number = 0; // Índice da imagem ativa
   imagens: HTMLImageElement[] = []; // Array para armazenar as imagens
   autoAdvanceInterval: any; // Intervalo para autoavançar imagens
+  document = new Document();
 
   ngAfterViewInit() {
     if (typeof document !== 'undefined') {

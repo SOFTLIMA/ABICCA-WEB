@@ -7,13 +7,14 @@ import { GaleriaComponent } from './galeria/galeria.component';
 import { ImagensComponent } from './imagens/imagens.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { RodapeComponent } from './rodape/rodape.component';
+import { AnimacaoRodapeComponent } from './animacao-rodape/animacao-rodape.component';
 import { NavioComponent } from './navio/navio.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MenuNavComponent, NoticiasComponent,NavioComponent, SobreComponent, AssociadosComponent, GaleriaComponent, ImagensComponent,RodapeComponent],
+  imports: [RouterOutlet, MenuNavComponent, SobreComponent, AssociadosComponent, GaleriaComponent, ImagensComponent,RodapeComponent, AnimacaoRodapeComponent, NoticiasComponent, NavioComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -23,22 +24,22 @@ export class AppComponent {
   images = [
     {
       imageSrc:
-        '../../public/Galeria/ABICCA.jpg',
+        'Galeria/ABICCA.jpg',
       imageAlt: 'A.B.I.C.C.A',
     },
     {
       imageSrc:
-        '../../public/Galeria/EXEMPLO.png',
+        'Galeria/EXEMPLO.png',
       imageAlt: 'EXEMPLO',
     },
     {
       imageSrc:
-        '../../public/Galeria/CORRENTES.png',
+        'Galeria/CORRENTES.png',
       imageAlt: 'CORRENTES',
     },
     {
       imageSrc:
-        '../../public/Galeria/METALURGICA.png',
+        'Galeria/METALURGICA.png',
       imageAlt: 'METALURGICA',
     },
   ];

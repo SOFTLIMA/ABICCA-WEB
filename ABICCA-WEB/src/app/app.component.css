@@ -1,3 +1,7 @@
+.test {
+  height: 2000px;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -20,7 +24,7 @@ footer {
     margin: 0;
     padding: 0;
     width: 100%;
-    background-image: linear-gradient(45deg, #00ced1, #084d6e);
+    background-image: linear-gradient(135deg, var(--primaria), var(--secundaria), var(--terciaria));
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
