@@ -1,0 +1,10 @@
+.corpo{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-image: linear-gradient(135deg, var(--primaria), var(--secundaria), var(--terciaria));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}

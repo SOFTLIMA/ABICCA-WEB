@@ -1,7 +1,3 @@
-.test {
-  height: 2000px;
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -20,16 +16,7 @@ footer {
     -webkit-mask-attachment: cover;
     width: 100%;
 }
-.corpo{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    background-image: linear-gradient(135deg, var(--primaria), var(--secundaria), var(--terciaria));
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-}
+
 
 .rodape {
     margin: 0;
