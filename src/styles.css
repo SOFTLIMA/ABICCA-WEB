@@ -3,12 +3,14 @@
   --primaria: #00CED1;
   --secundaria: #084D6E;
   --terciaria: #000850;
+  --quarta: #fdb943;
   --destaque: #333333;
   --neutra: #F5F5F5;
   --acao: #FF6F30;
   --texto1: #f5f5f5;
   --texto2: #a0a0a0;
   --texto3: #164e63;
+
 
   --fundoSite: linear-gradient(125deg, #00ced1, #084d6e);
   --fontDegrade1: linear-gradient(45deg, #f5f5f5, #a0a0a0);
