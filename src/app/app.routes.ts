@@ -1,12 +1,14 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './Components/home/home.component';
 import { PaginaNaoEncontradaComponent } from './Components/pagina-nao-encontrada/pagina-nao-encontrada.component';
+import { AssocieSeComponent } from './Components/Associese/associe-se/associe-se.component';
 import { LoginComponent } from './Administracao/login/login.component';
 
 export const routes: Routes = [
 
   {path: 'home', component: HomeComponent, title: 'Home'},
   {path: 'sobrenos', component: HomeComponent, title: 'sobrenos'},
+  {path: 'associese', component: AssocieSeComponent, title: 'associe-se'},
 
   {path: 'login', component: LoginComponent, title: 'Login'},
 
