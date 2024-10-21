@@ -4,6 +4,7 @@ import { MenuNavComponent } from "./Components/menu-nav/menu-nav.component";
 import { RodapeComponent } from "./Components/rodape/rodape.component";
 
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

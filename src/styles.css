@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@aws-amplify/ui/dist/styles.css';
+
 :root {
   --primaria: #00CED1;
   --secundaria: #084D6E;
