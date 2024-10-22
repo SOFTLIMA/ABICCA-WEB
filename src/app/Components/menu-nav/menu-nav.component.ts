@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../AuthService';
 import { CommonModule } from '@angular/common';
+import { LoginService } from '../../../Login.Service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-menu-nav',
@@ -14,26 +16,32 @@ import { CommonModule } from '@angular/common';
 })
 export class MenuNavComponent implements OnInit{
 
-  sair : boolean = false;
+  sair = false;
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private loginService : LoginService){}
 
-  ngOnInit(): void {
-    this.sair = this.Validar();
+  async ngOnInit(): Promise<void> {
+    this.loginService.value.subscribe(
+      value => this.sair = value
+    );
+    await this.Validar();
   }
 
-  Validar(): boolean {
+  async Validar(): Promise<void> {
 
-    if (this.authService.getCurrentUser.length != 0){
-      console.log("pass");
-      return true;
+    let session = await this.authService.getCurrentSession();
+
+    if (session?.idToken?.toString() != undefined){
+      // console.log(session?.idToken?.toString());
+      this.loginService.changeValue(true);
     }
-    return false;
+    else{
+      this.loginService.changeValue(false);
+    }
   }
 
   Sair():void {
     this.authService.signOut();
-    this.sair = false;
+    this.loginService.changeValue(false);
   }
-
 }

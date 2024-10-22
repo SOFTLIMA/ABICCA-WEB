@@ -9,6 +9,7 @@ export const routes: Routes = [
   {path: 'sobrenos', component: HomeComponent, title: 'sobrenos'},
 
   {path: 'login', component: LoginComponent, title: 'Login'},
+  {path: 'login2', component: LoginComponent, title: 'Login'},
 
   {path: '', redirectTo: '/home', pathMatch: 'full' , title: 'Home'},
 
