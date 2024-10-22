@@ -67,6 +67,7 @@ footer .line-footer2 {
 .line-footer1 form input[type=submit] {
     width: 80px;
     height: 40px;
+    font-size: 1rem;
     background-color: red;
     border: 0;
     color: white;

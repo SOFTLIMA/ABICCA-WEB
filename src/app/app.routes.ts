@@ -11,6 +11,7 @@ export const routes: Routes = [
   {path: 'associese', component: AssocieSeComponent, title: 'associe-se'},
 
   {path: 'login', component: LoginComponent, title: 'Login'},
+  {path: 'login2', component: LoginComponent, title: 'Login'},
 
   {path: '', redirectTo: '/home', pathMatch: 'full' , title: 'Home'},
 
