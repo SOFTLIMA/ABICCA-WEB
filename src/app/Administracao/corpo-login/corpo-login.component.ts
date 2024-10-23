@@ -1,3 +1,4 @@
+import { DynamoDBService } from './../../../aws/DynamoDBService';
 import { LoginService } from './../../../Login.Service';
 import { Component, OnInit, ViewChild, AfterViewInit, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
 import { MenuNavComponent } from '../../Components/menu-nav/menu-nav.component';
@@ -12,10 +13,13 @@ import { Router } from '@angular/router';
 })
 export class CorpoLoginComponent implements OnInit{
 
-  constructor(private loginService : LoginService){}
+  constructor(private loginService : LoginService, private ddb : DynamoDBService){}
 
 
   ngOnInit(): void {
     this.loginService.changeValue(true);
+    let teste = this.ddb.getItem("1");
+
+    console.log(teste);
   }
 }
