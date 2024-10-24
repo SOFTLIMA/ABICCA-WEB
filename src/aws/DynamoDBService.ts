@@ -1,72 +1,95 @@
+import { Identity } from './../../node_modules/@aws-sdk/client-cognito-identity/node_modules/@smithy/types/dist-types/identity/identity.d';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../AuthService';
-import { DynamoDBClient, GetItemCommand } from "@aws-sdk/client-dynamodb";
+import { DynamoDBClient, GetItemCommand, ListTablesCommand, PutItemCommand  } from "@aws-sdk/client-dynamodb";
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
+import { CampoPainel } from '../Model/PainelADM';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DynamoDBService {
-  private dynamoDB: DynamoDBClient;
+  private dynamoDB: DynamoDBClient = new DynamoDBClient;
+  
 
   constructor(private auth : AuthService) {
-    this.dynamoDB = new DynamoDBClient({
-      region: 'us-east-2',
-      credentials: fromCognitoIdentityPool({
-          identityPoolId: 'us-east-2:5c5dfdf2-ba56-4f64-a2cb-ad969818ba84', // Substitua pelo seu ID do pool de identidade
-      }),
-  });
-  console.log(this.dynamoDB.send.toString());
+    this.initializeDynamoDBClient();
   }
 
-  // async configureCredentials() {
-  //   try {
-  //     // Obter a identidade do usuário autenticado
-  //     const session = await this.auth.getCurrentSession();
-  //     const idToken = session?.idToken?.toString()!;
+  async initializeDynamoDBClient() {
+    const tokens = await this.auth.getCurrentSession();
 
-  //     // Configurar as credenciais
-  //     const credentials = new AWS.CognitoIdentityCredentials({
-  //       IdentityPoolId: 'us-east-2:5c5dfdf2-ba56-4f64-a2cb-ad969818ba84', // O ID do seu pool de identidade
-  //       Logins: {
-  //         [`cognito-idp.us-east-2.amazonaws.com/us-east-2_8KkHocSfT`]: idToken
-  //       }
-  //     });
+    const idToken = tokens?.idToken?.toString();
 
-  //     // Atribuir as credenciais ao config global
-  //   AWS.config.credentials = credentials;
+    let COGNITO_ID = "cognito-idp.us-east-2.amazonaws.com/us-east-2_8KkHocSfT"; // 'COGNITO_ID' has the format 'cognito-idp.REGION.amazonaws.com/COGNITO_USER_POOL_ID'
+    let loginData = {
+      [COGNITO_ID]: idToken!
+    };
 
-  //   // Chamar refresh para obter as credenciais
-  //   await credentials.getPromise();
 
-  //     console.log('Credenciais configuradas com sucesso');
-  //   } catch (error) {
-  //     console.error('Erro ao configurar credenciais:', error);
-  //   }
-  // }
+    if (tokens?.idToken) {
+      this.dynamoDB = new DynamoDBClient({
+        region: 'us-east-2',
+        credentials: fromCognitoIdentityPool({
+          clientConfig: {region: 'us-east-2'},
+          identityPoolId: 'us-east-2:92bb552d-95a1-4b56-8160-4ed4864bb054', // Substitua pelo seu ID do pool de identidade
+          logins: loginData
+        })
+      });
 
-  // async addItem(item: any) {
-  //   // await this.configureCredentials(); // Garantir que as credenciais estão configuradas
+    } else {
+      console.error('Tokens de autenticação não disponíveis.');
+    }
+  }
 
-  //   const params = {
-  //     TableName: 'ABICCA',
-  //     Item: AWS.DynamoDB.Converter.marshall(item)
-  //   };
+  async teste(){
+    await this.initializeDynamoDBClient();
+    try {
+      const command = new ListTablesCommand({});
+      const data = await this.dynamoDB.send(command);
+      console.log('Tabelas:', data.TableNames); // Deve exibir as tabelas existentes
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error('Erro ao conectar ao DynamoDB:', {
+          message: error.message,
+          name: error.name,
+          stack: error.stack,
+          // Se houver mais informações no erro, você pode adicioná-las aqui
+        });
+      } else {
+        console.error('Erro desconhecido ao conectar ao DynamoDB:', error);
+      }
+    } 
+  }
 
-  //   try {
-  //     await this.dynamoDB.putItem(params).promise();
-  //     console.log('Item adicionado com sucesso');
-  //   } catch (error) {
-  //     console.error('Erro ao adicionar item:', error);
-  //   }
-  // }
+  // Método para criar um item no DynamoDB
+  async createItem(item: CampoPainel): Promise<void> {
+
+    await this.initializeDynamoDBClient();
+    
+    const params = {
+      TableName: 'ABICCA',
+      Item: marshall(item), // Converte o item para o formato esperado pelo DynamoDB
+    };
+
+    try {
+      const command = new PutItemCommand(params);
+      await this.dynamoDB.send(command);
+      console.log('Item criado com sucesso!');
+    } catch (error) {
+      console.error('Erro ao criar item:', error);
+    }
+  }
 
   async getItem(key: any) {
+
+    await this.initializeDynamoDBClient();
+
     // Definir os parâmetros da consulta
     const params = {
         TableName: 'ABICCA',
-        Key: marshall(key)
+        Key: marshall({ABICCA_id: key})
     };
 
     try {
