@@ -1,8 +1,7 @@
 import { DynamoDBService } from './../../../aws/DynamoDBService';
 import { LoginService } from './../../../Login.Service';
-import { Component, OnInit, ViewChild, AfterViewInit, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
+import { Component, NgModule, OnInit} from '@angular/core';
 import { MenuNavComponent } from '../../Components/menu-nav/menu-nav.component';
-import { Router } from '@angular/router';
 import { CampoPainel } from '../../../Model/PainelADM';
 
 @Component({
@@ -22,12 +21,12 @@ export class CorpoLoginComponent implements OnInit{
     link_Imgs: ["Galeria/Noticias/imagem1.jpg", "1"],
     titulo: "ABICCA e a ABNT formalizaram assinatura de acordo de cooperação para suporte à Secretaria da ABNT/ CEE-113."
   };
-  
+
 
   constructor(private loginService : LoginService, private ddb : DynamoDBService){}
 
   image : string | unknown = "";
-  
+
   async ngOnInit(): Promise<void> {
     this.loginService.changeValue(true);
     this.ddb.getItem("1").then(result => {
