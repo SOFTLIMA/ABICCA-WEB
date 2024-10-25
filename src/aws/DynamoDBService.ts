@@ -110,4 +110,21 @@ export class DynamoDBService {
         return null; // Retorna null em caso de erro
     }
   }
+
+  async updateItem(item: CampoPainel): Promise<void> {
+    const params = {
+      TableName: 'ABICCA',
+      Key: marshall({ ABICCA_id: item.ABICCA_id }),
+      UpdateExpression: 'set titulo = :t, data = :d, descricao = :desc, link_Imgs = :links',
+      ExpressionAttributeValues: {
+        ':t': item.titulo,
+        ':d': item.data,
+        ':desc': item.descricao,
+        ':links': item.link_Imgs,
+      },
+    };
+
+    const command = new GetItemCommand(params);
+    await this.dynamoDB.send(command);
+  }
 }
