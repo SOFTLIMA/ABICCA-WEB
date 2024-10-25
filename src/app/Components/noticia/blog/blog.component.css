@@ -1,0 +1,126 @@
+/* Estilos gerais */
+.container {
+    width: 80%; /* Centralizando o container */
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas para as notícias */
+    gap: 20px; /* Espaçamento entre as notícias */
+    justify-content: center;
+}
+
+.noticia {
+    display: flex;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Espaço inferior entre as notícias */
+    transition: transform 0.3s ease;
+    align-items: center; /* Alinha o conteúdo verticalmente */
+    max-width: 500px; /* Tamanho máximo da div de notícias */
+    height: 200px; /* Altura fixa menor */
+}
+
+.noticia:hover {
+    transform: translateY(-5px); /* Efeito hover */
+}
+
+.img {
+    flex: 0 0 120px;
+}
+
+.img img {
+    width: 100%; /* A imagem ocupa todo o espaço da div img */
+    height: 100%; /* Preenche toda a altura disponível */
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.texto {
+    flex-grow: 1; /* O texto ocupa o espaço restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 15px;
+}
+
+.texto h3 {
+    font-size: 1.2rem; /* Aumentando o tamanho da fonte do título */
+    margin-bottom: 8px; /* Aumentando a margem inferior */
+}
+
+.texto p {
+    font-size: 1rem; /* Aumentando o tamanho da fonte da descrição */
+    margin: 0;
+}
+.texto a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.texto a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo de paginação */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    color: #333;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.pagination a.active {
+    background-color: #007BFF;
+    color: white;
+    border: 1px solid #007BFF;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+/* Estilo para a data abaixo da imagem */
+.data {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem; /* Tamanho da fonte ajustado */
+    color: #666;
+    margin-top: 5px; /* Espaço entre a imagem e a data */
+}
+
+.data i {
+    margin-right: 5px; /* Espaço entre o ícone e a data */
+}
+
+
+/* Ajustes para dispositivos menores */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Muda para uma coluna em telas menores */
+    }
+
+    .noticia {
+        flex-direction: row;
+        align-items: center;
+    }
+}
