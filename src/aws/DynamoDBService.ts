@@ -1,7 +1,7 @@
 import { Identity } from './../../node_modules/@aws-sdk/client-cognito-identity/node_modules/@smithy/types/dist-types/identity/identity.d';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../AuthService';
-import { DynamoDBClient, GetItemCommand, ListTablesCommand, PutItemCommand  } from "@aws-sdk/client-dynamodb";
+import { DynamoDBClient, GetItemCommand, ListTablesCommand, PutItemCommand, ScanCommand, ScanCommandInput  } from "@aws-sdk/client-dynamodb";
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 import { CampoPainel } from '../Model/PainelADM';
@@ -11,7 +11,7 @@ import { CampoPainel } from '../Model/PainelADM';
 })
 export class DynamoDBService {
   private dynamoDB: DynamoDBClient = new DynamoDBClient;
-  
+
 
   constructor(private auth : AuthService) {
     this.initializeDynamoDBClient();
@@ -43,31 +43,37 @@ export class DynamoDBService {
     }
   }
 
-  async teste(){
+  async getAllItens(){
     await this.initializeDynamoDBClient();
+
+    const params = {
+      TableName: 'ABICCA'
+    };
+
     try {
-      const command = new ListTablesCommand({});
-      const data = await this.dynamoDB.send(command);
-      console.log('Tabelas:', data.TableNames); // Deve exibir as tabelas existentes
-    } catch (error) {
-      if (error instanceof Error) {
-        console.error('Erro ao conectar ao DynamoDB:', {
-          message: error.message,
-          name: error.name,
-          stack: error.stack,
-          // Se houver mais informações no erro, você pode adicioná-las aqui
-        });
-      } else {
-        console.error('Erro desconhecido ao conectar ao DynamoDB:', error);
+      const items = [];
+      let data;
+      const command = new ScanCommand(params);
+      data = await this.dynamoDB.send(command);
+
+      // Adiciona os itens retornados na lista de itens
+      if (data.Items) {
+          items.push(...data.Items.map(item => unmarshall(item)));
       }
-    } 
+
+      return items;
+
+  } catch (error) {
+      console.error('Erro ao buscar todos os itens:', error);
+      throw error; // Repassa o erro para ser tratado externamente, se necessário
+  }
   }
 
   // Método para criar um item no DynamoDB
   async createItem(item: CampoPainel): Promise<void> {
 
     await this.initializeDynamoDBClient();
-    
+
     const params = {
       TableName: 'ABICCA',
       Item: marshall(item), // Converte o item para o formato esperado pelo DynamoDB
@@ -103,5 +109,5 @@ export class DynamoDBService {
         console.error('Erro ao obter item:', error);
         return null; // Retorna null em caso de erro
     }
-}
+  }
 }
