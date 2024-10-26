@@ -74,6 +74,17 @@ export class DynamoDBService {
 
     await this.initializeDynamoDBClient();
 
+    let temp = await this.getAllItens();
+
+    temp.forEach(element => {
+
+      if (item.ABICCA_id == element['ABICCA_id']) {
+        console.log('Item já existe.');
+        return;
+      }
+      
+    });
+
     const params = {
       TableName: 'ABICCA',
       Item: marshall(item), // Converte o item para o formato esperado pelo DynamoDB
@@ -111,16 +122,17 @@ export class DynamoDBService {
     }
   }
 
-  async updateItem(item: CampoPainel): Promise<void> {
-
-
+  async updateItem(item: CampoPainel): Promise<any> {
     try {
       const command = new UpdateItemCommand({
-        TableName: 'NomeDaTabela', // Substitua pelo nome da sua tabela
+        TableName: 'ABICCA', // Substitua pelo nome da sua tabela
         Key: marshall({
           ABICCA_id: item.ABICCA_id // A chave primária do item a ser atualizado
         }),
-        UpdateExpression: 'set titulo = :titulo, data = :data, descricao = :descricao, link_Imgs = :link_Imgs',
+        UpdateExpression: 'set titulo = :titulo, #d = :data, descricao = :descricao, link_Imgs = :link_Imgs',
+        ExpressionAttributeNames: {
+          '#d': 'data' // Placeholder para a palavra-chave reservada
+        },
         ExpressionAttributeValues: marshall({
           ':titulo': item.titulo,
           ':data': item.data,
@@ -130,7 +142,7 @@ export class DynamoDBService {
         ReturnValues: 'UPDATED_NEW' // Para retornar os novos valores atualizados
       });
 
-
+      return this.dynamoDB.send(command);
       } catch (error) {
           console.error('Erro ao obter item:', error);
       }

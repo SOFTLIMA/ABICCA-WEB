@@ -1,11 +1,11 @@
 import { CampoPainel } from './../../../Model/PainelADM';
 import { DynamoDBService } from './../../../aws/DynamoDBService';
 import { LoginService } from './../../../Login.Service';
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { MenuNavComponent } from '../../Components/menu-nav/menu-nav.component';
-import { MatTableModule } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
+import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
@@ -22,11 +22,14 @@ import { FormModalComponent } from './form-modal/form-modal.component';
 })
 
 export class CorpoLoginComponent implements OnInit{
+  @ViewChild(MatSort) sort: MatSort | undefined;
 
   DATA : CampoPainel[] = [];
 
   displayedColumns: string[] = ['ABICCA_id', 'titulo', 'data', 'descricao', 'link_Imgs', 'actions'];
-  dataSource: CampoPainel[] = [];
+  // dataSource: CampoPainel[] = [];
+
+  dataSource = new MatTableDataSource<CampoPainel>([]);
 
   newItem = {
     ABICCA_id: "",
@@ -58,7 +61,13 @@ export class CorpoLoginComponent implements OnInit{
 
         });
 
-        this.dataSource = this.DATA;
+        this.dataSource.data = this.DATA;
+
+        // Iniciar a ordenação pelo ID
+      this.dataSource.sort = this.sort!;  // Certifique-se de que o MatSort está configurado
+      this.dataSource.sort.active = 'ABICCA_id'; // Defina a coluna inicial para ordenar
+      this.dataSource.sort.direction = 'asc'; // Defina a direção inicial (ascendente ou descendente)
+      this.dataSource.sort.sortChange.emit(); // Emitir a mudança para que a tabela atualize
 
       }
     });
@@ -77,6 +86,10 @@ export class CorpoLoginComponent implements OnInit{
     // });
 
     // this.ddb.createItem(this.newItem);
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort!;
   }
 
   openFormModal(item?: CampoPainel) {
@@ -98,40 +111,40 @@ export class CorpoLoginComponent implements OnInit{
     });
   }
 
-  onSubmit() {
-    if (this.newItem.titulo && this.newItem.data && this.newItem.descricao && this.newItem.link_Imgs.length > 0) {
+  // onSubmit() {
+  //   if (this.newItem.titulo && this.newItem.data && this.newItem.descricao && this.newItem.link_Imgs.length > 0) {
 
-      let tempList = this.newItem.link_Imgs.split(';');
-      // let temp = { ...this.newItem, link_Imgs: tempList, ABICCA_id: (this.DATA.length + 1).toString() };
-      let temp = { ...this.newItem, link_Imgs: tempList };
-      if (this.newItem.ABICCA_id) {
-        // Atualizar o item existente
-        this.ddb.updateItem(temp).then(() => {
-          // Atualizar a tabela após a edição do item
-          const index = this.DATA.findIndex(item => item.ABICCA_id === temp.ABICCA_id);
-          if (index > -1) {
-            this.DATA[index] = temp; // Atualiza o item na lista
-          }
-          this.dataSource = [...this.DATA];
-          this.resetForm();
-          this.isFormVisible = false;
-        }).catch(error => {
-          console.error("Erro ao atualizar item:", error);
-        });
-      } else {
-        // Criar um novo item
-        temp.ABICCA_id = (this.DATA.length + 1).toString();
-        this.ddb.createItem(temp).then(() => {
-          this.DATA.push(temp);
-          this.dataSource = [...this.DATA];
-          this.resetForm();
-          this.isFormVisible = false;
-        }).catch(error => {
-          console.error("Erro ao criar item:", error);
-        });
-      }
-    }
-  }
+  //     let tempList = this.newItem.link_Imgs.split(';');
+  //     // let temp = { ...this.newItem, link_Imgs: tempList, ABICCA_id: (this.DATA.length + 1).toString() };
+  //     let temp = { ...this.newItem, link_Imgs: tempList };
+  //     if (this.newItem.ABICCA_id) {
+  //       // Atualizar o item existente
+  //       this.ddb.updateItem(temp).then(() => {
+  //         // Atualizar a tabela após a edição do item
+  //         const index = this.DATA.findIndex(item => item.ABICCA_id === temp.ABICCA_id);
+  //         if (index > -1) {
+  //           this.DATA[index] = temp; // Atualiza o item na lista
+  //         }
+  //         this.dataSource = [...this.DATA];
+  //         this.resetForm();
+  //         this.isFormVisible = false;
+  //       }).catch(error => {
+  //         console.error("Erro ao atualizar item:", error);
+  //       });
+  //     } else {
+  //       // Criar um novo item
+  //       temp.ABICCA_id = (this.DATA.length + 1).toString();
+  //       this.ddb.createItem(temp).then(() => {
+  //         this.DATA.push(temp);
+  //         this.dataSource = [...this.DATA];
+  //         this.resetForm();
+  //         this.isFormVisible = false;
+  //       }).catch(error => {
+  //         console.error("Erro ao criar item:", error);
+  //       });
+  //     }
+  //   }
+  // }
 
   resetForm() {
     this.newItem = {
@@ -143,12 +156,21 @@ export class CorpoLoginComponent implements OnInit{
     };
   }
 
-  onCreate(item: CampoPainel) {
+  onCreate(item: any) {
     // Lógica para criar um novo item
-    item.ABICCA_id = (this.DATA.length + 1).toString();
-    this.ddb.createItem(item).then(() => {
-      this.DATA.push(item);
-      this.dataSource = [...this.DATA];
+    let temp : CampoPainel = {
+      ABICCA_id: item.ABICCA_id == '' ? "" : item.ABICCA_id,
+      data: item.data == '' ? "" : item.data,
+      descricao: item.descricao == '' ? "" : item.descricao,
+      link_Imgs: item.link_Imgs.length > 0 ? item.link_Imgs.split(';') : [],
+      titulo: item.titulo == '' ? "" : item.titulo
+    };
+
+
+    temp.ABICCA_id = (this.DATA.length + 1).toString();
+    this.ddb.createItem(temp).then(() => {
+      this.DATA.push(temp);
+      this.dataSource.data = [...this.DATA];
     }).catch(error => {
       console.error("Erro ao criar item:", error);
     });
@@ -167,7 +189,7 @@ export class CorpoLoginComponent implements OnInit{
       if (index > -1) {
         this.DATA[index] = temp; // Atualiza o item na lista
       }
-      this.dataSource = [...this.DATA];
+      this.dataSource.data = [...this.DATA];
     }).catch(error => {
       console.error("Erro ao atualizar item:", error);
     });
