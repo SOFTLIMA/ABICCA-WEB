@@ -81,6 +81,8 @@ export class CorpoLoginComponent implements OnInit{
 
   openFormModal(item?: CampoPainel) {
     const dialogRef = this.dialog.open(FormModalComponent, {
+      width: '600px',  // Define a largura
+      height: '100%',
       data: item, // Envia os dados do item se for edição
     });
 
@@ -152,12 +154,18 @@ export class CorpoLoginComponent implements OnInit{
     });
   }
 
-  onEdit(item: CampoPainel) {
+  onEdit(item: any) {
     // Lógica para atualizar um item existente
-    this.ddb.updateItem(item).then(() => {
-      const index = this.DATA.findIndex(i => i.ABICCA_id === item.ABICCA_id);
+    let tempList = item.link_Imgs.split(';');
+
+    // let tempList = this.newItem.link_Imgs.split(';');
+    // let temp = { ...this.newItem, link_Imgs: tempList, ABICCA_id: (this.DATA.length + 1).toString() };
+    let temp = { ...item, link_Imgs: tempList };
+
+    this.ddb.updateItem(temp).then(() => {
+      const index = this.DATA.findIndex(i => i.ABICCA_id === temp.ABICCA_id);
       if (index > -1) {
-        this.DATA[index] = item; // Atualiza o item na lista
+        this.DATA[index] = temp; // Atualiza o item na lista
       }
       this.dataSource = [...this.DATA];
     }).catch(error => {

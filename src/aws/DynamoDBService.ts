@@ -1,7 +1,7 @@
 import { Identity } from './../../node_modules/@aws-sdk/client-cognito-identity/node_modules/@smithy/types/dist-types/identity/identity.d';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../AuthService';
-import { DynamoDBClient, GetItemCommand, ListTablesCommand, PutItemCommand, ScanCommand, ScanCommandInput  } from "@aws-sdk/client-dynamodb";
+import { DynamoDBClient, GetItemCommand, ListTablesCommand, PutItemCommand, ScanCommand, ScanCommandInput, UpdateItemCommand  } from "@aws-sdk/client-dynamodb";
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 import { CampoPainel } from '../Model/PainelADM';
@@ -112,19 +112,27 @@ export class DynamoDBService {
   }
 
   async updateItem(item: CampoPainel): Promise<void> {
-    const params = {
-      TableName: 'ABICCA',
-      Key: marshall({ ABICCA_id: item.ABICCA_id }),
-      UpdateExpression: 'set titulo = :t, data = :d, descricao = :desc, link_Imgs = :links',
-      ExpressionAttributeValues: {
-        ':t': item.titulo,
-        ':d': item.data,
-        ':desc': item.descricao,
-        ':links': item.link_Imgs,
-      },
-    };
 
-    const command = new GetItemCommand(params);
-    await this.dynamoDB.send(command);
+
+    try {
+      const command = new UpdateItemCommand({
+        TableName: 'NomeDaTabela', // Substitua pelo nome da sua tabela
+        Key: marshall({
+          ABICCA_id: item.ABICCA_id // A chave primária do item a ser atualizado
+        }),
+        UpdateExpression: 'set titulo = :titulo, data = :data, descricao = :descricao, link_Imgs = :link_Imgs',
+        ExpressionAttributeValues: marshall({
+          ':titulo': item.titulo,
+          ':data': item.data,
+          ':descricao': item.descricao,
+          ':link_Imgs': item.link_Imgs // Se link_Imgs for um array, ajuste conforme necessário
+        }),
+        ReturnValues: 'UPDATED_NEW' // Para retornar os novos valores atualizados
+      });
+
+
+      } catch (error) {
+          console.error('Erro ao obter item:', error);
+      }
   }
 }
