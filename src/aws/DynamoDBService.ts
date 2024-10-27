@@ -1,7 +1,7 @@
 import { Identity } from './../../node_modules/@aws-sdk/client-cognito-identity/node_modules/@smithy/types/dist-types/identity/identity.d';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../AuthService';
-import { DynamoDBClient, GetItemCommand, ListTablesCommand, PutItemCommand, ScanCommand, ScanCommandInput, UpdateItemCommand  } from "@aws-sdk/client-dynamodb";
+import { DeleteItemCommand, DynamoDBClient, GetItemCommand, ListTablesCommand, PutItemCommand, ScanCommand, ScanCommandInput, UpdateItemCommand  } from "@aws-sdk/client-dynamodb";
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 import { CampoPainel } from '../Model/PainelADM';
@@ -82,7 +82,7 @@ export class DynamoDBService {
         console.log('Item já existe.');
         return;
       }
-      
+
     });
 
     const params = {
@@ -146,5 +146,24 @@ export class DynamoDBService {
       } catch (error) {
           console.error('Erro ao obter item:', error);
       }
+  }
+
+  async deleteItem(item: CampoPainel): Promise<any> {
+    try {
+      const command = new DeleteItemCommand({
+        TableName: 'ABICCA', // Substitua pelo nome da sua tabela
+        Key: marshall({
+          ABICCA_id: item.ABICCA_id // A chave primária do item a ser deletado
+        }),
+        // ReturnValues: 'ALL_OLD' // Para retornar os valores antigos antes da deleção, se necessário
+      });
+
+      const result = await this.dynamoDB.send(command);
+      console.log('Item deletado com sucesso:', result);
+      return result; // Retorna o resultado da operação de deleção
+    } catch (error) {
+      console.error('Erro ao deletar item:', error);
+      throw error; // Rejoga o erro para tratamento posterior, se necessário
+    }
   }
 }

@@ -12,6 +12,7 @@ import { NgIf } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { FormModalComponent } from './form-modal/form-modal.component';
+import { PopupComponent } from '../../Components/popup/popup.component';
 
 @Component({
   selector: 'app-corpo-login',
@@ -198,6 +199,33 @@ export class CorpoLoginComponent implements OnInit{
   onDelete(element: CampoPainel) {
     // lógica para excluir o item
     console.log('Excluindo item:', element);
+
+    const dialogRefPopUp = this.dialog.open(PopupComponent, {
+      width: '350px',  // Define a largura
+      height: '175px',
+      data: `Deseja realmente deletar o item ${element.ABICCA_id}?`, // Envia os dados do item se for edição
+    });
+
+    dialogRefPopUp.afterClosed().subscribe(result => {
+      if (result) {
+        console.log("deletar");
+        this.ddb.deleteItem(element).then(() => {
+          const index = this.DATA.findIndex(i => i.ABICCA_id === element.ABICCA_id);
+          if (index > -1) {
+          // Remover da tabela
+          this.DATA.splice(index, 1); // Remove o item da lista DATA
+          this.dataSource.data = [...this.DATA]; // Atualiza a dataSource para refletir a mudança na tabela
+        }
+          this.dataSource.data = [...this.DATA];
+        }).catch(error => {
+          console.error("Erro ao atualizar item:", error);
+        });
+      } else {
+        console.log("não deletar");
+      }
+    });
+
+
   }
 
 }

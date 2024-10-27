@@ -75,3 +75,8 @@ td {
     white-space: nowrap;
   }
 }
+
+.mat-dialog-container {
+  max-width: none;
+  max-height: none;
+}
