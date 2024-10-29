@@ -4,7 +4,7 @@ import { PaginaNaoEncontradaComponent } from './Components/pagina-nao-encontrada
 import { AssocieSeComponent } from './Components/Associese/associe-se/associe-se.component';
 import { LoginComponent } from './Administracao/login/login.component';
 import { ContatoComponent } from './Components/contato/contato.component';
-import { NoticiaComponent } from './Components/noticia/noticia.component';
+import { NoticiasComponent } from './Components/noticias/noticias.component';
 
 export const routes: Routes = [
 
@@ -12,7 +12,7 @@ export const routes: Routes = [
   {path: 'sobrenos', component: HomeComponent, title: 'sobrenos'},
   {path: 'associese', component: AssocieSeComponent, title: 'associe-se'},
   {path: 'contato', component: ContatoComponent, title: 'contato'},
-  {path: 'noticia', component: NoticiaComponent, title:'noticia'},
+  {path: 'noticias', component: NoticiasComponent, title:'noticias'},
 
   {path: 'login', component: LoginComponent, title: 'Login'},
   {path: 'login2', component: LoginComponent, title: 'Login'},

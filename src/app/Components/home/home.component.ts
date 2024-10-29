@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ImagensComponent } from "../imagens/imagens.component";
-import { NoticiasComponent } from "../noticias/noticias.component";
+import { NoticiaComponent } from "../noticia/noticia.component";
 import { NavioComponent } from "../navio/navio.component";
 import { SobreComponent } from "../sobre/sobre.component";
 import { AssociadosComponent } from "../associados/associados.component";
@@ -10,7 +10,7 @@ import { AnimacaoRodapeComponent } from "../animacao-rodape/animacao-rodape.comp
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ImagensComponent, NoticiasComponent, NavioComponent, SobreComponent, AssociadosComponent, GaleriaComponent, AnimacaoRodapeComponent],
+  imports: [ImagensComponent, NoticiaComponent, NavioComponent, SobreComponent, AssociadosComponent, GaleriaComponent, AnimacaoRodapeComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

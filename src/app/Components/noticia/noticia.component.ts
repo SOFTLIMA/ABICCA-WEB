@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { BlogComponent } from "./blog/blog.component";
 
 @Component({
   selector: 'app-noticia',
   standalone: true,
-  imports: [BlogComponent],
+  imports: [],
   templateUrl: './noticia.component.html',
   styleUrl: './noticia.component.css'
 })
