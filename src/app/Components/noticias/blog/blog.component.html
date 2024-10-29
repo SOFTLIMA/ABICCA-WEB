@@ -6,22 +6,22 @@
     </div>
     <div class="grid-container">
         <!-- Notícia 1 -->
-        <div class="noticia">
-            <div class="img">
-                <a href="#"><img src="Galeria/METALURGICA.png" alt="Notícia 1"></a>
-            </div>
-            <div class="texto">
-                <h3><a href="#">Título da Notícia 1</a></h3>
-                <p>Descrição breve da notícia 1.</p>
-                <div class="data">
-                    <i class="bi bi-clock-history"></i>
-                    <span>14/10/2024</span>
-                </div>
-            </div>
+        <div *ngFor="let item of paginatedData" class="noticia">
+          <div class="img">
+              <a href="#"><img src="Galeria/METALURGICA.png" alt="Notícia 1"></a>
+          </div>
+          <div class="texto">
+              <h3><a href="#">Título da Notícia 1</a></h3>
+              <p>Descrição breve da notícia 1.</p>
+              <div class="data">
+                  <i class="bi bi-clock-history"></i>
+                  <span>14/10/2024</span>
+              </div>
+          </div>
         </div>
 
         <!-- Notícia 2 -->
-        <div class="noticia">
+        <!-- <div class="noticia">
             <div class="img">
                 <a href="#"><img src="Galeria/METALURGICA.png" alt="Notícia 2"></a>
             </div>
@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <!-- Notícia 3 -->
+        Notícia 3
         <div class="noticia">
             <div class="img">
                 <a href="#"><img src="Galeria/METALURGICA.png" alt="Notícia 3"></a>
@@ -50,7 +50,7 @@
             </div>
         </div>
 
-        <!-- Notícia 4 -->
+        Notícia 4
         <div class="noticia">
             <div class="img">
                 <a href="#"><img src="Galeria/METALURGICA.png" alt="Notícia 4"></a>
@@ -63,17 +63,12 @@
                     <span>14/10/2024</span>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <!-- Campo de Paginação -->
     <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#" class="active">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">&raquo;</a>
+      <mat-paginator [length]="DATA.length" [pageSize]="4" [pageSizeOptions]="[4, 8, 12]" (page)="onPageChange($event)">
+      </mat-paginator>
     </div>
 </div>

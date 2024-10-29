@@ -4,9 +4,9 @@
   </button>
 
   <table mat-table [dataSource]="dataSource" matSort>
-    <ng-container matColumnDef="ABICCA_id">
+    <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
-      <td mat-cell *matCellDef="let element"> {{element.ABICCA_id}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
 
     <ng-container matColumnDef="titulo">
@@ -60,7 +60,7 @@
     <label for="link_imgs">Link Imagens (separados por ponto e vírgula):</label>
     <input id="link_imgs" [(ngModel)]="newItem.link_Imgs" name="link_imgs" required placeholder="Ex: link1.jpg; link2.jpg">
 
-    <button type="submit" class="button">{{ newItem.ABICCA_id ? 'Atualizar Item' : 'Adicionar Item' }}</button>
+    <button type="submit" class="button">{{ newItem.id ? 'Atualizar Item' : 'Adicionar Item' }}</button>
     <button type="button" class="button" (click)="isFormVisible = false">Cancelar</button>
   </form> -->
 
