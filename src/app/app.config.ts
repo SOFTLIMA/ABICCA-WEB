@@ -4,6 +4,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { environment } from '../environments/environment';
 
 
 export const appConfig: ApplicationConfig = {
@@ -15,8 +16,8 @@ export const awsConfig = {
   userRead: {
     region: 'us-east-2',
       credentials: {
-        accessKeyId: '',
-        secretAccessKey: ''
+        accessKeyId: environment.akid,
+        secretAccessKey: environment.sak
       },
   },
   CognitoId: "cognito-idp.us-east-2.amazonaws.com/us-east-2_8KkHocSfT",
