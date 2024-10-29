@@ -68,7 +68,7 @@
 
     <!-- Campo de Paginação -->
     <div class="pagination">
-      <mat-paginator [length]="DATA.length" [pageSize]="4" [pageSizeOptions]="[4, 8, 12]" (page)="onPageChange($event)">
+      <mat-paginator [length]="DATA.length" [pageSize]="4" [hidePageSize]="true" (page)="onPageChange($event)">
       </mat-paginator>
     </div>
 </div>
