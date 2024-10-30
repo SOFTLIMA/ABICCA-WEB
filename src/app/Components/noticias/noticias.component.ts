@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BlogComponent } from "./blog/blog.component";
 import { CampoPainel } from '../../../Model/PainelADM';
 import { DynamoDBService } from '../../../aws/DynamoDBService';
-import { PageEvent } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
 
 interface pagination {
@@ -12,7 +11,7 @@ interface pagination {
 @Component({
   selector: 'app-noticias',
   standalone: true,
-  imports: [BlogComponent, CommonModule],
+  imports: [BlogComponent, CommonModule, ],
   templateUrl: './noticias.component.html',
   styleUrl: './noticias.component.css'
 })
@@ -24,7 +23,7 @@ export class NoticiasComponent implements OnInit{
 
 
   async ngOnInit(): Promise<void> {
-    await this.ddb.readAllItens().then(result => {
+    await this.ddb.readAllItens().subscribe(result => {
       if (result) {
         result.forEach(item => {
           this.DATA.push({

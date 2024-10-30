@@ -1,11 +1,14 @@
 import { Identity } from './../../node_modules/@aws-sdk/client-cognito-identity/node_modules/@smithy/types/dist-types/identity/identity.d';
-import { Injectable } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { AuthService } from '../AuthService';
 import { DeleteItemCommand, DynamoDBClient, GetItemCommand, ListTablesCommand, PutItemCommand, ScanCommand, ScanCommandInput, UpdateItemCommand  } from "@aws-sdk/client-dynamodb";
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 import { CampoPainel } from '../Model/PainelADM';
 import { awsConfig, awsTables } from '../app/app.config';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +17,7 @@ export class DynamoDBService {
   private dynamoDB: DynamoDBClient = new DynamoDBClient;
   private config = awsConfig;
 
-  constructor(private auth : AuthService) {
+  constructor(private auth : AuthService, private http : HttpClient) {
     this.initializeDynamoDBClient();
   }
 
@@ -43,13 +46,6 @@ export class DynamoDBService {
     }
   }
 
-  async initializeDynamoDBClientUserReader() {
-    this.dynamoDB = new DynamoDBClient({
-      region: awsConfig.userRead.region,
-      credentials: awsConfig.userRead.credentials,
-    });
-  }
-
   async getAllItens(){
     await this.initializeDynamoDBClient();
 
@@ -76,30 +72,8 @@ export class DynamoDBService {
   }
   }
 
-  async readAllItens(){
-    await this.initializeDynamoDBClientUserReader();
-
-    const params = {
-      TableName: awsTables.tabelas.noticias
-    };
-
-    try {
-      const items = [];
-      let data;
-      const command = new ScanCommand(params);
-      data = await this.dynamoDB.send(command);
-
-      // Adiciona os itens retornados na lista de itens
-      if (data.Items) {
-          items.push(...data.Items.map(item => unmarshall(item)));
-      }
-
-      return items;
-
-  } catch (error) {
-      console.error('Erro ao buscar todos os itens:', error);
-      throw error; // Repassa o erro para ser tratado externamente, se necessário
-  }
+  readAllItens(): Observable<CampoPainel[]>{
+    return this.http.get<CampoPainel[]>(awsConfig.urlApiTabelaNoticia);
   }
 
   // Método para criar um item no DynamoDB
