@@ -10,7 +10,7 @@
               <a (click)="onClick(item)"><img [src]="item.link_Imgs[0]" [alt]="'Notícia'+ (i+1)" ></a>
           </div>
           <div class="texto">
-              <h3><a>{{item.titulo}}</a></h3>
+              <h3><a (click)="onClick(item)">{{item.titulo}}</a></h3>
               <p>{{item.descricao.substring(0,100) + '...'}}</p>
               <div class="data">
                   <i class="bi bi-clock-history"></i>

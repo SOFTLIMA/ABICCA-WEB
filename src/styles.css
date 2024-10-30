@@ -12,7 +12,7 @@
   --texto1: #f5f5f5;
   --texto2: #a0a0a0;
   --texto3: #164e63;
-  
+
   --fundoSite: linear-gradient(125deg, #00ced1, #084d6e);
   --fontDegrade1: linear-gradient(45deg, #f5f5f5, #a0a0a0);
 
@@ -33,9 +33,4 @@ h1, h2, h3, h4, h5, h6 {
 
 .popup-noticia .mat-mdc-dialog-container {
   --mdc-dialog-container-shape: 5px;
-  max-width: calc(100% - 100px);
-  max-height: calc(100% - 50px);
-  margin-left: auto;
-  width: fit-content;
-  height: fit-content;
 }

@@ -47,10 +47,10 @@ export class BlogComponent implements OnInit{
   }
   onClick(item: CampoPainel) {
     const dialogRef = this.dialog.open(PopupNoticiaComponent, {
-      width: 'fit-content',
-      height: 'fit-content',
-      maxWidth: '100%',
-      maxHeight: '100%',
+      minWidth: '1300px',
+      maxHeight: '700px',
+      height: '700px',
+      width: '1300px',
       panelClass: 'popup-noticia',
       data: item, // Envia os dados do item se for edição
     });
