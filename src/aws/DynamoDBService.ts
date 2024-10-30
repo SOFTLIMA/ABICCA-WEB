@@ -5,13 +5,14 @@ import { DeleteItemCommand, DynamoDBClient, GetItemCommand, ListTablesCommand, P
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 import { CampoPainel } from '../Model/PainelADM';
+import { awsConfig, awsTables } from '../app/app.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DynamoDBService {
   private dynamoDB: DynamoDBClient = new DynamoDBClient;
-
+  private config = awsConfig;
 
   constructor(private auth : AuthService) {
     this.initializeDynamoDBClient();
@@ -22,18 +23,17 @@ export class DynamoDBService {
 
     const idToken = tokens?.idToken?.toString();
 
-    let COGNITO_ID = "cognito-idp.us-east-2.amazonaws.com/us-east-2_8KkHocSfT"; // 'COGNITO_ID' has the format 'cognito-idp.REGION.amazonaws.com/COGNITO_USER_POOL_ID'
+    let COGNITO_ID = awsConfig.CognitoId; // 'COGNITO_ID' has the format 'cognito-idp.REGION.amazonaws.com/COGNITO_USER_POOL_ID'
     let loginData = {
       [COGNITO_ID]: idToken!
     };
 
-
     if (tokens?.idToken) {
       this.dynamoDB = new DynamoDBClient({
-        region: 'us-east-2',
+        region: awsConfig.userCognito.region,
         credentials: fromCognitoIdentityPool({
-          clientConfig: {region: 'us-east-2'},
-          identityPoolId: 'us-east-2:92bb552d-95a1-4b56-8160-4ed4864bb054', // Substitua pelo seu ID do pool de identidade
+          clientConfig: awsConfig.userCognito.clientConfig,
+          identityPoolId: awsConfig.userCognito.identityPoolId, // Substitua pelo seu ID do pool de identidade
           logins: loginData
         })
       });
@@ -43,11 +43,44 @@ export class DynamoDBService {
     }
   }
 
+  async initializeDynamoDBClientUserReader() {
+    this.dynamoDB = new DynamoDBClient({
+      region: awsConfig.userRead.region,
+      credentials: awsConfig.userRead.credentials,
+    });
+  }
+
   async getAllItens(){
     await this.initializeDynamoDBClient();
 
     const params = {
-      TableName: 'ABICCA'
+      TableName: awsTables.tabelas.noticias
+    };
+
+    try {
+      const items = [];
+      let data;
+      const command = new ScanCommand(params);
+      data = await this.dynamoDB.send(command);
+
+      // Adiciona os itens retornados na lista de itens
+      if (data.Items) {
+          items.push(...data.Items.map(item => unmarshall(item)));
+      }
+
+      return items;
+
+  } catch (error) {
+      console.error('Erro ao buscar todos os itens:', error);
+      throw error; // Repassa o erro para ser tratado externamente, se necessário
+  }
+  }
+
+  async readAllItens(){
+    await this.initializeDynamoDBClientUserReader();
+
+    const params = {
+      TableName: awsTables.tabelas.noticias
     };
 
     try {
@@ -78,7 +111,7 @@ export class DynamoDBService {
 
     temp.forEach(element => {
 
-      if (item.ABICCA_id == element['ABICCA_id']) {
+      if (item.id == element[awsTables.camposTabela.id]) {
         console.log('Item já existe.');
         return;
       }
@@ -86,7 +119,7 @@ export class DynamoDBService {
     });
 
     const params = {
-      TableName: 'ABICCA',
+      TableName: awsTables.tabelas.noticias,
       Item: marshall(item), // Converte o item para o formato esperado pelo DynamoDB
     };
 
@@ -105,8 +138,8 @@ export class DynamoDBService {
 
     // Definir os parâmetros da consulta
     const params = {
-        TableName: 'ABICCA',
-        Key: marshall({ABICCA_id: key})
+        TableName: awsTables.tabelas.noticias,
+        Key: marshall({id: key})
     };
 
     try {
@@ -125,9 +158,9 @@ export class DynamoDBService {
   async updateItem(item: CampoPainel): Promise<any> {
     try {
       const command = new UpdateItemCommand({
-        TableName: 'ABICCA', // Substitua pelo nome da sua tabela
+        TableName: awsTables.tabelas.noticias, // Substitua pelo nome da sua tabela
         Key: marshall({
-          ABICCA_id: item.ABICCA_id // A chave primária do item a ser atualizado
+          id: item.id // A chave primária do item a ser atualizado
         }),
         UpdateExpression: 'set titulo = :titulo, #d = :data, descricao = :descricao, link_Imgs = :link_Imgs',
         ExpressionAttributeNames: {
@@ -151,9 +184,9 @@ export class DynamoDBService {
   async deleteItem(item: CampoPainel): Promise<any> {
     try {
       const command = new DeleteItemCommand({
-        TableName: 'ABICCA', // Substitua pelo nome da sua tabela
+        TableName: awsTables.tabelas.noticias, // Substitua pelo nome da sua tabela
         Key: marshall({
-          ABICCA_id: item.ABICCA_id // A chave primária do item a ser deletado
+          id: item.id // A chave primária do item a ser deletado
         }),
         // ReturnValues: 'ALL_OLD' // Para retornar os valores antigos antes da deleção, se necessário
       });
