@@ -28,7 +28,6 @@ export class CorpoLoginComponent implements OnInit{
   DATA : CampoPainel[] = [];
 
   displayedColumns: string[] = ['id', 'titulo', 'data', 'descricao', 'link_Imgs', 'actions'];
-  // dataSource: CampoPainel[] = [];
 
   dataSource = new MatTableDataSource<CampoPainel>([]);
 
@@ -72,21 +71,6 @@ export class CorpoLoginComponent implements OnInit{
 
       }
     });
-
-    // this.ddb.getItem("1").then(result => {
-    //   if (result) {
-    //     this.DATA.push({
-    //       id: result['id'],
-    //       titulo: result['titulo'],
-    //       data: result['data'],
-    //       descricao: result['descricao'],
-    //       link_Imgs: result['link_Imgs'],
-    //     });
-    //     this.dataSource = this.DATA;
-    //   }
-    // });
-
-    // this.ddb.createItem(this.newItem);
   }
 
   ngAfterViewInit() {
@@ -111,41 +95,6 @@ export class CorpoLoginComponent implements OnInit{
       }
     });
   }
-
-  // onSubmit() {
-  //   if (this.newItem.titulo && this.newItem.data && this.newItem.descricao && this.newItem.link_Imgs.length > 0) {
-
-  //     let tempList = this.newItem.link_Imgs.split(';');
-  //     // let temp = { ...this.newItem, link_Imgs: tempList, id: (this.DATA.length + 1).toString() };
-  //     let temp = { ...this.newItem, link_Imgs: tempList };
-  //     if (this.newItem.id) {
-  //       // Atualizar o item existente
-  //       this.ddb.updateItem(temp).then(() => {
-  //         // Atualizar a tabela após a edição do item
-  //         const index = this.DATA.findIndex(item => item.id === temp.id);
-  //         if (index > -1) {
-  //           this.DATA[index] = temp; // Atualiza o item na lista
-  //         }
-  //         this.dataSource = [...this.DATA];
-  //         this.resetForm();
-  //         this.isFormVisible = false;
-  //       }).catch(error => {
-  //         console.error("Erro ao atualizar item:", error);
-  //       });
-  //     } else {
-  //       // Criar um novo item
-  //       temp.id = (this.DATA.length + 1).toString();
-  //       this.ddb.createItem(temp).then(() => {
-  //         this.DATA.push(temp);
-  //         this.dataSource = [...this.DATA];
-  //         this.resetForm();
-  //         this.isFormVisible = false;
-  //       }).catch(error => {
-  //         console.error("Erro ao criar item:", error);
-  //       });
-  //     }
-  //   }
-  // }
 
   resetForm() {
     this.newItem = {

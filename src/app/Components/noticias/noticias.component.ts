@@ -3,6 +3,7 @@ import { BlogComponent } from "./blog/blog.component";
 import { CampoPainel } from '../../../Model/PainelADM';
 import { DynamoDBService } from '../../../aws/DynamoDBService';
 import { PageEvent } from '@angular/material/paginator';
+import { CommonModule } from '@angular/common';
 
 interface pagination {
   pag: number;
@@ -11,7 +12,7 @@ interface pagination {
 @Component({
   selector: 'app-noticias',
   standalone: true,
-  imports: [BlogComponent],
+  imports: [BlogComponent, CommonModule],
   templateUrl: './noticias.component.html',
   styleUrl: './noticias.component.css'
 })
@@ -47,6 +48,13 @@ export class NoticiasComponent implements OnInit{
         };
       }
     });
+  }
+
+  showItens(): boolean{
+    if (this.DATA.length > 0) {
+      return true;
+    }
+    return false;
   }
 
 

@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { CampoPainel } from '../../../../Model/PainelADM';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { PopupNoticiaComponent } from '../popup-noticia/popup-noticia.component';
 
 interface pagination {
   pag: number;
@@ -16,12 +18,15 @@ interface pagination {
 })
 export class BlogComponent implements OnInit{
 
+
   @Input() DATA : CampoPainel[] = [];
   @Input() listPagnation : pagination[] = [];
 
   paginatedData: CampoPainel[] = [];
   pageSize: number = 4; // Itens por página
   currentPage: number = 0; // Página atual
+
+  constructor(public dialog: MatDialog){}
 
 
   ngOnInit(): void {
@@ -39,5 +44,15 @@ export class BlogComponent implements OnInit{
     this.currentPage = event.pageIndex;
     this.pageSize = event.pageSize;
     this.updatePaginatedData();
+  }
+  onClick(item: CampoPainel) {
+    const dialogRef = this.dialog.open(PopupNoticiaComponent, {
+      width: 'fit-content',
+      height: 'fit-content',
+      maxWidth: '100%',
+      maxHeight: '100%',
+      panelClass: 'popup-noticia',
+      data: item, // Envia os dados do item se for edição
+    });
   }
 }

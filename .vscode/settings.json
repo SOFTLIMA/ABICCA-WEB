@@ -3,5 +3,6 @@
         "formulario",
         "noticia",
         "seja"
-    ]
+    ],
+    "FSharp.suggestGitignore": false
 }
