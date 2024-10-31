@@ -5,6 +5,7 @@ import { AssocieSeComponent } from './Components/Associese/associe-se/associe-se
 import { LoginComponent } from './Administracao/login/login.component';
 import { ContatoComponent } from './Components/contato/contato.component';
 import { NoticiasComponent } from './Components/noticias/noticias.component';
+import { SobreNosComponent } from './Components/sobrenos/sobre-nos.component';
 
 export const routes: Routes = [
 
@@ -13,6 +14,7 @@ export const routes: Routes = [
   {path: 'associese', component: AssocieSeComponent, title: 'associe-se'},
   {path: 'contato', component: ContatoComponent, title: 'contato'},
   {path: 'noticias', component: NoticiasComponent, title:'noticias'},
+  {path: 'sobre-nos', component: SobreNosComponent, title:'sobre-nos'},
 
   {path: 'login', component: LoginComponent, title: 'Login'},
   {path: 'login2', component: LoginComponent, title: 'Login'},
