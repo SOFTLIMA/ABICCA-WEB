@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="esquerda">
+        <img [src]="item.link_Imgs[0]" alt="" class="imagem">
+    </div>
+    <div class="direita">
+      <span class="titulo">{{item.titulo}}</span>
+      <div class="data">
+          <i class="bi bi-clock-history"></i>
+          <span class="data-text">{{item.data}}</span>
+      </div>
+      <div class="descricao" #descricaoRef>{{item.descricao}}</div>
+      <div class="scroll-indicator" *ngIf="isScrollable">&#x2193;</div> <!-- Seta para baixo -->
+    </div>
+</div>

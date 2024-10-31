@@ -1,0 +1,92 @@
+.container {
+  display: flex;
+  width: 100%;
+  height: 700px; /* Permite flexibilidade na altura */
+  margin: 0;
+  padding: 0;
+  column-gap: 3%;
+  background-image: linear-gradient(185deg, #a0a0a0, #f5f5f5);
+  box-sizing: border-box; /* Inclui padding e borda nas dimensões totais */
+}
+
+.esquerda {
+  display: flex;
+  margin: 0;
+  min-width: 35%;
+  max-width: 55%;
+  max-height: 100%;
+}
+
+.direita {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: calc(100% - 35% - 3%); /* Limita a largura para não ultrapassar o tamanho total */
+  height: auto; /* Flexível com base no conteúdo */
+  padding: 3%;
+  /* border: 1px solid black; */
+  box-sizing: border-box; /* Inclui padding e borda nas dimensões totais */
+  overflow: hidden; /* Oculta conteúdo que ultrapassa o limite */
+}
+
+.direita .titulo {
+  text-align: left;
+  margin-bottom: 50px;
+  color: var(--terciaria);
+  text-shadow: 0px 8px 16px #858484;
+  font-size: clamp(1.5rem, 2vw + 1rem, 3rem);
+  line-height: 1.2em;
+}
+
+.direita .data {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.data-text {
+  margin-left: 5px;
+}
+
+.direita .descricao {
+  margin-top: 10px;
+  text-align: justify;
+  line-height: 1.5em;
+  overflow: hidden; /* Oculta qualquer conteúdo que transborde */
+  text-overflow: ellipsis; /* Adiciona "..." ao final, se necessário */
+  white-space: pre-wrap;
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+  overflow: hidden; /* Esconde a barra de rolagem */
+}
+
+/* Oculta a barra de rolagem no WebKit (Chrome, Safari) */
+.direita .descricao::-webkit-scrollbar {
+  display: none;
+}
+
+/* Usar overflow-y com auto para manter a rolagem */
+.direita .descricao {
+  overflow-y: scroll; /* Permite a rolagem */
+}
+
+/* Para Firefox */
+.direita .descricao {
+  scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
+}
+
+.scroll-indicator {
+  position: relative;
+  bottom: 5px; /* Ajuste conforme necessário */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem; /* Tamanho do ícone */
+  color: var(--terciaria); /* Ou outra cor de sua preferência */
+  opacity: 0.7; /* Transparência para sutilidade */
+  pointer-events: none; /* Ignora eventos de clique */
+}
+
+.imagem {
+  object-fit: contain;
+  max-width: 100%;
+  height: auto; /* Ajusta a altura da imagem proporcionalmente */
+}

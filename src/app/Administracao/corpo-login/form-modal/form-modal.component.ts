@@ -18,7 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 export class FormModalComponent {
 
   newItem = {
-    ABICCA_id: "",
+    id: "",
     data: "",
     descricao: "",
     link_Imgs: "",

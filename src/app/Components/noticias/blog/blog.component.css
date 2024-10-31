@@ -13,9 +13,15 @@
 
 .grid-container {
     display: grid;
+    min-height: 460px;
     grid-template-columns: repeat(2, 1fr); /* Duas colunas para as notícias */
     gap: 20px; /* Espaçamento entre as notícias */
     justify-content: center;
+    /* border: 1px solid black; */
+}
+
+.item-list {
+  /* border: 1px solid black; */
 }
 
 .noticia {
@@ -29,6 +35,7 @@
     align-items: center; /* Alinha o conteúdo verticalmente */
     max-width: 500px; /* Tamanho máximo da div de notícias */
     height: 200px; /* Altura fixa menor */
+    /* border: 1px solid black; */
 }
 
 .noticia:hover {
@@ -56,7 +63,8 @@
 
 .texto h3 {
     font-size: 1.2rem; /* Aumentando o tamanho da fonte do título */
-    margin-bottom: 8px; /* Aumentando a margem inferior */
+    margin-bottom: 8px;
+    line-height: 1.5em;
 }
 
 .texto p {
@@ -70,6 +78,14 @@
 
 .texto a:hover {
     text-decoration: underline;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.popup-noticia .mat-dialog-container{
+    border: 10px solid black;
 }
 
 /* Estilo de paginação */
