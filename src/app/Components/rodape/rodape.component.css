@@ -12,10 +12,10 @@
 }
 
 footer {
-    background-color: #000850;
+    background-color: var(--primaria);
     color: white;
     padding: 40px 0;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 footer .line-footer1 {
@@ -98,7 +98,7 @@ footer .box-line-footer img {
 .social-btn {
     display: inline-block;
     padding: 10px;
-    background-color: #000850;
+    background-color: var(--terciaria);
     color: white;
     border: none;
     border-radius: 5px;

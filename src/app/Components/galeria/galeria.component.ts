@@ -1,4 +1,4 @@
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { CommonModule, NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faArrowCircleLeft, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
@@ -10,7 +10,7 @@ interface carouselImage {
 @Component({
   selector: 'app-galeria',
   standalone: true,
-  imports: [NgIf, NgFor, NgClass, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule],
   templateUrl: './galeria.component.html',
   styleUrl: './galeria.component.css'
 })

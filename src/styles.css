@@ -2,13 +2,15 @@
 @import '@aws-amplify/ui/dist/styles.css';
 
 :root {
-  --primaria: #00CED1;
+  --primaria: #005B9B;
   --secundaria: #084D6E;
-  --terciaria: #000850;
+  --terciaria: #00528D;
   --quarta: #fdb943;
+  --quinta: #000850;
   --destaque: #333333;
   --neutra: #F5F5F5;
-  --acao: #FF6F30;
+  --acao: #fdb943;
+  --acao2: #FF6F30;
   --texto1: #f5f5f5;
   --texto2: #a0a0a0;
   --texto3: #164e63;
@@ -17,6 +19,8 @@
   --fontDegrade1: linear-gradient(45deg, #f5f5f5, #a0a0a0);
 
   --tamanhoBalancinho: 262px;
+
+  --pattern1: url("/Patern_Prancheta 1.png");
 }
 
 html, body {

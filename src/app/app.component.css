@@ -4,6 +4,9 @@ body {
     width: fit-content;
     height: fit-content;
 }
+header {
+  width: 100%;
+}
 
 footer {
     margin: 0;
