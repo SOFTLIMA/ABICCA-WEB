@@ -47,11 +47,8 @@
   /* border: 1px solid black; */
 }
 
-.associe {
-  /* color: #fff !important; */
-  /* background-image: linear-gradient(180deg, var(--quarta) 10% , var(--primaria)); */
-  /* background-image: linear-gradient(180deg, #005B9B 15%, var(--quarta)); */
-  /* background-color: var(--quarta); */
+.abicca:hover {
+  cursor: pointer;
 }
 
 .buttons a:hover {

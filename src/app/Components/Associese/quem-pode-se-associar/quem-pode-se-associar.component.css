@@ -22,11 +22,11 @@
     margin-top: auto 10px;
     font-size: 40px;
     font-weight: bold;
-    color: #003366; 
+    color: #003366;
 }
 
 section p {
-    color: #003366; 
+    color: #003366;
     line-height: 1.6;
     font-size: 17px;
     margin-top: 0;
@@ -35,7 +35,7 @@ section p {
 
 .imagem{
     margin-right: -10px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 800px;
     height: 500px;
 }

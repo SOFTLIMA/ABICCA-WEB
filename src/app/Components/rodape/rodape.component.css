@@ -7,20 +7,21 @@
 
 .interface {
     max-width: 1280px;
-    margin: 100px auto 0;
+    margin: 0 auto 0;
     /* border: 1px solid black; */
 }
 
-footer {
-    background-color: var(--primaria);
-    color: white;
-    padding: 40px 0;
-    /* border: 1px solid black; */
+.footer {
+    background-color: var(--neutra);
+    color: var(--primaria);
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid var(--neutra); */
 }
 
-footer .line-footer1 {
+.footer .line-footer1 {
     text-align:center;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--primaria);
     padding-bottom: 40px;
 }
 
@@ -40,12 +41,12 @@ footer .line-footer1 {
     margin-top: 20px;
 }
 
-footer .line-footer2 {
-    padding: 40px 0;
+.footer .line-footer2 {
+    padding: 0 0 40px 0;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    border-bottom: 1px solid white;
+    /* border-bottom: 1px solid black; */
 }
 
 .box-line-footer {
@@ -58,8 +59,8 @@ footer .line-footer2 {
     width: 300px;
     height: 40px;
     background: transparent;
-    border: 2px solid white;
-    color: white;
+    border: 2px solid var(--primaria);
+    color: var(--primaria);
     padding: 10px;
     outline: 0;
 }
@@ -68,7 +69,7 @@ footer .line-footer2 {
     width: 80px;
     height: 40px;
     font-size: 1rem;
-    background-color: red;
+    background-color: var(--primaria);
     border: 0;
     color: white;
     cursor: pointer;
@@ -76,17 +77,18 @@ footer .line-footer2 {
 }
 
 .line-footer1 form input[type=submit]:hover {
-    background-color: white;
-    color: #f20744;
+    background-color: var(--quarta);
+    color: var(--neutra);
 }
 
-footer .box-line-footer img {
-    max-width: 100px;
+.footer .box-line-footer img {
+    max-width: 48px;
+    max-height: 48px;
     margin-bottom: 10px;
 }
 
 .line-footer2 .box-line-footer h3 {
-    color: #f20744;
+    color: var(--quarta);
     margin-bottom: 10px;
 }
 
@@ -99,7 +101,7 @@ footer .box-line-footer img {
     display: inline-block;
     padding: 10px;
     background-color: var(--terciaria);
-    color: white;
+    color: var(--neutra);
     border: none;
     border-radius: 5px;
     font-size: 1.2rem;
@@ -107,5 +109,5 @@ footer .box-line-footer img {
 }
 
 .social-btn:hover {
-    background-color: #f20744;
+    background-color: var(--quarta);
 }

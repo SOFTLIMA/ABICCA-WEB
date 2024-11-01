@@ -16,7 +16,6 @@
 
 .imagem h1{
   text-align: center;
-  font-variant: small-caps;
   line-height: 1.5;
   letter-spacing: normal;
   color: var(--neutra);
@@ -103,7 +102,7 @@
     border: 1px solid var(--quarta);
 }
 
-.bttn-SM .texto {
+.bttn-SM .texto2 {
   font-weight: bold;
   color: var(--quarta);
 }
@@ -114,9 +113,10 @@
     background-color: #027274;
 }
 
-p::first-letter {
+.texto .descricao::first-letter {
     font-size: 2rem;
 }
+
 
 .bttn-SM:hover {
     background-color: var(--terciaria);

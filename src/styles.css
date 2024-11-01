@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@aws-amplify/ui/dist/styles.css';
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://use.typekit.net/vhp6xog.css");
+
+*{
+  font-family: "Barlow", sans-serif;
+}
 
 :root {
   --primaria: #005B9B;
@@ -21,6 +27,8 @@
   --tamanhoBalancinho: 262px;
 
   --pattern1: url("/Patern_Prancheta 1.png");
+
+  --image-sobre: url("/Galeria/METALURGICA.png");
 }
 
 html, body {
@@ -28,11 +36,11 @@ html, body {
 }
 body {
   margin: 0;
-  font-family: 'Urbanist', sans-serif;
+  /* font-family: 'Urbanist', sans-serif; */
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Merriweather', serif; /* Fontes para os títulos */
+  font-family: "ladislav", sans-serif; /* Fontes para os títulos */
 }
 
 .popup-noticia .mat-mdc-dialog-container {
