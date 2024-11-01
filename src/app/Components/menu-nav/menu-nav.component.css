@@ -1,20 +1,56 @@
 .toolbar {
-    display: flex;
-    height: 115px;
+  display: flex;
+  height: 150px;
+  background-color: var(--neutra);
+  border-bottom: 3px solid var(--quarta);
 }
 .abicca {
-    justify-self: flex-end;
-    align-content: center;
-    height: 100%;
-    /* border: 1px, solid, black; */
+  justify-self: flex-end;
+  align-content: center;
+  height: 100%;
+  /* border: 1px, solid, black; */
 }
 .buttons {
-    margin-left: auto;
-    align-content: center;
-    height: 100%;
-    /* border: 1px, solid, black; */
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  column-gap: 1%;
+  width: fit-content;
+  height: 100%;
+
+  /* border: 1px, solid, black; */
 }
 
-.associe {
-    background-image: linear-gradient(180deg, #f5f5f5, #a0a0a0);
+.buttons a {
+  display: flex;
+  /* border: 1px, solid, black; */
+  /* color: var(--quarta); */
+  margin-left: auto;
+
+  align-self: center;
+  justify-self: center;
+  /* border-radius: 5px; */
+  /* border: 1px solid black; */
+}
+
+.buttons p {
+  font-size: 2.5vh;
+  font-weight: bold;
+  margin-bottom: auto;
+  background-image: linear-gradient(180deg, #005B9B 60%, var(--quarta));;
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -moz-text-fill-color: transparent;
+  /* border: 1px solid black; */
+}
+
+.abicca:hover {
+  cursor: pointer;
+}
+
+.buttons a:hover {
+  background-color: #FFF !important;
 }

@@ -1,12 +1,13 @@
 <div class="corpo">
-  <app-imagens></app-imagens>
-  <app-noticia></app-noticia>
-  <app-navio></app-navio>
   <app-sobre></app-sobre>
   <app-associados></app-associados>
-  <app-galeria [images]="images"
+  <app-noticia></app-noticia>
+  <app-navio></app-navio>
+  <app-imagens2 [images]="images2"
+  [autoSlide]="true"
+  [controls]="true"></app-imagens2>
+  <!-- <app-galeria [images]="images"
     [autoSlide]="false"
-    [controls]="true"
-  ></app-galeria>
+    [controls]="true"></app-galeria> -->
   <app-animacao-rodape></app-animacao-rodape>
 </div>

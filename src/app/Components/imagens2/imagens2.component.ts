@@ -7,15 +7,15 @@ interface carouselImage {
   imageSrc: string;
   imageAlt: string;
 }
+
 @Component({
-  selector: 'app-galeria',
+  selector: 'app-imagens2',
   standalone: true,
   imports: [CommonModule, FontAwesomeModule],
-  templateUrl: './galeria.component.html',
-  styleUrl: './galeria.component.css'
+  templateUrl: './imagens2.component.html',
+  styleUrl: './imagens2.component.css'
 })
-export class GaleriaComponent implements OnInit{
-
+export class Imagens2Component {
   faArrowCircleLeft = faArrowCircleLeft;
   faArrowCircleRight = faArrowCircleRight;
   @Input() images: carouselImage[] = [];
@@ -57,4 +57,5 @@ export class GaleriaComponent implements OnInit{
       this.selectedIndex++;
     }
   }
+
 }
