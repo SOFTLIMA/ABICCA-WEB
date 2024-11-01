@@ -1,111 +1,94 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Estilo para o container principal */
 .container {
-    width: 100%;
-    background-color: var(--neutra);
+    margin-top: 50px; 
+    max-width: auto; /* Aumenta a largura do contêiner */
+    padding: 0 20px; /* Ajusta o preenchimento */
 }
 
-.header {
-    text-align: center;
-    position: relative;
-    margin: 20px;
+/* Estilo do cabeçalho */
+.cabecalho h1 {
+    font-size: 3rem; /* Aumenta o tamanho do título */
+    color: white; 
+    text-align: center; 
+    margin-bottom: 50px; 
+    font-family: 'Arial', sans-serif; 
 }
 
-.header h1 {
-    display: inline-block; /* Faz o título se comportar como um bloco em linha */
-    position: relative; /* Para que os pseudo-elementos sejam posicionados em relação ao h1 */
-    padding: 0 10px; /* Espaçamento interno para separar o texto das bordas */
-    z-index: 1; /* Coloca o texto acima das bordas */
+/* Estilo do cartão de notícia */
+.cartao {
+    background-color: #ffffff; 
+    border-radius: 12px; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); 
+    overflow: hidden; 
+    display: flex; 
+    margin-bottom: 40px; /* Aumenta o espaço entre cartões */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
-.header h1::before,
-.header h1::after {
-    content: ''; /* Necessário para os pseudo-elementos */
-    display: inline-block; /* Para que as bordas fiquem na mesma linha */
-    width: 10px; /* Ajuste a largura das bordas */
-    border-bottom: 2px solid var(--texto3); /* Borda mais grossa */
-    vertical-align: middle; /* Alinha verticalmente */
+.cartao:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); 
 }
 
-.row {
-    width: 80%;
-    margin: auto;
+/* Estilo da imagem da notícia */
+.cartao img {
+    width: 400px; /* Aumenta o tamanho da imagem */
+    height: auto; 
+    border-radius: 12px 0 0 12px; 
 }
 
-.header {
-    width: 60%;
-    text-align: center;
-    margin: auto;
+/* Estilo do conteúdo da notícia */
+.conteudo {
+    flex-grow: 1; 
+    padding: 30px; /* Aumenta o preenchimento interno */
 }
 
-.header h1 {
-    padding-top: 30px;
-    margin: 0px;
-    font-size: 45px;
-    color: var(--texto3);
+/* Estilo do título da notícia */
+.titulo {
+    color: #34495e; 
+    font-size: 2rem; /* Aumenta o tamanho do título */
+    margin-bottom: 20px; 
+    text-decoration: none; 
+    font-family: 'Arial', sans-serif; 
 }
 
-.text {
-    color: var(--texto3); /* Certifique-se de que essa variável está definida */
+/* Estilo da data */
+.data {
+    font-size: 1rem; /* Aumenta o tamanho da data */
+    color: #7f8c8d; 
+    margin-bottom: 15px; 
 }
 
-.content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+/* Estilo da descrição */
+.descricao {
+    color: #555; 
+    font-size: 1.8rem; /* Aumenta o tamanho da descrição */
+    line-height: 1.7; 
+    margin-bottom: 25px; /* Aumenta o espaço abaixo da descrição */
 }
 
-.card {
-    flex: 1;
-    margin: 5px 5px;
-    color: var(--texto3);
+/* Estilo do botão */
+.botao {
+    background-color: #3498db; 
+    border: none; 
+    color: #fff; 
+    padding: 15px 30px; /* Aumenta o tamanho do botão */
+    border-radius: 5px; 
+    font-size: 1.2rem; /* Aumenta o tamanho do texto do botão */
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
 }
 
-.card a{
-    display: inline-block;
-    text-decoration: none;
-    border: none;
-    color: var(--texto3);
-    font-size: 1.6rem;
+.botao:hover {
+    background-color: #2980b9; 
 }
 
-.date-container {
-    display: flex;
-    align-items: center;
-    font-size: 15px;
-    color: var(--texto3);
+.botao:active {
+    transform: scale(0.95); 
 }
 
-.date-container i{
-    margin-right: 5px;
-    font-size: 10px;
-}
-
-.card img {
-    width: 100%;
-    height: auto;
-}
-
-.card h4 {
-    margin-top: 10px;
-    margin-left: 10px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.card p {
-    font-size: 15px;
-    line-height: 1.5;
-    padding: 10px;
-}
-
-@media screen and (max-width: 768px) {
-    .content {
-        flex-direction: column;
-    }
+/* Estilo do contêiner do botão para centralizar */
+.botao-container {
+    text-align: center; 
+    margin-top: 25px; 
 }
