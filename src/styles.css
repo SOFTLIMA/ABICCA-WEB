@@ -26,9 +26,9 @@
 
   --tamanhoBalancinho: 262px;
 
-  --pattern1: url("/Patern_Prancheta 1.png");
+  --pattern1: url('../public/assets/Patern_Prancheta1.png');
 
-  --image-sobre: url("/Galeria/METALURGICA.png");
+  --image-sobre: url('../public/Galeria/METALURGICA.png');
 }
 
 html, body {
