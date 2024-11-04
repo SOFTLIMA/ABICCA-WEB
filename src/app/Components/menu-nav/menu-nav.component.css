@@ -1,15 +1,17 @@
+/* Estilos base */
 .toolbar {
   display: flex;
   height: 150px;
   background-color: var(--neutra);
   border-bottom: 3px solid var(--quarta);
 }
+
 .abicca {
   justify-self: flex-end;
   align-content: center;
   height: 100%;
-  /* border: 1px, solid, black; */
 }
+
 .buttons {
   display: flex;
   margin-left: auto;
@@ -17,34 +19,25 @@
   column-gap: 1%;
   width: fit-content;
   height: 100%;
-
-  /* border: 1px, solid, black; */
 }
 
 .buttons a {
   display: flex;
-  /* border: 1px, solid, black; */
-  /* color: var(--quarta); */
-  margin-left: auto;
-
   align-self: center;
   justify-self: center;
-  /* border-radius: 5px; */
-  /* border: 1px solid black; */
 }
 
 .buttons p {
   font-size: 2.5vh;
   font-weight: bold;
   margin-bottom: auto;
-  background-image: linear-gradient(180deg, #005B9B 60%, var(--quarta));;
+  background-image: linear-gradient(180deg, #005B9B 60%, var(--quarta));
   background-size: 100%;
   background-repeat: repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   -moz-text-fill-color: transparent;
-  /* border: 1px solid black; */
 }
 
 .abicca:hover {
@@ -53,4 +46,52 @@
 
 .buttons a:hover {
   background-color: #FFF !important;
+}
+
+/* Estilos responsivos */
+@media only screen and  (min-width: 480px) and (max-width: 1280px){
+  .toolbar {
+    flex-direction: row;
+    height: auto; /* Reduz a altura para dispositivos menores */
+  }
+
+  .buttons p {
+    font-size: 2vw; /* Aumenta o tamanho do texto */
+  }
+
+  .buttons {
+    flex-direction: row; /* Coloca os botões em coluna */
+    align-items: flex-start; /* Alinha os botões à esquerda */
+    width: 100%; /* Ocupa toda a largura */
+    margin-top: 10px; /* Espaço acima dos botões */
+  }
+
+  .buttons a {
+    margin-left: 0; /* Remove a margem à esquerda */
+    width: 100%; /* Faz os links ocuparem toda a largura */
+    padding: 10px; /* Adiciona um preenchimento */
+    text-align: center; /* Centraliza o texto */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .toolbar {
+    flex-direction: column; /* Muda a direção para coluna em telas pequenas */
+    height: auto; /* Altura automática para conteúdo */
+  }
+
+  .buttons {
+    flex-direction: column;
+    width: 100%; /* Mantém a largura total */
+    justify-content: center;
+  }
+
+  .buttons p {
+    font-size: 2vw; /* Aumenta ainda mais o texto */
+  }
+
+  .abicca {
+    margin-bottom: 10px; /* Espaço abaixo do elemento Abicca */
+    width: 50px;
+  }
 }
