@@ -121,9 +121,9 @@
     background-color: #027274;
 }
 
-.texto .descricao::first-letter {
+/* .texto .descricao::first-letter {
     font-size: 2rem;
-}
+} */
 
 
 .bttn-SM:hover {
@@ -149,20 +149,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* border: 1px solid black; */
   }
 
   .imagem h1{
     width: 100%;
     align-self: center;
-    font-size: 1em;
+    font-size: 8vw;
   }
 
   .texto h5{
-    font-size: 0.75em;
+    font-size: 6vw;
     margin-bottom: 0;
   }
   .texto p{
-    font-size: 0.5em;
+    text-align: left;
+    font-size: 3vw;
     margin: 0 30px 10px;
   }
 
@@ -213,15 +215,15 @@
   .imagem h1{
     width: 100%;
     align-self: center;
-    font-size: 3em;
+    font-size: 8vw;
   }
 
   .texto h5{
-    font-size: 2em;
+    font-size: 6vw;
     margin-bottom: 0;
   }
   .texto p{
-    font-size: 1em;
+    font-size: 3vw;
     margin: 0 30px 10px;
   }
 
@@ -271,15 +273,15 @@
   .imagem h1{
     width: 100%;
     align-self: center;
-    font-size: 2em;
+    font-size: 8vw;
   }
 
   .texto h5{
-    font-size: 1em;
+    font-size: 6vw;
     margin-bottom: 0;
   }
   .texto p{
-    font-size: 0.75em;
+    font-size: 3vw;
     margin: 0 30px 10px;
   }
 

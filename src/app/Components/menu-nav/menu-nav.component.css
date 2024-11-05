@@ -117,9 +117,6 @@ mat-dialog-actions {
     height: auto;
   }
 
-  .but {
-    width: 10px;
-  }
   .buttons {
     flex-direction: row;
     width: 100%;
@@ -136,7 +133,7 @@ mat-dialog-actions {
   }
 
   .buttons p {
-    font: bold 2vw "Barlow", sans-serif;
+    font: bold 4vw "Barlow", sans-serif;
     height: fit-content;
   }
 
