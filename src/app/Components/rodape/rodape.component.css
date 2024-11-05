@@ -6,9 +6,12 @@
 }
 
 .interface {
-    max-width: 1280px;
-    margin: 0 auto 0;
-    /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 auto 0;
+  /* border: 1px solid black; */
 }
 
 .footer {
@@ -16,6 +19,7 @@
     color: var(--primaria);
     margin: 0;
     padding: 0;
+    /* font-size: 1rem; */
     /* border: 1px solid var(--neutra); */
 }
 
@@ -27,6 +31,7 @@
 
 .line-footer1 {
     font-size: 2.5rem;
+    margin: 20px 20px 0;
 }
 
 .line-footer1 p {
@@ -42,10 +47,11 @@
 }
 
 .footer .line-footer2 {
-    padding: 0 0 40px 0;
+    padding: 0;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin: 0 20px 20px;
     /* border-bottom: 1px solid black; */
 }
 
@@ -57,6 +63,7 @@
 
 .line-footer1 form input[type=email] {
     width: 300px;
+    max-width: 100%;
     height: 40px;
     background: transparent;
     border: 2px solid var(--primaria);
@@ -67,6 +74,7 @@
 
 .line-footer1 form input[type=submit] {
     width: 80px;
+    max-width: 100%;
     height: 40px;
     font-size: 1rem;
     background-color: var(--primaria);
@@ -110,4 +118,125 @@
 
 .social-btn:hover {
     background-color: var(--quarta);
+}
+
+@media only screen and (max-width: 480px){
+
+  .footer {
+    max-width: 100%;
+  }
+
+  .line-footer1 {
+    padding-bottom: 10px !important;
+  }
+
+  .line-footer1 h2{
+    font-size: 6vw;
+    line-height: 1em;
+}
+
+  .line-footer1 p {
+    font-size: 3vw;
+    line-height: 1em;
+    margin: 3vw;
+  }
+
+  .line-footer1 form{
+    margin-top: 5vw;
+    height: 10vw;
+  }
+
+  .line-footer1 form input[type=email] {
+    width: 50%;
+    height: 100%;
+    min-width: 0;
+    max-width: 100%;
+    font-size: 3vw;
+    padding: 0;
+  }
+
+  .line-footer1 form input[type=submit] {
+    width: 20%;
+    height: 100%;
+    max-width: 100%;
+    font-size: 3vw;
+    text-align: center;
+  }
+
+  .line-footer2 .box-line-footer h3 {
+    text-align: center;
+    font: 400 8vw Roboto, sans-serif;
+  }
+
+  .line-footer2{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .line-footer2 .box-line-footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-width: 50px;
+    margin: 0;
+  }
+
+  .line-footer2 .box-line-footer p{
+    text-align: center;
+    font-size: 4vw;
+    min-width: 0;
+    width: 100vw;
+    max-width: 100%;
+    line-height: 1em;
+  }
+
+  .btn-redes {
+    width: 50vw;
+    /* border: 1px solid black; */
+  }
+
+  .social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 3vw;
+    width: 10vw;
+    height: 10vw;
+  }
+
+  .social-btn a{
+    width: 3vw;
+    margin: 3vw;
+  }
+
+}
+
+@media only screen and (min-width: 480px) and (max-width: 768px){
+
+  .line-footer2 .box-line-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .line-footer2 .box-line-footer h3 {
+    text-align: center;
+
+  }
+
+  .line-footer2 .box-line-footer p {
+    text-align: center;
+  }
+
+  .line-footer1 form input[type=email]{
+    font-size: 4vw;
+  }
+
+
 }

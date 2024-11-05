@@ -1,56 +1,147 @@
+/* Estilos base */
 .toolbar {
   display: flex;
   height: 150px;
   background-color: var(--neutra);
   border-bottom: 3px solid var(--quarta);
 }
+
 .abicca {
   justify-self: flex-end;
   align-content: center;
   height: 100%;
-  /* border: 1px, solid, black; */
 }
+
+/* :host a,
+mat-dialog-actions {
+  ::ng-deep span.mat-mdc-button-touch-target {
+    height: unset;
+  }
+
+  ::ng-deep span.mat-mdc-button-persistent-ripple span.mdc-button__ripple{
+    width: unset;
+  }
+
+  ::ng-deep span.mat-mdc-focus-indicator{
+    width: unset;
+  }
+
+} */
+
 .buttons {
   display: flex;
-  margin-left: auto;
+  justify-content: flex-end;
   align-items: center;
   column-gap: 1%;
-  width: fit-content;
+  width: 100%;
   height: 100%;
-
-  /* border: 1px, solid, black; */
 }
 
 .buttons a {
   display: flex;
-  /* border: 1px, solid, black; */
-  /* color: var(--quarta); */
-  margin-left: auto;
-
   align-self: center;
   justify-self: center;
-  /* border-radius: 5px; */
-  /* border: 1px solid black; */
+  border-radius: 10px;
+  height: fit-content;
+  width: fit-content;
+  padding: 4px;
+  text-decoration: none;
 }
 
 .buttons p {
   font-size: 2.5vh;
   font-weight: bold;
   margin-bottom: auto;
-  background-image: linear-gradient(180deg, #005B9B 60%, var(--quarta));;
+  color: var(--primaria);
+  /* background-image: linear-gradient(180deg, #005B9B 60%, var(--quarta));
   background-size: 100%;
-  background-repeat: repeat;
+  background-position: center;
+  background-repeat: no-repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  -moz-text-fill-color: transparent;
-  /* border: 1px solid black; */
+  -moz-text-fill-color: transparent; */
 }
+
+
 
 .abicca:hover {
   cursor: pointer;
 }
 
 .buttons a:hover {
-  background-color: #FFF !important;
+  background-color: var(--quarta) !important;
+}
+
+.buttons .signOut:hover {
+  cursor: pointer;
+}
+
+/* Estilos responsivos */
+@media only screen and  (min-width: 480px) and (max-width: 1280px){
+  .toolbar {
+    flex-direction: row;
+    height: auto; /* Reduz a altura para dispositivos menores */
+  }
+
+  .abicca {
+    width: 10vw;
+  }
+
+  .buttons p {
+    font: bold 2vw "Barlow", sans-serif;
+  }
+
+  .buttons {
+    flex-direction: row; /* Coloca os botões em coluna */
+    justify-content: flex-end; /* Alinha os botões à esquerda */
+    width: 100%; /* Ocupa toda a largura */
+    margin-top: 10px; /* Espaço acima dos botões */
+  }
+
+  .buttons a {
+    margin-left: 0; /* Remove a margem à esquerda */
+    width: fit-content; /* Faz os links ocuparem toda a largura */
+    height: fit-content;
+    text-align: center; /* Centraliza o texto */
+    padding: 2px;
+    border-radius: 5px;
+  }
+
+
+}
+
+@media only screen and (max-width: 480px) {
+  .toolbar {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .but {
+    width: 10px;
+  }
+  .buttons {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding: 2vw 0;
+    margin: 0 auto;
+  }
+  .buttons a {
+    width: fit-content;
+    height: fit-content;
+    padding: 2px;
+    border-radius: 3px;
+    /* border: 1px solid black; */
+  }
+
+  .buttons p {
+    font: bold 2vw "Barlow", sans-serif;
+    height: fit-content;
+  }
+
+  .abicca {
+    margin-top: 10px;
+    width: 50px;
+  }
 }

@@ -1,20 +1,24 @@
 *{
     margin: 0;
     overflow: hidden; /* Para esconder a barra de rolagem */
-    background-color:var(--neutra); /* Cor do céu */
 }
 
 .container {
     position: relative;
     width: 100%;
-    height: 20vh; /* Ocupa toda a altura da tela */
+    max-height: 80px;
+    height: 10vw; /* Ocupa toda a altura da tela */
+    background-color:var(--quarta);
+    /* border: 1px solid black; */
 }
 
 .navio {
     position: absolute;
-    width: 100px;
-    height: 50px;
-    background-color:var(--texto3); /* Cor do navio */
+    max-width: 100px;
+    max-height: 50px;
+    width: 20vw;
+    height: 10vw;
+    background-color:var(--neutra); /* Cor do navio */
     clip-path: polygon(0 100%, 50% 0, 100% 100%); /* Forma de um triângulo */
     animation: moverNavio 5s linear infinite; /* Animação */
 }
@@ -30,4 +34,16 @@
         top: 50%; /* Continua centralizado verticalmente */
         transform: translateY(-50%);
     }
+}
+
+@media only screen and  (max-width: 480px){
+
+}
+
+@media only screen and  (min-width: 480px) and (max-width: 768px){
+
+}
+
+@media only screen and  (min-width: 768px) and (max-width: 1280px){
+
 }

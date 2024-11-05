@@ -125,3 +125,42 @@ opacity: 0.5;
 .icon-next {
 font-size: 35px;
 }
+
+@media only screen and  (max-width: 480px){
+
+  .carousel-container {
+    max-width: 100%;
+    width: 95vw;
+    height: 70vw;
+    margin: 0 auto;
+  }
+
+  .dot{
+    max-width: 2vw;
+    max-height: 2vw;
+  }
+
+  .icon-prev,
+  .icon-next {
+    font-size: 5vw;
+  }
+}
+
+@media only screen and  (min-width: 480px) and (max-width: 768px){
+
+  .carousel-container {
+    max-width: 100%;
+    width: 95vw;
+    height: 70vw;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and  (min-width: 768px) and (max-width: 1280px){
+  .carousel-container {
+    max-width: 100%;
+    width: 95vw;
+    height: 70vw;
+    margin: 0 auto;
+  }
+}

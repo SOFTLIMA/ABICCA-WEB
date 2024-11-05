@@ -1,94 +1,181 @@
 /* Estilo para o container principal */
 .container {
-    margin-top: 50px; 
+    height: fit-content;
     max-width: auto; /* Aumenta a largura do contêiner */
-    padding: 0 20px; /* Ajusta o preenchimento */
+    padding: 20px 20px 30px; /* Ajusta o preenchimento */
+    border-top: 2px solid var(--quarta);
 }
 
 /* Estilo do cabeçalho */
 .cabecalho h1 {
     font-size: 3rem; /* Aumenta o tamanho do título */
-    color: white; 
-    text-align: center; 
-    margin-bottom: 50px; 
-    font-family: 'Arial', sans-serif; 
+    color: white;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
 }
 
 /* Estilo do cartão de notícia */
 .cartao {
-    background-color: #ffffff; 
-    border-radius: 12px; 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); 
-    overflow: hidden; 
-    display: flex; 
-    margin-bottom: 40px; /* Aumenta o espaço entre cartões */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    /* margin-bottom: 40px; */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cartao:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Estilo da imagem da notícia */
 .cartao img {
     width: 400px; /* Aumenta o tamanho da imagem */
-    height: auto; 
-    border-radius: 12px 0 0 12px; 
+    height: auto;
+    border-radius: 12px;
 }
 
 /* Estilo do conteúdo da notícia */
 .conteudo {
-    flex-grow: 1; 
+    flex-grow: 1;
     padding: 30px; /* Aumenta o preenchimento interno */
 }
 
 /* Estilo do título da notícia */
 .titulo {
-    color: #34495e; 
+    color: #34495e;
     font-size: 2rem; /* Aumenta o tamanho do título */
-    margin-bottom: 20px; 
-    text-decoration: none; 
-    font-family: 'Arial', sans-serif; 
+    margin-bottom: 20px;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
 }
 
 /* Estilo da data */
 .data {
     font-size: 1rem; /* Aumenta o tamanho da data */
-    color: #7f8c8d; 
-    margin-bottom: 15px; 
+    color: #7f8c8d;
+    margin-bottom: 15px;
 }
 
 /* Estilo da descrição */
 .descricao {
-    color: #555; 
+    color: #555;
     font-size: 1.8rem; /* Aumenta o tamanho da descrição */
-    line-height: 1.7; 
+    line-height: 1.7;
     margin-bottom: 25px; /* Aumenta o espaço abaixo da descrição */
 }
 
 /* Estilo do botão */
 .botao {
-    background-color: #3498db; 
-    border: none; 
-    color: #fff; 
+    background-color: #3498db;
+    border: none;
+    color: #fff;
     padding: 15px 30px; /* Aumenta o tamanho do botão */
-    border-radius: 5px; 
+    border-radius: 5px;
     font-size: 1.2rem; /* Aumenta o tamanho do texto do botão */
-    cursor: pointer; 
-    transition: background-color 0.3s ease, transform 0.2s ease; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .botao:hover {
-    background-color: #2980b9; 
+    background-color: #2980b9;
 }
 
 .botao:active {
-    transform: scale(0.95); 
+    transform: scale(0.95);
 }
 
 /* Estilo do contêiner do botão para centralizar */
 .botao-container {
-    text-align: center; 
-    margin-top: 25px; 
+    text-align: center;
+    margin-top: 25px;
+}
+
+@media only screen and  (max-width: 768px){
+
+  .container{
+    padding-top: 4vw;
+  }
+
+  .cabecalho h1{
+    font: 400 6vw Roboto, sans-serif;
+    padding: 5vw 0;
+  }
+
+  .conteudo{
+    width: 100%;
+    padding: 5vw;
+  }
+  .cartao {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cartao img {
+    width: 100%;
+  }
+
+  .conteudo h4{
+    font-size: 5vw;
+    line-height: 1em;
+  }
+
+  .conteudo .data {
+    font-size: 4vw;
+  }
+
+  .conteudo .descricao{
+    font-size: 3vw;
+  }
+
+  .botao{
+    font-size: 5vw;
+    padding: 1vw 2vw;
+  }
+}
+
+@media only screen and  (min-width: 768px) and (max-width: 1280px){
+  .container{
+    padding-top: 4vw;
+  }
+
+  .cabecalho h1{
+    font: 400 4vw Roboto, sans-serif;
+    padding: 5vw 0;
+  }
+
+  .conteudo{
+    width: 100%;
+    padding: 5vw;
+  }
+  .cartao {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cartao img {
+    width: 100%;
+  }
+
+  .conteudo h4{
+    font-size: 4vw;
+    line-height: 1em;
+  }
+
+  .conteudo .data {
+    font-size: 3vw;
+  }
+
+  .conteudo .descricao{
+    font-size: 2.5vw;
+  }
+
+  .botao{
+    font-size: 2vw;
+    padding: 1vw 2vw;
+  }
 }

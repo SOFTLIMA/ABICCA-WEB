@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-animacao-rodape',
@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
   styleUrl: './animacao-rodape.component.css'
 })
 export class AnimacaoRodapeComponent {
-
 }
