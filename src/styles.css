@@ -25,6 +25,9 @@
   --fontDegrade1: linear-gradient(45deg, #f5f5f5, #a0a0a0);
 
   --tamanhoBalancinho: 262px;
+  --tamanhoBalancinhoCelular: 131px;
+  --tamanhoBalancinhoTablet: 182px;
+  --tamanhoBalancinhoReescalavel: 5240px;
 
   --pattern1: url('../public/assets/Patern_Prancheta1.png');
 

@@ -1,14 +1,14 @@
 <mat-toolbar class="toolbar">
-    <img class="abicca" src="LogoABICCA2.png" alt="LogoABICCA" mat-button routerLink="/home">
+    <img class="abicca" src="icone_Reescalavel.png" alt="LogoABICCA" mat-button routerLink="/home">
 
     <div class="buttons">
-        <!-- <a mat-button routerLink="/home"><p>Home</p></a> -->
-        <a mat-button routerLink="/noticias"><p>Noticias</p></a>
-        <a mat-button routerLink="/sobre-nos"><p>Sobre nós</p></a>
+        <a routerLink="/home"><p>Home</p></a>
+        <a routerLink="/noticias"><p>Noticias</p></a>
+        <a routerLink="/sobre-nos"><p>Sobre nós</p></a>
         <!-- <a mat-button routerLink="/galeria"><p>Galeria</p></a> -->
-        <a mat-button routerLink="/contato"><p>Contato</p></a>
-        <a class="associe" mat-button routerLink="/associese"><p>Associe-se</p></a>
-        <a *ngIf="sair" (click)="Sair()" class="signOut" mat-button><p>Sair</p></a>
+        <a routerLink="/contato"><p>Contato</p></a>
+        <a class="associe" routerLink="/associese"><p>Associe-se</p></a>
+        <a *ngIf="sair" (click)="Sair()" class="signOut" ><p>Sair</p></a>
     </div>
 
 </mat-toolbar>

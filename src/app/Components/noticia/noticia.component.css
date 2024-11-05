@@ -100,7 +100,7 @@
   }
 
   .cabecalho h1{
-    font: 400 4vw Roboto, sans-serif;
+    font: 400 6vw Roboto, sans-serif;
     padding: 5vw 0;
   }
 
@@ -112,7 +112,6 @@
     width: fit-content;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
   }
 
   .cartao img {
@@ -120,23 +119,22 @@
   }
 
   .conteudo h4{
-    font-size: 3vw;
+    font-size: 5vw;
     line-height: 1em;
   }
 
   .conteudo .data {
-    font-size: 2vw;
+    font-size: 4vw;
   }
 
   .conteudo .descricao{
-    font-size: 1.5vw;
+    font-size: 3vw;
   }
 
   .botao{
-    font-size: 1.5vw;
+    font-size: 5vw;
     padding: 1vw 2vw;
   }
-
 }
 
 @media only screen and  (min-width: 768px) and (max-width: 1280px){
@@ -157,7 +155,6 @@
     width: fit-content;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
   }
 
   .cartao img {

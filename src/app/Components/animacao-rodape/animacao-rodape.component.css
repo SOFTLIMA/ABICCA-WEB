@@ -39,6 +39,7 @@
 
 img {
   position: relative;
+  width: calc(var(--tamanhoBalancinhoReescalavel)*0.05);
   margin-top: 10px;
   animation: moverBalancinho 45s linear infinite;
 }
@@ -53,6 +54,64 @@ img {
   }
   100% {
     left: 0px; /* Começa fora da tela à esquerda */
-}
+  }
 }
 
+@media only screen and  (max-width: 480px){
+
+  .ponterolante {
+    height: 20px;
+  }
+
+  .fundo-barra{
+    height: 15px;
+  }
+
+  img {
+    width: calc(var(--tamanhoBalancinhoReescalavel)*0.025);
+    margin-top: 6px;
+    animation: moverBalancinho2 10s linear infinite;
+  }
+
+  @keyframes moverBalancinho2 {
+    0% {
+        left: 0px; /* Começa fora da tela à esquerda */
+    }
+    50% {
+        left: calc(100% - var(--tamanhoBalancinhoReescalavel)*0.025); /* Move para fora da tela à direita */
+    }
+    100% {
+      left: 0px; /* Começa fora da tela à esquerda */
+    }
+  }
+
+}
+
+@media only screen and (min-width: 480px) and (max-width: 768px){
+
+  .ponterolante {
+    height: 28px;
+  }
+
+  .fundo-barra{
+    height: 21px;
+  }
+
+  img {
+    width: calc(var(--tamanhoBalancinhoReescalavel)*0.035);
+    margin-top: 8px;
+    animation: moverBalancinho3 15s linear infinite;
+  }
+
+  @keyframes moverBalancinho3 {
+    0% {
+        left: 0px; /* Começa fora da tela à esquerda */
+    }
+    50% {
+        left: calc(100% - var(--tamanhoBalancinhoReescalavel)*0.035); /* Move para fora da tela à direita */
+    }
+    100% {
+      left: 0px; /* Começa fora da tela à esquerda */
+    }
+  }
+}
