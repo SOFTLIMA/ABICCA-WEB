@@ -1,173 +1,147 @@
-/* Estilos gerais */
-.container {
-    width: 100%;
-    max-width: 1200px; /* Limita a largura máxima em telas grandes */
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-}
-
-.header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Grid de Notícias */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas para telas grandes */
-    gap: 20px; /* Espaçamento entre as notícias */
-    justify-items: center; /* Centraliza os itens dentro da grid */
-}
-
-/* Estilo de cada item de notícia */
-.noticia {
-    display: flex;
-    flex-direction: column; /* As imagens ficam em cima, os textos abaixo */
-    background-color: #f4f4f4;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    align-items: center; /* Centraliza o conteúdo dentro da notícia */
-    width: 100%; /* Ocupa toda a largura disponível */
-    height: auto; /* Altura dinâmica */
+* {
     box-sizing: border-box;
+    background-color: var(--neutra);
 }
 
-.noticia:hover {
-    transform: translateY(-5px); /* Efeito de hover */
-}
-
-/* Estilo da imagem */
-.img {
-    width: 100%; /* A imagem ocupa toda a largura disponível */
-    height: 200px; /* Tamanho fixo para a imagem */
-    overflow: hidden;
-    border-radius: 8px; /* Borda arredondada na imagem */
-}
-
-.img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajuste da imagem para preencher o contêiner */
-}
-
-/* Estilo do texto */
-.texto {
-    width: 100%; /* O texto ocupa toda a largura disponível */
-    text-align: center; /* Centraliza o texto */
-    margin-top: 15px; /* Espaço entre a imagem e o texto */
-}
-
-.texto h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px; /* Aumenta o espaço entre o título e a descrição */
-    line-height: 1.5em; /* Ajuste da altura da linha para o título */
-    color: #333; /* Cor do título */
-}
-
-.texto p {
-    font-size: 1rem;
-    color: #555; /* Cor do texto da descrição */
-    margin: 0 0 10px 0; /* Espaço inferior para separar a descrição da data */
-    line-height: 1.5; /* Ajusta a altura da linha para a descrição */
-}
-
-.texto a {
-    text-decoration: none;
-    color: #007BFF;
-}
-
-.texto a:hover {
-    text-decoration: underline;
-}
-
-/* Estilo da data */
-.data {
-    font-size: 0.9rem;
-    color: #666;
-    margin-top: 5px; /* Espaço entre a descrição e a data */
-}
-
-.data i {
-    margin-right: 5px; /* Espaço entre o ícone e a data */
-}
-
-/* Responsividade para telas pequenas (celulares) */
-@media (max-width: 768px) {
-    .container {
-        padding: 10px; /* Ajuste de padding em telas menores */
-    }
-
-    .grid-container {
-        grid-template-columns: 1fr; /* 1 coluna em telas pequenas */
-    }
-
-    .noticia {
-        flex-direction: column; /* Empilha imagem e texto verticalmente */
-        padding: 15px; /* Ajusta o padding */
-    }
-
-    .img {
-        height: 200px; /* Altura ajustada para imagens em telas pequenas */
-    }
-
-    .texto h3 {
-        font-size: 1.5rem; /* Aumenta o tamanho do título em telas pequenas */
-    }
-
-    .texto p {
-        font-size: 1rem; /* Tamanho ajustado para celular */
-    }
-
-    .data {
-        font-size: 0.8rem; /* Tamanho da data ajustado */
-    }
-}
-
-/* Responsividade para telas médias (tablets) */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas para tablets */
-    }
-
-    .noticia {
-        flex-direction: column; /* Mantém a estrutura de imagem acima e texto abaixo */
-    }
-
-    .img {
-        height: 200px; /* Altura ajustada para tablets */
-    }
-
-    .texto h3 {
-        font-size: 1.3rem; /* Ajuste do título para tablets */
-    }
-}
-
-/* Estilo de paginação */
-.pagination {
+.container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px; /* Aumenta o espaçamento interno */
+    text-align: center;
+}
+
+section {
+    max-width: 600px;
+    margin-bottom: 30px; /* Espaço adicional abaixo da seção */
+}
+
+.text {
+    font-size: 40px;
+    font-weight: bold;
+    color: #003366; 
+    margin: 20px auto 20px; /* Espaço em volta do título */
+}
+
+section p {
+    color: #003366; 
+    line-height: 1.8; /* Maior espaçamento entre linhas */
+    font-size: 17px;
+    margin-top: 0;
+    margin-bottom: 15px; /* Espaço adicional abaixo do parágrafo */
+}
+
+.video-container {
     margin-top: 20px;
 }
 
-.pagination a {
-    color: #333;
-    padding: 8px 16px;
-    text-decoration: none;
-    border: 1px solid #ddd;
-    margin: 0 4px;
+.video-container iframe {
+    width: 100%;
+    height: 250px;
+    max-width: 500px;
+}
+
+.box-line-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    gap: 20px;
+}
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.social-btn {
+    display: block;
+    padding: 20px 15px;
+    background-color: #fdb943;
+    color: #003366;
+    border: none;
     border-radius: 5px;
-    transition: 0.3s ease;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px 0; /* Espaçamento vertical ao redor de cada botão */
 }
 
-.pagination a.active {
-    background-color: #007BFF;
-    color: white;
-    border: 1px solid #007BFF;
+.social-btn:hover {
+    background-color: var(--terciaria);
+    color: #fff;
 }
 
-.pagination a:hover:not(.active) {
-    background-color: #ddd;
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px; /* Mantém o espaçamento interno em telas médias */
+    }
+
+    .text {
+        font-size: 30px;
+    }
+
+    section {
+        max-width: 100%;
+    }
+
+    .video-container iframe {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px; /* Reduz o espaçamento interno em telas pequenas */
+    }
+
+    .text {
+        font-size: 24px;
+    }
+
+    section p {
+        font-size: 15px;
+    }
+
+    .video-container iframe {
+        height: 180px;
+    }
+
+    .social-btn {
+        padding: 15px 10px;
+    }
+}
+
+/* Responsividade para iPads (telas entre 768px e 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        padding: 40px 30px; /* Ajuste do padding para manter espaço adequado */
+    }
+
+    .text {
+        font-size: 32px; /* Reduz ligeiramente o tamanho do texto para caber melhor */
+    }
+
+    section {
+        max-width: 700px; /* Limita a largura para ficar mais proporcional na tela */
+    }
+
+    .video-container iframe {
+        height: 220px; /* Ajuste de altura do vídeo para melhor visualização */
+    }
+
+    .social-btn {
+        max-width: 250px; /* Limita a largura dos botões para melhor alinhamento */
+    }
+
+    .box-line-footer {
+        gap: 15px; /* Diminui o espaço entre os botões */
+    }
 }

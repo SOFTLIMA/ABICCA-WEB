@@ -45,34 +45,90 @@ section p {
 
 .box-line-footer {
     display: flex;
-    justify-content: space-between; /* Distribui o espaço entre os botões */
-    margin-top: 80px; /* Mantém o espaçamento */
-    margin-right: 150px; /* Mantém o espaçamento */
+    justify-content: space-between;
+    margin-top: 80px;
+    margin-right: 150px;
 }
 
 .btn {
     display: flex;
     text-decoration: none;
-    flex-direction: column; /* Altera para coluna */
+    flex-direction: column;
     margin-bottom: 5px;
-    gap: 20px; /* Ajuste o espaçamento entre os botões */
+    gap: 20px;
 }
 
 .social-btn {
-    display: block; /* Faz o botão ocupar toda a largura */
+    display: block;
     padding: 20px 15px; 
     background-color: #fdb943;
     color: #003366;
     border: none;
-    border-radius: 5px; /* Bordas arredondadas */
+    border-radius: 5px;
     text-align: center;
-    font-weight: bold; /* Aumenta o destaque do texto */
-    transition: background-color 0.3s, color 0.3s; /* Transições suaves */
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
     text-decoration: none;
 }
 
 .social-btn:hover {
-    /* background-color: #007B7F; */
     background-color: var(--terciaria);
     color: #fff;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .text {
+        font-size: 30px;
+        margin: 0px 10px;
+    }
+    
+    section {
+        max-width: 100%;
+    }
+
+    section p{
+        font-size: 16px;
+        margin: 10px 10px 20px;
+    }
+
+    .box-line-footer {
+        flex-direction: column;
+        align-items: center;
+        margin: 0px 10px;
+        gap: 20px;
+    }
+    
+    .video-container iframe {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container{
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .text {
+        font-size: 24px;
+    }
+
+    section p {
+        font-size: 15px;
+        margin: 10px 10px 20px;
+    }
+
+    .video-container iframe {
+        height: 180px;
+    }
+
+    .social-btn {
+        padding: 15px 10px;
+    }
 }
