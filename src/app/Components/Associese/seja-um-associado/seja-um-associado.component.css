@@ -121,6 +121,7 @@ section p {
 
     section p {
         font-size: 15px;
+        margin: 10px 10px 20px;
     }
 
     .video-container iframe {
