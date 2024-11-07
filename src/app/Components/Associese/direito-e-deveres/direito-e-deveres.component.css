@@ -37,7 +37,8 @@ article ul li {
     margin-bottom: 15px;
 }
 
-/* Responsividade para dispositivos menores */
+/* Responsividade*/
+
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -45,10 +46,25 @@ article ul li {
     }
 
     header h1 {
-        font-size: 30px;
+        font-size: 8vh;
     }
 
     article ul li {
-        font-size: 16px;
+        font-size: 4vh;
     }
-} -->
+}
+
+@media (max-width: 480px){
+    .container{
+        height: auto;
+    }
+
+    header h1{
+        font-size: 7vh;
+    }
+
+    article ul li{
+        font-size: 3vh;
+    }
+
+}
