@@ -1,91 +1,168 @@
 .container {
-    display: flex; /* Flexbox para alinhar o formulário e a seção de contato lado a lado */
-    justify-content: space-between; /* Espaço entre as seções */
-    max-width: 1500px; /* Largura máxima */
-    margin: 40px auto; /* Margem centralizada */
-    padding: 20px; /* Padding interno */
-    background-color: #ffffff; /* Fundo branco */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    display: flex;
+    justify-content: space-between;
+    max-width: 1500px;
+    margin: 4vh auto;
+    padding: 2vh;
+    background-color: #ffffff;
+    border-radius: 1vh;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
 }
 
 .form-container {
-    flex: 2; /* Formulário ocupa mais espaço */
-    margin-right: 100px; /* Aumenta o espaço entre o formulário e a seção de contato */
+    flex: 2;
+    margin-right: 6vh;
     color: var(--texto3);
+    min-width: 30vh;
 }
 
-.form-container h2{
+.form-container h2 {
     color: var(--primaria);
 }
 
 .contato {
-    flex: 1; /* Seção de contato ocupa menos espaço */
-    background-color: #f8f9fa; /* Fundo claro para contraste */
-    padding: -20px; /* Padding interno */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    flex: 1;
+    background-color: #f8f9fa;
+    padding: 2vh;
+    border-radius: 1vh;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-width: 25vh;
 }
 
 .contato h2, .contato h3 {
-    color: var(--primaria); /* Cor dos títulos */
+    color: var(--primaria);
 }
 
 .contato p {
-    font-size: 1rem; /* Tamanho da fonte */
-    margin-bottom: 10px; /* Espaço abaixo dos parágrafos */
+    font-size: 2vh;
+    margin-bottom: 1vh;
     color: var(--texto2);
 }
 
 .email-link {
-    color:var(--texto2); /* Cor do e-mail */
-    text-decoration: none; /* Remove sublinhado */
+    color: var(--texto2);
+    text-decoration: none;
 }
 
 .email-link:hover {
-    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+    text-decoration: underline;
 }
 
 .form-group {
-    margin-bottom: 15px; /* Espaço entre os campos */
+    margin-bottom: 2vh;
 }
 
 label {
-    font-size: 1.2rem; /* Tamanho da fonte do rótulo */
-    display: block; /* Coloca rótulo em linha separada */
+    font-size: 2vh;
+    display: block;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="tel"],
 textarea {
-    width: 100%; /* Largura total do campo */
-    padding: 10px; /* Padding interno */
-    border: 2px solid #ccc; /* Borda */
-    border-radius: 5px; /* Bordas arredondadas */
-    background: transparent; /* Fundo transparente */
-    color: #333; /* Cor do texto */
-    font-size: 1rem; /* Tamanho da fonte */
+    width: 100%;
+    padding: 1.5vh;
+    border: 2px solid #ccc;
+    border-radius: 0.5vh;
+    background: transparent;
+    color: #333;
+    font-size: 2vh;
 }
 
 textarea {
-    resize: vertical; /* Permite redimensionar verticalmente */
-    min-height: 100px; /* Altura mínima do campo de texto */
+    resize: vertical;
+    min-height: 10vh;
 }
 
 .submit-btn {
-    background-color: var(--terciaria); /* Cor do botão */
-    color: white; /* Cor do texto */
-    padding: 10px 15px; /* Padding do botão */
-    border: none; /* Remove borda */
-    border-radius: 5px; /* Bordas arredondadas */
-    cursor: pointer; /* Cursor de pointer ao passar o mouse */
-    font-size: 1.2rem; /* Tamanho da fonte do botão */
-    transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
-    width: 100%; /* Largura total do botão */
+    background-color: var(--terciaria);
+    color: white;
+    padding: 1.5vh 3vh;
+    border: none;
+    border-radius: 0.5vh;
+    cursor: pointer;
+    font-size: 2vh;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
 }
 
 .submit-btn:hover {
-    background-color: #d8a500; /* Cor do botão ao passar o mouse */
-    transform: translateY(-2px); /* Leve elevação do botão */
+    background-color: #d8a500;
+    transform: translateY(-0.5vh);
+}
+
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        margin:0px;
+    }
+
+    .form-container {
+        margin-right: 0;
+        margin-bottom: 5vh;
+    }
+
+    .contato {
+        margin-top: 5vh;
+    }
+
+    .contato p{
+        font-size: 3vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        flex: 1;
+        margin-right: 0;
+    }
+
+    .contato {
+        flex: 1;
+        margin-top: 5vh;
+    }
+
+    label {
+        font-size: 2vh;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        font-size: 1.8vh;
+    }
+
+    .submit-btn {
+        font-size: 2vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 3vh;
+    }
+
+    .form-container {
+        margin-right: 0;
+        margin-bottom: 4vh;
+    }
+
+    .contato {
+        margin-top: 3vh;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        font-size: 1.5vh;
+    }
+
+    .submit-btn {
+        font-size: 1.8vh;
+    }
 }
