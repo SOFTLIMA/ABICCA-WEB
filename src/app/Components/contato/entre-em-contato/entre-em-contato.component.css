@@ -1,91 +1,191 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .container {
-    display: flex; /* Flexbox para alinhar o formulário e a seção de contato lado a lado */
-    justify-content: space-between; /* Espaço entre as seções */
-    max-width: 1500px; /* Largura máxima */
-    margin: 40px auto; /* Margem centralizada */
-    padding: 20px; /* Padding interno */
-    background-color: #ffffff; /* Fundo branco */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    display: flex;
+    justify-content: space-between;
+    max-width: 1500px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--neutra);
+    border-radius: 10px;
+    flex-wrap: wrap;
 }
 
 .form-container {
-    flex: 2; /* Formulário ocupa mais espaço */
-    margin-right: 100px; /* Aumenta o espaço entre o formulário e a seção de contato */
+    flex: 2;
+    margin-right: 100px;
     color: var(--texto3);
+    width: 48%;
 }
 
-.form-container h2{
+.form-container h2 {
     color: var(--quarta);
 }
 
-.contato {
-    flex: 1; /* Seção de contato ocupa menos espaço */
-    background-color: #f8f9fa; /* Fundo claro para contraste */
-    padding: -20px; /* Padding interno */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra leve */
-}
-
-.contato h2, .contato h3 {
-    color: var(--quarta); /* Cor dos títulos */
-}
-
-.contato p {
-    font-size: 1rem; /* Tamanho da fonte */
-    margin-bottom: 10px; /* Espaço abaixo dos parágrafos */
-    color: var(--texto3);
-}
-
-.email-link {
-    color:var(--texto3); /* Cor do e-mail */
-    text-decoration: none; /* Remove sublinhado */
-}
-
-.email-link:hover {
-    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
-}
-
 .form-group {
-    margin-bottom: 15px; /* Espaço entre os campos */
+    margin-bottom: 15px;
 }
 
 label {
-    font-size: 1.2rem; /* Tamanho da fonte do rótulo */
-    display: block; /* Coloca rótulo em linha separada */
+    font-size: 1.2rem;
+    display: block;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="tel"],
 textarea {
-    width: 100%; /* Largura total do campo */
-    padding: 10px; /* Padding interno */
-    border: 2px solid #ccc; /* Borda */
-    border-radius: 5px; /* Bordas arredondadas */
-    background: transparent; /* Fundo transparente */
-    color: #333; /* Cor do texto */
-    font-size: 1rem; /* Tamanho da fonte */
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background: transparent;
+    color: #333;
+    font-size: 1rem;
 }
 
 textarea {
-    resize: vertical; /* Permite redimensionar verticalmente */
-    min-height: 100px; /* Altura mínima do campo de texto */
+    resize: vertical;
+    min-height: 100px;
 }
 
 .submit-btn {
-    background-color: var(--quarta); /* Cor do botão */
-    color: white; /* Cor do texto */
-    padding: 10px 15px; /* Padding do botão */
-    border: none; /* Remove borda */
-    border-radius: 5px; /* Bordas arredondadas */
-    cursor: pointer; /* Cursor de pointer ao passar o mouse */
-    font-size: 1.2rem; /* Tamanho da fonte do botão */
-    transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
-    width: 100%; /* Largura total do botão */
+    background-color: var(--quarta);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
 }
 
 .submit-btn:hover {
-    background-color: var(--texto3); /* Cor do botão ao passar o mouse */
-    transform: translateY(-2px); /* Leve elevação do botão */
+    background-color: var(--texto3);
+    transform: translateY(-2px);
+}
+
+.contato {
+    flex: 1;
+    background-color: #f8f9fa;
+    padding: -20px;
+    border-radius: 10px;
+}
+
+.contato h2, .contato h3 {
+    color: var(--quarta);
+}
+
+.contato p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--texto3);
+}
+
+.email-link {
+    color: var(--texto3);
+    text-decoration: none;
+}
+
+.email-link:hover {
+    text-decoration: underline;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1280px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 5%;
+    }
+
+    .form-container, .contato {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (min-width: 468px) and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 5%;
+
+    }
+
+    .form-container, .contato {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    label {
+        font-size: 2vh;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        font-size: 1.8vh;
+        padding: 2% 5%;
+    }
+
+    .submit-btn {
+        font-size: 2vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .form-container, .contato {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 5vh;
+    }
+
+    .form-container h2 {
+        font-size: 6vh;
+    }
+
+    .form-container p {
+        font-size: 4vh;
+    }
+
+    label {
+        font-size: 2vh;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        font-size: 1.5vh;
+        width: 100%;
+        padding: 3% 5%;
+    }
+
+    .submit-btn {
+        font-size: 1.8vh;
+        width: 100%;
+    }
+
+    .form-group {
+        font-size: 2vh;
+        width: 100%;
+    }
+
+    form {
+        font-size: 2vh;
+        width: 100%;
+    }
 }
