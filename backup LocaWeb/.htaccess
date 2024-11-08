@@ -1,0 +1,4 @@
+##### LOCAWEB - NAO REMOVER #####
+AddHandler php74-script .php
+suPHP_ConfigPath /home/abicca1/
+##### LOCAWEB - NAO REMOVER #####
