@@ -1,7 +1,7 @@
 *{
     background-color: var(--neutra);
-    
-    
+
+
 }
 
 .container {
@@ -10,6 +10,7 @@
     align-items: flex-start;
     max-width: 1200px;
     margin: 50px auto;
+    border: 1px solid black;
 }
 
 .section {
@@ -71,7 +72,7 @@ section p {
         width:50vw;
         height: auto;
         margin: 0px;
-        
+
     }
 }
 

@@ -52,7 +52,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 0 20px 20px;
-    /* border-bottom: 1px solid black; */
+    /* border-top: 1px solid var(--primaria); */
 }
 
 .box-line-footer {

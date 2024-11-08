@@ -8,8 +8,8 @@
     justify-content: space-between;
     align-items: flex-start;
     max-width: 1200px;
-    margin: 0px auto -50px auto;
-    height: 480px;
+    margin: 0px auto 50px auto;
+    height: fit-content;
 }
 
 section {
@@ -21,12 +21,12 @@ section {
     margin-bottom: 10px;
     font-size: 40px;
     font-weight: bold;
-    color: #003366; 
+    color: #003366;
     margin: 20px auto 05px;
 }
 
 section p {
-    color: #003366; 
+    color: #003366;
     line-height: 1.6;
     font-size: 17px;
     margin-top: 0;
@@ -60,7 +60,7 @@ section p {
 
 .social-btn {
     display: block;
-    padding: 20px 15px; 
+    padding: 20px 15px;
     background-color: #fdb943;
     color: #003366;
     border: none;
@@ -82,12 +82,12 @@ section p {
         flex-direction: column;
         height: auto;
     }
-    
+
     .text {
         font-size: 30px;
         margin: 0px 10px;
     }
-    
+
     section {
         max-width: 100%;
     }
@@ -103,7 +103,7 @@ section p {
         margin: 0px 10px;
         gap: 20px;
     }
-    
+
     .video-container iframe {
         height: 200px;
     }
@@ -114,7 +114,7 @@ section p {
         flex-direction: column;
         height: auto;
     }
-    
+
     .text {
         font-size: 24px;
     }

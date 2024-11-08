@@ -1,8 +1,8 @@
 <div class="container">
     <div class="form-container">
-        <h2>Entre em Contato</h2>
-        <p>Preencha os campos abaixo para se conectar conosco:</p>
-        <form action="#">
+        <h2>Para ser um associado:</h2>
+        <p>Preencha os campos abaixo e entraremos em contato com mais informações:</p>
+        <form action="https://formsubmit.co/3fd0b4c4fc88090b3d0176cf28e9c640" method="POST">
             <div class="form-group">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
@@ -20,10 +20,15 @@
                 <textarea id="mensagem" name="mensagem" required></textarea>
             </div>
             <button type="submit" class="submit-btn">Enviar</button>
+
+            <input type="hidden" name="_subject" value="Deseja associar-se a ABICCA">
+            <input type="text" name="_honey" style="display: none;">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" [value]="nextUrl" />
         </form>
     </div>
 
-    <aside class="contato">
+    <!-- <aside class="contato">
         <h2>Contatos</h2>
         <p>Contate-nos pelos telefones:</p>
         <p>(00) 0000-0000 ou (00) 0000-0000</p>
@@ -34,5 +39,5 @@
 
         <h3>Documentos</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur blanditiis harum laudantium natus similique ad alias possimus, repellat quam, maxime dolores explicabo. Non at eaque delectus impedit repellat dolor? Ducimus!.</p>
-    </aside>
+    </aside> -->
 </div>
