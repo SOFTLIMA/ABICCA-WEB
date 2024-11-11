@@ -1,0 +1,37 @@
+name: Build and Deploy Angular Project
+
+on:
+  push:
+    branches:
+      - main  # Ou a branch que você deseja monitorar para o deploy
+  pull_request:
+    branches:
+      - main  # Ou a branch para a qual você deseja enviar PRs
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest  # Ambiente de execução (Ubuntu)
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3  # Faz o checkout do código
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # Versão do Node.js a ser usada (ajuste conforme necessário)
+
+    - name: Install dependencies
+      run: npm install  # Instala as dependências do projeto
+
+    - name: Build Angular project
+      run: npm run build --if-present  # Executa o build do Angular, geralmente irá gerar a pasta 'dist/'
+
+    - name: FTP Deploy Locaweb
+      uses: locaweb/ftp-deploy@1.0.0
+      with:
+        host: ${{ secrets.HOST }} 
+        user: ${{ secrets.USER }}
+        password: ${{ secrets.PASS }}
+        localDir: "dist"  # Diretório onde o build é gerado pelo Angular (geralmente dist/)
+
