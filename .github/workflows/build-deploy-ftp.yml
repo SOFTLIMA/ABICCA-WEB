@@ -25,7 +25,7 @@ jobs:
       run: npm install  # Instala as dependências do projeto
 
     - name: Build Angular project
-      run: npm run build --if-present  # Executa o build do Angular, geralmente irá gerar a pasta 'dist/'
+      run: npm run build --if-present  # Executa o build do Angular
 
     - name: FTP Deploy Locaweb
       uses: locaweb/ftp-deploy@1.0.0
@@ -33,4 +33,4 @@ jobs:
         host: ${{ secrets.HOST }}
         user: ${{ secrets.USER }}
         password: ${{ secrets.PASS }}
-        localDir: "dist"  # Diretório onde o build é gerado pelo Angular (geralmente dist/)
+        localDir: "docs/browser"  # Atualize com o nome correto da pasta gerada pelo build
