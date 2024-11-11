@@ -30,7 +30,9 @@ jobs:
     - name: Test FTP Connection (Debug)
       run: |
         echo "Testing FTP Connection..."
+        echo "FTP connection test" > test.txt  # Cria o arquivo de teste
         curl --ftp-create-dirs -u ${{ secrets.USER }}:${{ secrets.PASS }} ftp://${{ secrets.HOST }}/test.txt -T test.txt || echo "FTP connection failed"
+        rm test.txt  # Remove o arquivo de teste após a verificação
 
     - name: FTP Deploy Locaweb
       uses: locaweb/ftp-deploy@1.0.0
