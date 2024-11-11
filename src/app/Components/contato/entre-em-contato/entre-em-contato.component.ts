@@ -1,34 +1,55 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { EmailService } from '../../../../services/email.service';
 
 @Component({
   selector: 'app-entre-em-contato',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './entre-em-contato.component.html',
   styleUrl: './entre-em-contato.component.css'
 })
-export class EntreEmContatoComponent implements OnInit{
-  nome: string = '';
-  subject: string = '';
-  nextUrl: string = ''; // Variável para o valor do _next
+export class EntreEmContatoComponent {
 
-  constructor() {}
+  contatoForm: FormGroup;
 
-  ngOnInit() {
-    // Definindo a URL de redirecionamento dinamicamente
-    this.nextUrl = this.getDynamicRedirectUrl(); // Aqui você define sua lógica para gerar a URL
-    this.subject = 'Entrou em contato com a ABICCA';
-  }
-
-  getDynamicRedirectUrl(): string {
-    // Lógica para criar o link de redirecionamento
-    return window.location.href; // Exemplo simples de adicionar um sufixo ao URL atual
+  constructor(private fb: FormBuilder,private emailService: EmailService) {
+    this.contatoForm = this.fb.group({
+      nome: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      telefone: ['', Validators.required],
+      mensagem: ['', Validators.required]
+    });
   }
 
   onSubmit() {
-    this.subject = `${this.nome}${this.subject}`;
+    if (this.contatoForm.valid) {
+      const formData = this.contatoForm.value;
+
+      let emailData = {
+        subject: `${formData.nome} entrou em contato`,
+        message: `Nome: ${formData.nome}\n`+
+        `Email: ${formData.email}\n` +
+        `Telefone: ${formData.telefone}\n` +
+        `Mensagem: ${formData.mensagem}`,
+        mail: formData.email
+      };
+
+      console.log(emailData);
+
+
+      this.emailService.enviarEmail(emailData).subscribe(
+        (response) => {
+          this.contatoForm.reset();
+          alert('Solicitação de contato bem-sucedida!');
+        },
+        (error) => {
+          console.error('Erro ao enviar e-mail', error);
+          alert('Ocorreu um erro durante a tentativa! Por favor utlize outro meio de contato.');
+        }
+      );
+    }
   }
 
 }

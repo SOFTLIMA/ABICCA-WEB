@@ -2,29 +2,24 @@
     <div class="form-container">
         <h2>Para ser um associado:</h2>
         <p>Preencha os campos abaixo e entraremos em contato com mais informações:</p>
-        <form action="https://formsubmit.co/3fd0b4c4fc88090b3d0176cf28e9c640" method="POST">
-            <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required>
-            </div>
-            <div class="form-group">
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="telefone">Telefone:</label>
-                <input type="tel" id="telefone" name="telefone" required>
-            </div>
-            <div class="form-group">
-                <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Enviar</button>
-
-            <input type="hidden" name="_subject" value="Deseja associar-se a ABICCA">
-            <input type="text" name="_honey" style="display: none;">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" [value]="nextUrl" />
+        <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" formControlName="nome" required>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" formControlName="email" required>
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" formControlName="telefone" required>
+          </div>
+          <div class="form-group">
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" formControlName="mensagem" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn" [disabled]="!contatoForm.valid">Enviar</button>
         </form>
     </div>
 
