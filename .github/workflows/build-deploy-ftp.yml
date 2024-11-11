@@ -19,7 +19,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16'  # Versão do Node.js a ser usada (ajuste conforme necessário)
+        node-version: '18.19.0'  # Definindo a versão do Node.js para v18.19 ou superior
 
     - name: Install dependencies
       run: npm install  # Instala as dependências do projeto
@@ -30,8 +30,7 @@ jobs:
     - name: FTP Deploy Locaweb
       uses: locaweb/ftp-deploy@1.0.0
       with:
-        host: ${{ secrets.HOST }} 
+        host: ${{ secrets.HOST }}
         user: ${{ secrets.USER }}
         password: ${{ secrets.PASS }}
         localDir: "dist"  # Diretório onde o build é gerado pelo Angular (geralmente dist/)
-
