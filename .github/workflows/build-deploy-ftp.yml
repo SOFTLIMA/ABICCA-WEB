@@ -27,17 +27,17 @@ jobs:
     - name: Build Angular project
       run: npm run build --if-present  # Executa o build do Angular
 
-    - name: Test FTP Connection (Debug)
+     - name: Test FTP Connection (Debug)
       run: |
         echo "Testing FTP Connection..."
         echo "FTP connection test" > test.txt  # Cria o arquivo de teste
-        curl --ftp-create-dirs -u ${{ secrets.USER }}:${{ secrets.PASS }} ftp://${{ secrets.HOST }}/test.txt -T test.txt || echo "FTP connection failed"
+        curl --ftp-create-dirs -u ${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }} "ftp://${{ secrets.FTP_HOST }}/test.txt" -T test.txt || echo "FTP connection failed"
         rm test.txt  # Remove o arquivo de teste após a verificação
 
     - name: FTP Deploy Locaweb
       uses: locaweb/ftp-deploy@1.0.0
       with:
-        host: ${{ secrets.HOST }}
-        user: ${{ secrets.USER }}
-        password: ${{ secrets.PASS }}
-        localDir: "docs/browser"  # Ajustado para o localDir correto
+        host: ${{ secrets.FTP_HOST }}
+        user: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        localDir: "dist/browser"
