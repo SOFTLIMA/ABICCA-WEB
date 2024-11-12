@@ -5,9 +5,10 @@ import { DeleteItemCommand, DynamoDBClient, GetItemCommand, ListTablesCommand, P
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 import { CampoPainel } from '../Model/PainelADM';
-import { awsConfig, awsTables } from '../app/app.config';
+import { awsConfig} from '../app/app.config';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment, awsTables } from '../environments/environment';
 
 
 @Injectable({
@@ -71,7 +72,7 @@ export class DynamoDBService {
   }
 
   readAllItens(): Observable<CampoPainel[]>{
-    return this.http.get<CampoPainel[]>(awsConfig.urlApiTabelaNoticia);
+    return this.http.get<CampoPainel[]>(environment.lambidaDDBUrl);
   }
 
   // Método para criar um item no DynamoDB

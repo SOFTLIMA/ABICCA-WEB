@@ -12,7 +12,6 @@ export const appConfig: ApplicationConfig = {
 
 
 export const awsConfig = {
-  urlApiTabelaNoticia: "https://kjftm4pvdljyd2kglcnutfiqjy0cnopl.lambda-url.us-east-2.on.aws/",
   CognitoId: "cognito-idp.us-east-2.amazonaws.com/us-east-2_8KkHocSfT",
   userCognito: {
     region: 'us-east-2',
@@ -21,12 +20,4 @@ export const awsConfig = {
   }
 };
 
-export const awsTables = {
-  camposTabela: {
-    id: 'id',
-  },
-  tabelas: {
-    noticias: "NOTICIAS",
-  },
 
-};
