@@ -1,23 +1,23 @@
-<div class="container">
+<div class="container" *ngIf="DATA[0]?.link_Imgs">
     <div class="cabecalho">
         <h1>Última Notícia</h1>
     </div>
 
     <div class="cartao">
-        <img src="Galeria/Noticias/Noticia1.jpg" alt="">
+        <img [src]="'Galeria/Noticias/' + DATA[0].link_Imgs[0]!" alt="">
 
         <div class="conteudo">
             <a href="#" class="titulo">
-                <h4>A ABICCA e a ABNT formalizam assinatura de acordo de cooperação.</h4>
+                <h4>{{DATA[0].titulo}}</h4>
             </a>
             <div class="data">
                 <i class="bi bi-clock-history me-2"></i>
-                <span>23/10/2024</span>
+                <span>{{DATA[0].data}}</span>
             </div>
-            <p class="descricao">{{descricao.substring(0,400) + '...'}}</p>
+            <p class="descricao">{{DATA[0].descricao.substring(0,400) + '...'}}</p>
 
             <div class="botao-container">
-                <button class="botao">Saiba mais.</button>
+                <button class="botao">Saiba mais</button>
             </div>
         </div>
     </div>

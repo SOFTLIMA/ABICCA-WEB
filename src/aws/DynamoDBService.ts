@@ -17,9 +17,7 @@ export class DynamoDBService {
   private dynamoDB: DynamoDBClient = new DynamoDBClient;
   private config = awsConfig;
 
-  constructor(private auth : AuthService, private http : HttpClient) {
-    this.initializeDynamoDBClient();
-  }
+  constructor(private auth : AuthService, private http : HttpClient) {}
 
   async initializeDynamoDBClient() {
     const tokens = await this.auth.getCurrentSession();
