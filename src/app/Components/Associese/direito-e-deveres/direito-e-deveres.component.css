@@ -53,13 +53,22 @@ article ul li {
     }
 
     header h1 {
-        font-size: 8vh;
+        font-size: 8vw;
+        line-height:1;
+        text-align: center;
     }
 
     article ul li {
-        font-size: 4vh;
+        font-size: 3vw;
+        line-height:1;
     }
-}
+
+    article h5{
+        font-size:5vw;
+        line-height:1;
+    }
+
+  }
 
 @media (max-width: 480px){
     .container{
@@ -67,11 +76,15 @@ article ul li {
     }
 
     header h1{
-        font-size: 7vh;
+        font-size: 7vw;
+    }
+
+    article h5{
+        font-size:5vw;
     }
 
     article ul li{
-        font-size: 3vh;
+        font-size: 3vw;
     }
 
 }
