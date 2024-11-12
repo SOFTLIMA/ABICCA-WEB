@@ -7,7 +7,7 @@
     <div class="grid-container">
         <div *ngFor="let item of paginatedData; let i=index" class="noticia">
           <div class="img">
-              <a (click)="onClick(item)"><img [src]="item.link_Imgs[0]" [alt]="'Notícia'+ (i+1)" ></a>
+              <a (click)="onClick(item)"><img [src]="'Galeria/Noticias/' + item.link_Imgs[0]" [alt]="'Notícia'+ (i+1)" ></a>
           </div>
           <div class="texto">
               <h3><a (click)="onClick(item)">{{item.titulo}}</a></h3>
