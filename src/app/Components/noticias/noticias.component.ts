@@ -50,6 +50,8 @@ async ngOnInit(): Promise<void> {
     }
   });
 }
+
+
 showItens(): boolean{
   if (this.DATA.length > 0) {
     return true;
