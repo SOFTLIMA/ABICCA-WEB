@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main  # Ou a branch que você deseja monitorar para o deploy
-  pull_request:
-    branches:
-      - main  # Ou a branch para a qual você deseja enviar PRs
 
 jobs:
   build_and_deploy:
