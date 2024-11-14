@@ -50,3 +50,41 @@ h1, h2, h3, h4, h5, h6 {
 .popup-noticia .mat-mdc-dialog-container {
   --mdc-dialog-container-shape: 5px;
 }
+
+@media only screen and (min-width: 768px) and (max-width: 1280px){
+  .popup-noticia .mat-mdc-dialog-container{
+    min-width: unset;
+    max-width: 90vw;
+    max-height: 90vw;
+    width: 90vw;
+    height: auto;
+    margin:auto;
+  }
+}
+
+@media only screen and (min-width:480px) and (max-width:768px){
+  .popup-noticia .mat-mdc-dialog-container{
+    min-width: unset;
+    max-width: 90vw;
+    max-height: 90vw;
+    width: 90vw;
+    height: 90vh;
+    margin:auto;
+  }
+}
+
+@media only screen and (max-width: 480px){
+  .popup-noticia .mat-mdc-dialog-container{
+    min-width: unset;
+    max-width: 90vw;
+    max-height: 90vw;
+    width: 90vw;
+    height: 90vh;
+    margin: auto;
+  }
+}
+
+
+
+
+
