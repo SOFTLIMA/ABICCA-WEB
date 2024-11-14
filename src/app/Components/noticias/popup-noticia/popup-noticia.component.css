@@ -91,3 +91,122 @@
   max-width: 100%;
   height: auto; /* Ajusta a altura da imagem proporcionalmente */
 }
+
+@media only screen and (min-width:768px) and (max-width: 1280px){
+  .container {
+    height: 100vh; 
+  }
+
+  .direita .titulo {
+    font-size: 4vw;
+    line-height: 1.2;
+    margin-block-end: 15px;
+  }
+
+  .direita .data {
+    font-size: 2vw;
+  }
+
+  .direita .descricao {
+    font-size: 3vw;
+    line-height: 1.2; 
+    letter-spacing: -0.9px; 
+  } 
+
+  .direita {
+    height:100%; 
+  }
+
+  .esquerda {
+    height: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .esquerda img {
+    width: 80vw; 
+    height: auto;
+    margin: auto;
+    align-items: center;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 768px) {
+  .container{
+    height: 100%;
+  }
+  .direita .titulo{
+    font-size:4vw;
+    line-height: 1;
+    margin-block-end: 10px;
+  }
+
+  .direita .data{
+    font-size: 3vw;
+  }
+
+  .direita .descricao{
+    font-size: 3vw;
+    height: 40vw;
+    line-height: 0.9;
+    letter-spacing: -0.1px;
+  }
+  .esquerda{
+     width:45%;
+     height : 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+  }
+
+  .direita{
+     height : 100%;
+  }
+
+  .esquerda img{
+     height: auto;
+     max-width:100%;
+     align-items: center;
+    }
+}
+
+@media only screen and (max-width: 480px){
+  .container {
+    height: 80vw; /* Ajusta a altura automaticamente para se adequar ao conteúdo */
+    margin-block-end: 5px;
+  }
+
+  .direita .titulo {
+    font-size: 5vw;
+    line-height: 1.2;
+    margin-block-end: 5px;
+  }
+
+  .direita .data {
+    font-size: 4vw;
+  }
+
+  .direita .descricao {
+    font-size: 4vw; /* Ajusta o tamanho da fonte para a tela pequena */
+    line-height: 1.2; /* Aumenta o espaçamento entre linhas para melhorar a legibilidade */
+    letter-spacing: -0.9px; /* Ajuste no espaçamento das letras */
+  }
+
+  .esquerda {
+    height: auto; /* Ajusta a altura automaticamente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .direita {
+    height: 90vw; /* Ajusta a altura automaticamente */
+  }
+
+  .esquerda img {
+    width: 80vw; /* Reduz a largura da imagem para caber melhor na tela */
+    height: auto; /* Ajusta a altura proporcionalmente */
+    align-items: center;
+  }
+}
