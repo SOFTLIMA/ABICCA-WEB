@@ -18,6 +18,10 @@
   max-height: 100%;
 }
 
+.esquerda img{
+  margin-left: 50px;
+}
+
 .direita {
   display: flex;
   flex-direction: column;
