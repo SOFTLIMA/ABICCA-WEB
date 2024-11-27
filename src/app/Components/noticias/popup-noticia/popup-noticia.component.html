@@ -8,7 +8,7 @@
           <i class="bi bi-clock-history"></i>
           <span class="data-text">{{item.data}}</span>
       </div>
-      <div class="descricao" #descricaoRef>{{item.descricao}}</div>
+      <div class="descricao" #descricaoRef [innerHTML]="item.descricao"></div>
       <div class="scroll-indicator" *ngIf="isScrollable">&#x2193;</div>
     </div>
 </div>
