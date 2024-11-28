@@ -19,7 +19,7 @@
 }
 
 .esquerda img{
-  margin-left: 50px;
+  margin-left:3vw;
 }
 
 .direita {
@@ -133,6 +133,7 @@
     height: auto;
     margin: auto;
     align-items: center;
+    margin-left: 3vw;
   }
 }
 
@@ -156,6 +157,7 @@
     line-height: 0.9;
     letter-spacing: -0.1px;
   }
+
   .esquerda{
      width:45%;
      height : 100%;
@@ -164,20 +166,21 @@
      align-items: center;
   }
 
+  .esquerda img{
+    height: auto;
+    max-width:100%;
+    align-items: center;
+    margin-left:3vw;
+   }
+
   .direita{
      height : 100%;
   }
-
-  .esquerda img{
-     height: auto;
-     max-width:100%;
-     align-items: center;
-    }
 }
 
 @media only screen and (max-width: 480px){
   .container {
-    height: 80vw; /* Ajusta a altura automaticamente para se adequar ao conteúdo */
+    height: 90vw; /* Ajusta a altura automaticamente para se adequar ao conteúdo */
     margin-block-end: 5px;
   }
 
@@ -195,6 +198,11 @@
     font-size: 4vw; /* Ajusta o tamanho da fonte para a tela pequena */
     line-height: 1.2; /* Aumenta o espaçamento entre linhas para melhorar a legibilidade */
     letter-spacing: -0.9px; /* Ajuste no espaçamento das letras */
+    height: 80vw;
+  }
+
+  .direita {
+    height: 90vw; /* Ajusta a altura automaticamente */
   }
 
   .esquerda {
@@ -204,13 +212,12 @@
     align-items: center;
   }
 
-  .direita {
-    height: 90vw; /* Ajusta a altura automaticamente */
-  }
-
   .esquerda img {
     width: 80vw; /* Reduz a largura da imagem para caber melhor na tela */
     height: auto; /* Ajusta a altura proporcionalmente */
     align-items: center;
+    margin-left:3vw;
+
   }
+
 }
