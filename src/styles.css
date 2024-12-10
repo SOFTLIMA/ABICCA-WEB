@@ -29,10 +29,21 @@
   --tamanhoBalancinhoTablet: 182px;
   --tamanhoBalancinhoReescalavel: 5240px;
 
+  --widthCorpo: 1800px;
+
   --pattern1: url('../public/assets/Patern_Prancheta1.png');
 
   --image-sobre: url('../public/Galeria/Compromisso_SEM_LOGO.jpg');
   --image-sobre-celular: url('../public/Galeria/Compromisso_SEM_LOGO_Celular.jpg');
+}
+
+html{
+  background-image: var(--pattern1);
+  /* background-size: cover; */
+  background-repeat: repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-color: var(--terciaria);
 }
 
 html, body {
