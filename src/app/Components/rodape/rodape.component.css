@@ -237,6 +237,12 @@
   .line-footer1 form input[type=email]{
     font-size: 4vw;
   }
-
-
 }
+
+@media only screen and (min-width:1800px){
+  .footer{
+    max-width: var(--widthCorpo);
+    margin: auto;
+  }
+}
+
