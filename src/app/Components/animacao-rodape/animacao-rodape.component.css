@@ -120,14 +120,10 @@ img {
   }
 
   @media only screen and (max-width: 1280px) {
-    .ponterolante {
-      width: 95%; /* Reduz a largura em telas menores */
-    }
-  
     img {
       animation: moverBalancinho2 10s linear infinite; /* Ajusta animação */
     }
-  
+
     @keyframes moverBalancinho2 {
       0% {
         left: 0px;
@@ -143,9 +139,9 @@ img {
 
 }
 
-@media only screen and (min-width:1800px){
+@media only screen and (min-width:1920px){
   .ponterolante{
-    max-width: 1800px;
+    max-width: var(--widthCorpo)
   }
 }
 
