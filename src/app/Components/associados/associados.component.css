@@ -6,7 +6,6 @@
   row-gap: 20px;
   flex-direction: column;
   box-sizing: border-box;
-  /* background-color: #00ced1; */
 }
 
 .imagem {
@@ -14,8 +13,6 @@
   flex-direction: column;
   align-self: center;
   width: 100%;
-
-  /* background-color: var(--neutra); */
 }
 
 .imagem h1{
@@ -26,16 +23,6 @@
   width: 300px;
   padding: 0;
   margin: 0 auto 10px;
-
-  /* background-image: var(--fontDegrade1);
-  background-size: 100%;
-  background-repeat: repeat;
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  -moz-text-fill-color: transparent; */
-
   border-bottom: 2px solid var(--neutra);
 
 }
@@ -47,12 +34,12 @@
   justify-content: center;
   box-sizing: border-box;
 }
-
+ 
 .imagem_ord img{
   background-color: var(--neutra);
   padding: 5px;
   border-radius: 10px;
-  width: 247px;
+  width: calc(100% / 7);
 }
 
 .texto {
@@ -66,15 +53,6 @@
   line-height: 1.5;
   letter-spacing: normal;
   color: var(--neutra);
-
-  /* background-image: var(--fontDegrade1);
-  background-size: 100%;
-  background-repeat: repeat;
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  -moz-text-fill-color: transparent; */
 }
 
 .texto p {
@@ -87,18 +65,7 @@
   margin-left: auto;
   margin-right: auto;
   color: var(--neutra);
-
-  /* background-image: var(--fontDegrade1);
-  background-size: 100%;
-  background-repeat: repeat;
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  -moz-text-fill-color: transparent; */
 }
-
-
 
 .bttn-SM {
   display: flex;
@@ -120,11 +87,6 @@
     -webkit-text-fill-color: white;
     background-color: #027274;
 }
-
-/* .texto .descricao::first-letter {
-    font-size: 2rem;
-} */
-
 
 .bttn-SM:hover {
     background-color: var(--terciaria);
@@ -174,7 +136,7 @@
   }
 
   .imagem_ord img{
-    width: calc(100% / 6);
+    width: calc(100% / 7);
   }
 
   .bttn-SM {
@@ -232,7 +194,7 @@
     flex-direction: row;
   }
   .imagem_ord img{
-    width: calc(100% / 6);
+    width: calc(100% / 7);
   }
 
   .bttn-SM {
@@ -290,7 +252,7 @@
     flex-direction: row;
   }
   .imagem_ord img{
-    width: calc(100% / 6);
+    width: calc(100% / 7);
   }
 
   .bttn-SM {
