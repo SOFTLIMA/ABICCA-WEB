@@ -167,3 +167,39 @@
 }
 
 
+/* @media only screen and  (min-width: 2000px) and (max-width: 4000px){
+
+  .container {
+    background-size: cover;
+    background-position: center;
+    height: fit-content;
+    height: auto;
+    width:40vw;
+  }
+
+  .containerTextos {
+    align-items: center;
+    justify-content: center;
+    height: 50vw;
+  }
+
+  .titulo {
+    font: 400 1em "Barlow", sans-serif;
+    margin: 0;
+    padding: 0;
+    text-shadow: 1px 1px var(--primaria);
+    font-weight: bold;
+  }
+
+  .texto {
+    font-size: 0.5em;
+    text-shadow: 1px 1px var(--neutra);
+  }
+
+  .button {
+    padding: 0px 5px;
+    text-align: center;
+    font-size: 0.5em;
+  }
+
+} */
