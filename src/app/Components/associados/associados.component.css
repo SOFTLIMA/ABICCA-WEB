@@ -33,13 +33,13 @@
   justify-content: center;
   box-sizing: border-box;
 }
-
+ 
 .imagem_ord img{
   background-color: var(--neutra);
   padding: 5px;
   border-radius: 10px;
   width: 247px;
-  width: calc(100% / 7)
+  width: calc(100% / 7);
 }
 
 .texto {
@@ -248,7 +248,7 @@
     flex-direction: row;
   }
   .imagem_ord img{
-    width: calc(100% / 6);
+    width: calc(100% / 7);
   }
 
   .bttn-SM {
