@@ -246,6 +246,7 @@
   .container {
     height: fit-content;
     row-gap: 5px;
+    margin: 10px 0 10px 0;
   }
 
   .imagem {
@@ -286,7 +287,8 @@
 
   .bttn-SM {
     padding: 0;
-    border-radius: 15px;
+    border-radius: 10px;
+    margin: 0 0 10px 0;
   }
 
   .bttn-SM .texto2{
