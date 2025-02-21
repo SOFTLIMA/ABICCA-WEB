@@ -40,7 +40,7 @@ async ngOnInit(): Promise<void> {
       return dateB.getTime() - dateA.getTime(); // Para crescente (mais antiga para mais recente)
     });
       if (this.DATA.length > 0) {
-        let paginas : number = Math.ceil(this.DATA.length/4);
+        let paginas : number = Math.ceil(this.DATA.length/6);
         for (let i = 0; i <= paginas; i++) {
           if (i > 1) {
             this.listPagnation.push({pag: i});

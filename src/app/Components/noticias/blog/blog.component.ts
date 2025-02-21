@@ -23,7 +23,7 @@ export class BlogComponent implements OnInit{
   @Input() listPagnation : pagination[] = [];
 
   paginatedData: CampoPainel[] = [];
-  pageSize: number = 4; // Itens por página
+  pageSize: number = 6; // Itens por página
   currentPage: number = 0; // Página atual
 
   constructor(public dialog: MatDialog){}
