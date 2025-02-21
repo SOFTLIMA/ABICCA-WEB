@@ -15,7 +15,7 @@
               <span>{{item.data}}</span>
             </div>
             <h3><a (click)="onClick(item)">{{item.titulo}}</a></h3>
-            <p>{{item.descricao.substring(0,100) + '...'}}</p>
+            <p>{{(item.descricao + '').substring(0,100) + '...'}}</p>
             <div class="btn">
               <a (click)="onClick(item)" class="btn-leia-mais">
                 Leia mais
