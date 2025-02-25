@@ -1,26 +1,25 @@
 <div class="container" *ngIf="DATA[0]?.link_Imgs">
-    <div class="cabecalho">
-        <h1>Última Notícia</h1>
+  <div class="cabecalho">
+    <h1>Última Notícia</h1>
+  </div>
+
+  <div class="cartao">
+    <div class="imagem">
+      <img [src]="'Galeria/Noticias/' + DATA[0].link_Imgs[0]!" alt="">
     </div>
+    <div class="conteudo">
+      <a href="#" class="titulo">
+        <h4>{{DATA[0].titulo}}</h4>
+      </a>
+      <div class="data">
+        <i class="bi bi-clock-history me-2"></i>
+        <span>{{DATA[0].data}}</span>
+      </div>
+      <p class="descricao">{{DATA[0].descricao.substring(0,400) + '...'}}</p>
 
-    <div class="cartao">
-        <div class="imagem">
-          <img [src]="'Galeria/Noticias/' + DATA[0].link_Imgs[0]!" alt="">
-        </div>
-
-        <div class="conteudo">
-            <a href="#" class="titulo">
-                <h4>{{DATA[0].titulo}}</h4>
-            </a>
-            <div class="data">
-                <i class="bi bi-clock-history me-2"></i>
-                <span>{{DATA[0].data}}</span>
-            </div>
-            <p class="descricao">{{DATA[0].descricao.substring(0,400) + '...'}}</p>
-
-            <div class="botao-container">
-                <button class="botao">Saiba mais</button>
-            </div>
-        </div>
+      <!-- <div class="botao-container">
+        <button class="botao">Saiba mais</button>
+      </div> -->
     </div>
+  </div>
 </div>
