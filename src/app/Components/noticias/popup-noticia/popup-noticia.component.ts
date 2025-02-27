@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, inject, Inject, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-popup-noticia',
@@ -12,6 +13,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 
 export class PopupNoticiaComponent implements AfterViewInit{
+
+  private router = inject(Router);
 
   data : any;
   descricaoProcessada : any;
@@ -32,6 +35,7 @@ export class PopupNoticiaComponent implements AfterViewInit{
   }
 
   ngAfterViewInit() {
+    document.body.classList.add('no-scroll'); // Bloqueia a rolagem da página ao abrir
     const element = this.descricaoRef.nativeElement;
     this.isScrollable = element.scrollHeight > element.clientHeight;
 
@@ -56,6 +60,11 @@ export class PopupNoticiaComponent implements AfterViewInit{
     return text.replace(urlRegex, (url) => {
       return `<a href="${url}" target="_blank">${url.substring(0,50)+'...'}</a>`;
     });
+  }
+
+  ngOnDestroy() {
+    document.body.classList.remove('no-scroll'); // Restaura a rolagem ao fechar
+    this.router.navigate(['/noticias'])
   }
 
 }

@@ -13,6 +13,7 @@ export const routes: Routes = [
   {path: 'sobrenos', component: HomeComponent, title: 'sobrenos'},
   {path: 'associese', component: AssocieSeComponent, title: 'associe-se'},
   {path: 'contato', component: ContatoComponent, title: 'contato'},
+  {path: 'noticias/:id', component: NoticiasComponent, title:'noticias'},
   {path: 'noticias', component: NoticiasComponent, title:'noticias'},
   {path: 'sobre-nos', component: SobreNosComponent, title:'sobre-nos'},
 
