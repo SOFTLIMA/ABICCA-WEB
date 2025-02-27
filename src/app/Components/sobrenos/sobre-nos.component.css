@@ -22,7 +22,8 @@
     padding: 40px;
     background-color: #ffffff;
     text-align: center;
-    margin: 0px auto;
+    margin: auto 15vw;
+
 }
 
 h1 {
@@ -33,12 +34,12 @@ h1 {
     text-transform: uppercase;
 }
 
-.about-section p {
-  text-align: justify;
+.about-section {
+    text-align: justify;
     font-size: 1.2rem;
     line-height: 1.7;
     color: #666;
-    margin-bottom: 40px;
+    margin: auto 40px 50px;
 }
 
 .cta-section {
@@ -68,6 +69,7 @@ h1 {
     justify-content: space-between;
     gap: 40px;
     flex-wrap: wrap;
+    margin: auto 50px;
 }
 
 .valores_missao {
@@ -131,7 +133,7 @@ h1 {
     color: var(--secundaria);
     margin-bottom: 20px; /* Ajuste da margem inferior do título */
     text-align: center;
-    margin-top: -20px;
+    margin-top: 20px;
 }
 
 
@@ -156,21 +158,6 @@ h1 {
     color: #555;  /* Texto em cinza escuro para boa leitura */
     line-height: 1.6;
 }
-
-
-/* Responsividade */
-@media (max-width: 900px) {
-    .valores_missao {
-        flex-direction: column;  
-        align-items: center;    
-        gap: 20px;         
-    }
-
-    .titulo-container {
-        flex: 1 1 100%;  
-    }
-}
-
 
 .titulo h4{
     margin: 0px 15px;
@@ -234,7 +221,6 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Título dos compromissos */
 .compromisso-item {
     margin-bottom: 25px;
 }
@@ -265,6 +251,47 @@ h1 {
 .compromissos-item:hover {
     background-color: #e0e0e0;
 }
+
+.container2 {
+    box-sizing: border-box;
+    display: flex;
+    background-color: var(--quarta);
+    flex-direction: column;
+    max-width: 1500px;
+    margin: 50px auto;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 1px solid none;
+    border-radius: 15px;
+  }
+  
+  header h1{
+      font-size: 40px;
+      margin: 0;
+      padding: 20px 0;
+      font-weight: bold;
+      color: var(--primaria)  ;
+      margin-bottom: 20px;
+  }
+  
+  
+  article ul {
+      list-style-type: none;
+      padding-left: 0;
+  }
+  
+  article ul h5 {
+    color: var(--primaria);
+  }
+  
+  article ul li {
+      font-size: 18px;
+      color: black ;
+      margin-bottom: 15px;
+  }
+
+
 
 .button {
     display: inline-block;
@@ -300,9 +327,18 @@ h1 {
         gap: 30px; /* Ajusta o espaçamento entre os itens */
     }
 
+    .container h2{
+        margin-top: 30px;
+    }
+    
+    .titulo-container {
+        flex: 1 1 100%;  
+    }
+
     .valores_missao {
         flex-direction: column;  /* Empilha os elementos de valores e missão */
         font-size: 1rem;  /* Ajusta a fonte para um tamanho mais apropriado */
+        gap: 20px; 
     }
 
     .values-section,
@@ -319,6 +355,29 @@ h1 {
     .compromissos-item {
         font-size: 1.2rem;  /* Ajusta o tamanho da fonte para os itens de compromissos */
     }
+
+    /*conheça nossos valores*/
+    .container2 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 8vw;
+        line-height:1;
+        text-align: center;
+    }
+
+    article ul li {
+        font-size: 3vw;
+        line-height:1;
+    }
+
+    article h5{
+        font-size:5vw;
+        line-height:1;
+    }
+
 }
 
 /* Responsividade para dispositivos móveis */
@@ -337,8 +396,34 @@ h1 {
         font-size: 2rem;  /* Ajusta o tamanho do título */
     }
 
+    .container h2{
+        margin-top: 10px;
+    }
+
+
     .compromissos-item {
         font-size: 1.1rem;  /* Ajusta o tamanho da fonte para os compromissos */
     }
+
+
+     /*conheça nossos valores*/
+     
+
+    .container2{
+        height: auto;
+    }
+
+    header h1{
+        font-size: 7vw;
+    }
+
+    article h5{
+        font-size:5vw;
+    }
+
+    article ul li{
+        font-size: 3vw;
+    }
+
 
 }
