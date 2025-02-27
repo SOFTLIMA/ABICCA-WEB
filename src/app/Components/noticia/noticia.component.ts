@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { CampoPainel } from '../../../Model/PainelADM';
 import { DynamoDBService } from '../../../aws/DynamoDBService';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-noticia',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './noticia.component.html',
   styleUrl: './noticia.component.css'
 })
@@ -48,5 +49,5 @@ export class NoticiaComponent {
       return new Date(year, month, day);
     }
     return new Date(); // Retorna uma data padrão se o formato estiver errado
-  }  
+  }
 }

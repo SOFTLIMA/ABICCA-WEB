@@ -1,9 +1,10 @@
+import { CampoPainel } from './../../../../Model/PainelADM';
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { CampoPainel } from '../../../../Model/PainelADM';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupNoticiaComponent } from '../popup-noticia/popup-noticia.component';
+import { ActivatedRoute } from '@angular/router';
 
 interface pagination {
   pag: number;
@@ -26,11 +27,23 @@ export class BlogComponent implements OnInit{
   pageSize: number = 6; // Itens por página
   currentPage: number = 0; // Página atual
 
-  constructor(public dialog: MatDialog){}
+  constructor(public dialog: MatDialog,
+    private route: ActivatedRoute){}
 
 
   ngOnInit(): void {
     this.updatePaginatedData();
+
+    // Capturar o ID da notícia da URL e abrir o popup
+    this.route.paramMap.subscribe(params => {
+      const noticiaId = params.get('id');
+      if (noticiaId) {
+        const noticiaSelecionada = this.DATA.find(n => n.id === noticiaId);
+        if (noticiaSelecionada) {
+          this.onClick(noticiaSelecionada);
+        }
+      }
+    });
   }
 
 
