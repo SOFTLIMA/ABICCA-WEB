@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, inject, Inject, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-popup-noticia',
@@ -12,23 +14,28 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 export class PopupNoticiaComponent implements AfterViewInit{
 
+  private router = inject(Router);
+
   data : any;
+  descricaoProcessada : any;
 
   @ViewChild('descricaoRef', { static: false }) descricaoRef!: ElementRef;
   isScrollable: boolean = false;
 
   constructor(private changeDetectorRef: ChangeDetectorRef,
     public dialogRef: MatDialogRef<PopupNoticiaComponent>,
-    @Inject(MAT_DIALOG_DATA) public item: any // Recebe os dados do item
+    @Inject(MAT_DIALOG_DATA) public item: any, // Recebe os dados do item
+    private sanitizer: DomSanitizer
   ) {
     if (item) {
       this.data = item;
-      // this.data.descricao = item.descricao.replace(/\n\n/g, "<br>")
+      this.descricaoProcessada = this.sanitizer.bypassSecurityTrustHtml(this.convertLinks(this.data.descricao));
 
     }
   }
 
   ngAfterViewInit() {
+    document.body.classList.add('no-scroll'); // Bloqueia a rolagem da página ao abrir
     const element = this.descricaoRef.nativeElement;
     this.isScrollable = element.scrollHeight > element.clientHeight;
 
@@ -39,6 +46,25 @@ export class PopupNoticiaComponent implements AfterViewInit{
 
     // Notifica o Angular sobre a mudança
     this.changeDetectorRef.detectChanges();
+
+  }
+
+  // Função para converter as URLs em links clicáveis
+  convertLinks(text: string): string {
+    if (!text) return text;
+
+    // Expressão regular para encontrar URLs
+    const urlRegex = /https?:\/\/[^\s]+/g;
+
+    // Substituir URLs por tags <a>
+    return text.replace(urlRegex, (url) => {
+      return `<a href="${url}" target="_blank">${url.substring(0,50)+'...'}</a>`;
+    });
+  }
+
+  ngOnDestroy() {
+    document.body.classList.remove('no-scroll'); // Restaura a rolagem ao fechar
+    this.router.navigate(['/noticias'])
   }
 
 }

@@ -61,6 +61,13 @@
     min-width: 200px; /* Largura mínima para evitar que os boxes fiquem pequenos demais */
 }
 
+.telefone-contato a{
+  text-decoration: none;
+}
+.telefone-contato p{
+
+}
+
 .line-footer1 form input[type=email] {
     width: 300px;
     max-width: 100%;

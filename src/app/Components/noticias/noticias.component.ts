@@ -3,6 +3,8 @@ import { BlogComponent } from "./blog/blog.component";
 import { CampoPainel } from '../../../Model/PainelADM';
 import { DynamoDBService } from '../../../aws/DynamoDBService';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 interface pagination {
   pag: number;
@@ -21,35 +23,30 @@ listPagnation : pagination[] = [];
 constructor( private ddb : DynamoDBService){}
 
 
-async ngOnInit(): Promise<void> {
-  await this.ddb.readAllItens().subscribe(result => {
-    if (result) {
-      result.forEach(item => {
-        this.DATA.push({
+  async ngOnInit(): Promise<void> {
+    await this.ddb.readAllItens().subscribe(result => {
+      if (result) {
+        this.DATA = result.map(item => ({
           id: item['id'],
           titulo: item['titulo'],
           data: item['data'],
           descricao: item['descricao'],
           link_Imgs: item['link_Imgs'],
-        });
-      });
-    // Ordenar a lista DATA pelo campo 'data' no formato DD/MM/YYYY
-    this.DATA.sort((a: CampoPainel, b: CampoPainel) => {
-      const dateA = this.convertToDate(a.data);
-      const dateB = this.convertToDate(b.data);
-      return dateB.getTime() - dateA.getTime(); // Para crescente (mais antiga para mais recente)
-    });
-      if (this.DATA.length > 0) {
-        let paginas : number = Math.ceil(this.DATA.length/4);
-        for (let i = 0; i <= paginas; i++) {
-          if (i > 1) {
-            this.listPagnation.push({pag: i});
+        }));
+
+        this.DATA.sort((a, b) => this.convertToDate(b.data).getTime() - this.convertToDate(a.data).getTime());
+
+        if (this.DATA.length > 0) {
+          let paginas: number = Math.ceil(this.DATA.length / 6);
+          for (let i = 0; i <= paginas; i++) {
+            if (i > 1) {
+              this.listPagnation.push({ pag: i });
+            }
           }
         }
-      };
-    }
-  });
-}
+      }
+    });
+  }
 
 
 showItens(): boolean{

@@ -10,19 +10,28 @@
               <a (click)="onClick(item)"><img [src]="'Galeria/Noticias/' + item.link_Imgs[0]" [alt]="'Notícia'+ (i+1)" ></a>
           </div>
           <div class="texto">
-              <h3><a (click)="onClick(item)">{{item.titulo}}</a></h3>
-              <p>{{item.descricao.substring(0,100) + '...'}}</p>
-              <div class="data">
-                  <i class="bi bi-clock-history"></i>
-                  <span>{{item.data}}</span>
-              </div>
+            <div class="data">
+              <i class="bi bi-clock-history"></i>
+              <span>{{item.data}}</span>
+            </div>
+            <h3><a (click)="onClick(item)">{{item.titulo}}</a></h3>
+            <p>{{(item.descricao + '').substring(0,100) + '...'}}</p>
+            <div class="btn">
+              <a (click)="onClick(item)" class="btn-leia-mais">
+                Leia mais
+                <svg width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 25.6a11.6 11.6 0 1 1 0-23.2 11.6 11.6 0 0 1 0 23.2ZM14 0a14 14 0 1 0 0 28 14 14 0 0 0 0-28Z" fill="currentColor"></path>
+                  <path d="m18.8 13.8-7.7-5.6a.3.3 0 0 0-.4.2V10c0 .3.2.6.4.8l4.6 3.3-4.6 3.3a1 1 0 0 0-.4.8v1.5c0 .2.3.3.4.2l7.7-5.6c.2-.1.2-.3 0-.4Z" fill="currentColor"></path>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
     </div>
 
     <!-- Campo de Paginação -->
     <div class="pagination">
-      <mat-paginator [length]="DATA.length" [pageSize]="4" [hidePageSize]="true" (page)="onPageChange($event)">
+      <mat-paginator [length]="DATA.length" [pageSize]="6" [hidePageSize]="true" (page)="onPageChange($event)">
       </mat-paginator>
     </div>
 </div>

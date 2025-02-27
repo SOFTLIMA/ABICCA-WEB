@@ -1,3 +1,4 @@
+/* Estilo geral */
 * {
     margin: 0;
     padding: 0;
@@ -17,19 +18,12 @@
 }
 
 .container {
-    width: 100%;
-    max-width: 800px;
+    max-width: 100vw;
     padding: 40px;
     background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
+    margin: auto 15vw;
 
-.container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 h1 {
@@ -40,17 +34,17 @@ h1 {
     text-transform: uppercase;
 }
 
-.about-section p {
-  text-align: justify;
+.about-section {
+    text-align: justify;
     font-size: 1.2rem;
-    line-height: 1.6;
-    color: #555;
-    margin-bottom: 40px;
+    line-height: 1.7;
+    color: #666;
+    margin: auto 40px 50px;
 }
 
 .cta-section {
     background: linear-gradient(90deg, #007bff, #0056b3);
-    color: #fff;
+    color:white;
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 40px;
@@ -60,66 +54,376 @@ h1 {
     font-size: 2rem;
     margin-bottom: 10px;
     font-weight: 600;
+    color: white;
 }
 
 .cta-section p {
     font-size: 1.1rem;
     margin-bottom: 20px;
+    
 }
 
-.values-section {
-    margin-top: 40px;
+/* Organiza as seções de valores e missão lado a lado */
+.valores_missao {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: auto 50px;
 }
 
-.values-section h2 {
+.valores_missao {
+    display: flex;
+    justify-content: space-between; /* Espaço entre os elementos */
+    gap: 40px; /* Espaçamento entre os containers */
+    flex-wrap: wrap; /* Para garantir que em telas menores, eles se alinhem corretamente */
+}
+
+.titulo-container {
+    flex: 1 1 45%;  /* Isso faz os containers ficarem lado a lado e ocuparem 45% da largura cada um */
+    margin: 0; /* Remove qualquer margem extra */
+}
+
+.titulo {
     font-size: 2rem;
-    color: #333;
-    margin-bottom: 20px;
-    font-weight: 600;
+    font-weight: bold;
+    color: #003366;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
-.values-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.values-section li {
+.texto {
     font-size: 1.1rem;
-    color: #555;
-    margin: 10px 0;
-    padding: 5px 0;
-    border-bottom: 1px solid #ddd;
-    transition: color 0.3s;
+    line-height: 1.8;
+    color: #666;
+    text-align: justify;
 }
 
-.values-section li:hover {
-    color: #007bff;
+
+.titulo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 15px;
+    text-align: center;
 }
+
+.texto {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    text-align: justify;
+}
+.compromissos {
+    display: flex; /* Usando flexbox para alinhamento em linha */
+    justify-content: space-between; /* Espaço entre os itens */
+    flex-wrap: wrap; /* Permite que as caixas quebrem em várias linhas, caso necessário */
+    gap: 30px;  /* Espaçamento entre as caixas */
+    background-color: #f7f7f7;  /* Cor de fundo da seção */
+    padding: 40px;
+    margin-top: -40px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ h2{
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--secundaria);
+    margin-bottom: 20px; /* Ajuste da margem inferior do título */
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.compromisso-item {
+    background-color: #ffffff; /* Cor de fundo das caixas */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra sutil para dar elevação */
+    text-align: center;
+    flex: 1 1 calc(33% - 20px); /* Flexbox para garantir que cada caixa ocupe 1/3 do espaço disponível */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.compromisso-item:hover {
+    background-color: #e0f7fa; /* Cor suave de fundo no hover */
+    transform: translateY(-5px);  /* Efeito de elevação no hover */
+}
+
+
+.compromisso-texto {
+    font-size: 1.1rem;
+    color: #555;  /* Texto em cinza escuro para boa leitura */
+    line-height: 1.6;
+}
+
+.titulo h4{
+    margin: 0px 15px;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.valores_missao > .values-section,
+.valores_missao > .missao-section {
+    flex: 1 1 48%;
+}
+
+/* Estilo dos títulos das seções */
+ .titulo-compromissos, .titulo-missao {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #003366; /* Cor principal do site */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.titulo-compromissos {
+    text-align: center;
+}
+
+/* Seção de valores */
+.values-section {
+    background-color: #fff;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.missao-section {
+    background-color: #fff;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.texto {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    display: flex;
+
+}
+
+/* Seção de compromissos */
+.compromissos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    background-color: #fff;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.compromisso-item {
+    margin-bottom: 25px;
+}
+
+.compromisso-titulo {
+    font-size: 1.5rem;
+    color:var(--quarta);
+    margin-bottom: 10px;
+}
+
+.compromisso-texto {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Itens de compromissos lado a lado */
+.compromissos-item {
+    flex: 1 1 18%;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.compromissos-item:hover {
+    background-color: #e0e0e0;
+}
+
+.container2 {
+    box-sizing: border-box;
+    display: flex;
+    background-color: var(--quarta);
+    flex-direction: column;
+    max-width: 1500px;
+    margin: 50px auto;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 1px solid none;
+    border-radius: 15px;
+  }
+  
+  header h1{
+      font-size: 40px;
+      margin: 0;
+      padding: 20px 0;
+      font-weight: bold;
+      color: var(--primaria)  ;
+      margin-bottom: 20px;
+  }
+  
+  
+  article ul {
+      list-style-type: none;
+      padding-left: 0;
+  }
+  
+  article ul h5 {
+    color: var(--primaria);
+  }
+  
+  article ul li {
+      font-size: 18px;
+      color: black ;
+      margin-bottom: 15px;
+  }
+
+
 
 .button {
     display: inline-block;
     padding: 12px 25px;
-    background-color: #28a745;
-    color: #fff;
+    background-color: #28a745;  /* Cor verde */
+    color: white;               /* Texto branco */
     border-radius: 5px;
     text-decoration: none;
     font-size: 1.1rem;
-    transition: background-color 0.3s, transform 0.3s;
     font-weight: 500;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
 }
+
 
 .button:hover {
-    background-color: #218838;
-    transform: translateY(-2px);
+    background-color: #218838;  /* Cor verde escuro no hover */
+    transform: translateY(-2px);  /* Efeito de elevação no hover */
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-    .container {
-        padding: 20px;
+.button:focus {
+    outline: none;  /* Remove o contorno de foco */
+}
+
+.button:active {
+    transform: translateY(0);  /* Remove o efeito de elevação quando pressionado */
+}
+
+
+/* Responsividade */
+@media only screen and (min-width: 768px) and (max-width: 1280px) {
+    .container { 
+        gap: 30px; /* Ajusta o espaçamento entre os itens */
     }
+
+    .container h2{
+        margin-top: 30px;
+    }
+    
+    .titulo-container {
+        flex: 1 1 100%;  
+    }
+
+    .valores_missao {
+        flex-direction: column;  /* Empilha os elementos de valores e missão */
+        font-size: 1rem;  /* Ajusta a fonte para um tamanho mais apropriado */
+        gap: 20px; 
+    }
+
+    .values-section,
+    .missao-section {
+        flex: 1 1 100%;  /* As seções de valores e missão ocupam 100% da largura */
+        margin: 20px 0;  /* Adiciona margem entre as seções */
+    }
+
+    .compromissos {
+        flex-direction: column;  /* Coloca os compromissos em uma coluna */
+        gap: 20px;  /* Espaçamento entre os itens */
+    }
+
+    .compromissos-item {
+        font-size: 1.2rem;  /* Ajusta o tamanho da fonte para os itens de compromissos */
+    }
+
+    /*conheça nossos valores*/
+    .container2 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 8vw;
+        line-height:1;
+        text-align: center;
+    }
+
+    article ul li {
+        font-size: 3vw;
+        line-height:1;
+    }
+
+    article h5{
+        font-size:5vw;
+        line-height:1;
+    }
+
+}
+
+/* Responsividade para dispositivos móveis */
+@media only screen and (min-width: 200px) and (max-width: 768px) {
+    .container {
+        padding: 20px;  /* Reduz o padding da container */
+    }
+
+    .about-section p {
+        font-size: 1rem;  /* Ajusta o tamanho da fonte para telas menores */
+        line-height: 1.6;  /* Ajusta o espaçamento entre linhas */
+    }
+
     .cta-section h2,
     .values-section h2 {
-        font-size: 1.5rem;
+        font-size: 2rem;  /* Ajusta o tamanho do título */
     }
+
+    .container h2{
+        margin-top: 10px;
+    }
+
+
+    .compromissos-item {
+        font-size: 1.1rem;  /* Ajusta o tamanho da fonte para os compromissos */
+    }
+
+
+     /*conheça nossos valores*/
+     
+
+    .container2{
+        height: auto;
+    }
+
+    header h1{
+        font-size: 7vw;
+    }
+
+    article h5{
+        font-size:5vw;
+    }
+
+    article ul li{
+        font-size: 3vw;
+    }
+
+
 }

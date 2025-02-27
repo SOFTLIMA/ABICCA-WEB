@@ -7,7 +7,7 @@
 .container {
     display: flex;
     justify-content: space-between;
-    max-width: 1500px;
+    max-width: 750px;
     margin: 40px auto;
     padding: 20px;
     background-color: var(--neutra);
@@ -17,7 +17,6 @@
 
 .form-container {
     flex: 2;
-    margin-right: 100px;
     color: var(--texto3);
     width: 48%;
 }
