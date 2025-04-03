@@ -1,26 +1,38 @@
-<div class="container">
-    <div class="imagem">
-        <h1>Associados</h1>
-        <div class="imagem_ord">
-            <img src="assets/BRASiLAMARRAS.png"/>
-            <img src="assets/CSL.png" />
-            <img src="assets/lankhorst_euronete_brasil_logo.png" />
-            <img src="assets/VAN_BEEST.png" />
-            <img src="assets/TEIJIN.png" />
-            <img src="Galeria\SR_ABICCA_LOGO-Novo.png"/>
-        </div>
+<section class="associates-section">
+  <div class="container">
+    <div class="section-header" @fadeIn>
+      <h2 class="section-title">Associados</h2>
     </div>
-    <div class="texto">
-        <h3>Por que se associar à ABICCA?</h3>
-        <p class="descricao">
-          <li>Associados participam ativamente das decisões estratégicas e integram comissões temáticas.</li>
-          <li>Tenha acesso a informações relevantes sobre o mercado.</li>
-          <li>Apoio da Abicca em ações de defesa contra concorrência desleal e importações prejudiciais.</li>
-          <li>Tenha representatividade junto a órgãos governamentais.</li>
-        </p>
 
-        <button class="bttn-SM" mat-button routerLink="/associese">
-          <span><p class="texto2">SAIBA MAIS</p></span>
-        </button>
+    <div class="partners-grid">
+      <div class="partner-card" *ngFor="let partner of partners" @fadeIn matRipple>
+        <div class="partner-logo-container">
+          <img [src]="partner.image" [alt]="partner.name" class="partner-logo"/>
+        </div>
+      </div>
     </div>
-</div>
+
+    <div class="benefits-container" @fadeIn>
+      <h3 class="benefits-title">Por que se associar à ABICCA?</h3>
+
+      <ul class="benefits-list">
+        <li class="benefit-item" *ngFor="let benefit of benefits" @fadeIn>
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span>{{ benefit }}</span>
+        </li>
+      </ul>
+
+      <button class="cta-button" mat-button routerLink="/associese">
+        SAIBA MAIS
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
