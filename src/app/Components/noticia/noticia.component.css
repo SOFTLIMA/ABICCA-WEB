@@ -1,17 +1,26 @@
 /* Estilo para o container principal */
 .container {
-    height: fit-content;
-    max-width: auto; /* Aumenta a largura do contêiner */
-    padding: 20px 20px 30px; /* Ajusta o preenchimento */
-    border-top: 2px solid var(--quarta);
+  background-color: var(--bg-color);
+  height: fit-content;
+  max-width: auto; /* Aumenta a largura do contêiner */
+  padding: 100px 20px 100px; /* Ajusta o preenchimento */
+  border-top: 2px solid var(--quarta);
+}
+
+
+.cabecalho {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 /* Estilo do cabeçalho */
 .cabecalho h1 {
-    font-size: 3rem; /* Aumenta o tamanho do título */
-    color: white;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 /* Estilo do cartão de notícia */
