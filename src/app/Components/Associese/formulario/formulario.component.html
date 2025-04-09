@@ -1,38 +1,133 @@
-<div class="container">
-    <div class="form-container">
+<div class="form-container">
+  <div class="formulario">
+    <div class="form-header">
+      <div class="icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="form-icon">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="8.5" cy="7" r="4"></circle>
+          <line x1="20" y1="8" x2="20" y2="14"></line>
+          <line x1="23" y1="11" x2="17" y2="11"></line>
+        </svg>
+      </div>
+      <div>
         <h2>Para ser um associado:</h2>
         <p>Preencha os campos abaixo e entraremos em contato com mais informações:</p>
-        <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()">
-          <div class="form-group">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" formControlName="nome" required>
-          </div>
-          <div class="form-group">
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" formControlName="email" required>
-          </div>
-          <div class="form-group">
-            <label for="telefone">Telefone:</label>
-            <input type="tel" id="telefone" formControlName="telefone" required>
-          </div>
-          <div class="form-group">
-            <label for="mensagem">Mensagem:</label>
-            <textarea id="mensagem" formControlName="mensagem" required></textarea>
-          </div>
-          <button type="submit" class="submit-btn" [disabled]="!contatoForm.valid">Enviar</button>
-        </form>
+      </div>
     </div>
 
-    <!-- <aside class="contato">
-        <h2>Contatos</h2>
-        <p>Contate-nos pelos telefones:</p>
-        <p>(00) 0000-0000 ou (00) 0000-0000</p>
-        <p>Ou pelo e-mail:</p>
-        <p><a href="mailto:administracao@portosprivados.org.br"
-                class="email-link">administracao.org.br</a></p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi ducimus veritatis impedit aliquam, iste corporis ad esse excepturi nobis hic maxime, nam dicta repellat quia eum ea maiores placeat. Facere!.</p>
+    <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nome">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          Nome:
+        </label>
+        <input
+          type="text"
+          id="nome"
+          formControlName="nome"
+          [ngClass]="{'invalid': isCampoInvalido('nome')}"
+          placeholder="Seu nome completo"
+        >
+        <div *ngIf="isCampoInvalido('nome')" class="error-message">
+          Nome é obrigatório
+        </div>
+      </div>
 
-        <h3>Documentos</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur blanditiis harum laudantium natus similique ad alias possimus, repellat quam, maxime dolores explicabo. Non at eaque delectus impedit repellat dolor? Ducimus!.</p>
-    </aside> -->
+      <div class="form-group">
+        <label for="email">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          E-mail:
+        </label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          [ngClass]="{'invalid': isCampoInvalido('email')}"
+          placeholder="seu.email@exemplo.com"
+        >
+        <div *ngIf="isCampoInvalido('email')" class="error-message">
+          E-mail válido é obrigatório
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="telefone">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          Telefone:
+        </label>
+        <input
+          type="tel"
+          id="telefone"
+          formControlName="telefone"
+          [ngClass]="{'invalid': isCampoInvalido('telefone')}"
+          placeholder="(00) 00000-0000"
+        >
+        <div *ngIf="isCampoInvalido('telefone')" class="error-message">
+          Telefone é obrigatório
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="mensagem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon">
+            <line x1="17" y1="10" x2="3" y2="10"></line>
+            <line x1="21" y1="6" x2="3" y2="6"></line>
+            <line x1="21" y1="14" x2="3" y2="14"></line>
+            <line x1="17" y1="18" x2="3" y2="18"></line>
+          </svg>
+          Mensagem:
+        </label>
+        <textarea
+          id="mensagem"
+          formControlName="mensagem"
+          [ngClass]="{'invalid': isCampoInvalido('mensagem')}"
+          placeholder="Descreva seu interesse em se associar"
+          rows="4"
+        ></textarea>
+        <div *ngIf="isCampoInvalido('mensagem')" class="error-message">
+          Mensagem é obrigatória
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="submit-btn"
+        [disabled]="!contatoForm.valid || enviando"
+      >
+        <span *ngIf="!enviando">Enviar</span>
+        <span *ngIf="enviando" class="loading-spinner">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spinner-icon">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 6v6l4 2"></path>
+          </svg>
+          Enviando...
+        </span>
+      </button>
+
+      <div *ngIf="sucesso" class="success-message">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="success-icon">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        Solicitação enviada com sucesso! Entraremos em contato em breve.
+      </div>
+
+      <div *ngIf="erro" class="error-alert">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="error-icon">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente ou utilize outro meio de contato.
+      </div>
+    </form>
+  </div>
 </div>

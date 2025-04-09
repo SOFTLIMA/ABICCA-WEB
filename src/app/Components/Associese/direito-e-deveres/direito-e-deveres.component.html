@@ -1,29 +1,30 @@
-<div class="container">
-    <section aria-labelledby="direitos-deveres">
-        <header>
-            <h1 id="direitos-deveres">Conheça os nossos VALORES</h1>
-        </header>
+<div class="valores-container">
+  <div class="valores-header">
+    <div class="icon-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="valores-icon">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+      </svg>
+    </div>
+    <h2>Conheça os nossos <span>VALORES</span></h2>
+  </div>
 
-        <article>
-            <ul>
-                <h5>Defender as empresas associadas de competições desleais.</h5>
-                <li>Defender as empresas associadas de
-                  práticas comerciais injustas não só
-                  promove um campo de atuação mais
-                  equitativo para todos, mas também
-                  protege a integridade e a reputação
-                  do setor.</li>
-
-                <h5>Representar os associados junto a órgãos do governo, para uniformizar as ações das empresas nas esferas governamentais.</h5>
-                <li>A ABICCA assume papel de porta-voz,
-                  buscando influenciar e uniformizar
-                  políticas e regulamentações para
-                  beneficiar os setores que representa,
-                  um compromisso com a liderança
-                  ativa, a defesa dos interesses do setor
-                  e o desenvolvimento de um ambiente
-                  de negócios favorável.</li>
-            </ul>
-        </article>
-    </section>
+  <div class="valores-list">
+    <div *ngFor="let valor of valores" class="valor-item">
+      <div class="valor-icon-container">
+        <svg *ngIf="valor.icone === 'shield'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="valor-icon">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <svg *ngIf="valor.icone === 'users'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="valor-icon">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+      </div>
+      <div class="valor-content">
+        <h3>{{ valor.titulo }}</h3>
+        <p>{{ valor.descricao }}</p>
+      </div>
+    </div>
+  </div>
 </div>
