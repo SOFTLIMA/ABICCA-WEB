@@ -23,6 +23,9 @@ export class AuthService {
 
   signOut() {
     signOut();
+    localStorage.removeItem('token');
+    localStorage.removeItem('usuario');
+    window.location.href = '/login';
   }
 
 }

@@ -6,6 +6,7 @@ import { LoginComponent } from './Administracao/login/login.component';
 import { ContatoComponent } from './Components/contato/contato.component';
 import { NoticiasComponent } from './Components/noticias/noticias.component';
 import { SobreNosComponent } from './Components/sobrenos/sobre-nos.component';
+import { CorpoLoginComponent } from './Administracao/corpo-login/corpo-login.component';
 
 export const routes: Routes = [
 
@@ -16,6 +17,8 @@ export const routes: Routes = [
   {path: 'noticias/:id', component: NoticiasComponent, title:'noticias'},
   {path: 'noticias', component: NoticiasComponent, title:'noticias'},
   {path: 'sobre-nos', component: SobreNosComponent, title:'sobre-nos'},
+
+  {path: 'painel', component: CorpoLoginComponent, title:'painel'},
 
   {path: 'login', component: LoginComponent, title: 'Login'},
   {path: 'login2', component: LoginComponent, title: 'Login'},

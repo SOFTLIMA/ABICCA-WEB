@@ -1,33 +1,23 @@
-<amplify-authenticator [loginMechanisms]="['email']" [formFields]="formFields" [signUpAttributes]="['name']" [hideSignUp]="true">
-  <ng-template amplifySlot="verify-user-header">
-    <h3
-      class="amplify-heading"
-      style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
-    >
-      Enter Information:
-    </h3>
-  </ng-template>
+<div class="fundo">
+  <form #loginForm="ngForm" (ngSubmit)="onLogin()" class="login-form">
+    <h3>Login</h3>
 
-  <ng-template amplifySlot="verify-user-footer">
-    <div>Footer Information</div>
-  </ng-template>
-  <ng-template amplifySlot="confirm-verify-user-header">
-    <h3
-      class="amplify-heading"
-      style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
-    >
-      Enter Information:
-    </h3>
-  </ng-template>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" name="email" [(ngModel)]="email" required />
+    </mat-form-field>
 
-  <ng-template amplifySlot="confirm-verify-user-footer">
-    <div>Footer Information</div>
-  </ng-template>
-  <ng-template
-    amplifySlot="authenticated"
-    let-user="user"
-    let-signOut="signOut"
-  >
-    <app-corpo-login></app-corpo-login>
-  </ng-template>
-</amplify-authenticator>
+    <mat-form-field appearance="outline">
+      <mat-label>Senha</mat-label>
+      <input matInput type="password" name="senha" [(ngModel)]="senha" required />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="isLoading">
+      {{ isLoading ? 'Entrando...' : 'Entrar' }}
+    </button>
+
+    <div *ngIf="loginErro" class="erro-login">
+      Credenciais inválidas.
+    </div>
+  </form>
+</div>
