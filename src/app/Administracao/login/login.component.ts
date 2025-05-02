@@ -1,45 +1,50 @@
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthService } from './../../../AuthService';
-import { Component, OnInit, Input, AfterViewInit, SimpleChanges, ViewChild, OnChanges } from '@angular/core';
-import { Amplify } from 'aws-amplify';
-import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
-import { MenuNavComponent } from '../../Components/menu-nav/menu-nav.component';
-import { SignInInput } from 'aws-amplify/auth';
-import { LoginService } from '../../../Login.Service';
-import { CorpoLoginComponent } from "../corpo-login/corpo-login.component";
-import { After } from 'v8';
-
-Amplify.configure({
-  Auth: {
-    Cognito: {
-      userPoolId: 'us-east-2_8KkHocSfT',
-      userPoolClientId: '5rej1r2d415a0est3q5a3vtt9p',
-    }
-  },
-});
+import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [AmplifyAuthenticatorModule, MenuNavComponent, CommonModule, CorpoLoginComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  formFields = {
-    signUp: {
-      name: {
-        order: 1
+  email = '';
+  senha = '';
+  isLoading = false;
+  loginErro = false;
+
+  constructor(private http: HttpClient, private router: Router) {}
+
+  onLogin() {
+    this.isLoading = true;
+    this.loginErro = false;
+
+    this.http.post<any>(environment.apiLogin, {
+      email: this.email,
+      senha: this.senha
+    }).subscribe({
+      next: (res) => {
+        localStorage.setItem('token', res.token); // ou ID, dependendo do retorno
+        this.router.navigate(['/painel']); // redireciona ao painel
       },
-      email: {
-        order: 2
-      },
-      password: {
-        order: 5
-      },
-      confirm_password: {
-        order: 6
+      error: () => {
+        this.loginErro = true;
+        this.isLoading = false;
       }
-    },
-  };
+    });
+  }
 }
