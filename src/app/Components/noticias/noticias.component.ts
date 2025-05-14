@@ -21,7 +21,7 @@ interface pagination {
 export class NoticiasComponent implements OnInit{
 DATA : CampoPainel[] = [];
 listPagnation : pagination[] = [];
-constructor( private ddb : DynamoDBService, private noticiaService: NoticiaService,){}
+constructor( private ddb : DynamoDBService, private noticiaService: NoticiaService){}
 
 
   async ngOnInit(): Promise<void> {

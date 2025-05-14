@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { CampoPainel } from '../../../Model/PainelADM';
 import { DynamoDBService } from '../../../aws/DynamoDBService';
 import { RouterLink } from '@angular/router';
+import { NoticiaService } from '../../../services/noticiaService';
 
 @Component({
   selector: 'app-noticia',
@@ -14,10 +15,10 @@ import { RouterLink } from '@angular/router';
 export class NoticiaComponent {
   DATA : CampoPainel[] = [];
 
-  constructor( private ddb : DynamoDBService){}
+  constructor(private noticiaService: NoticiaService){}
 
   async ngOnInit(): Promise<void> {
-    await this.ddb.readAllItens().subscribe(result => {
+    await this.noticiaService.readAllItens().subscribe(result => {
       if (result) {
         result.forEach(item => {
           this.DATA.push({

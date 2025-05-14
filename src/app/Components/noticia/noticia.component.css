@@ -55,7 +55,7 @@
   margin: auto;
   border-radius: 12px;
   object-fit: cover;
-  object-position: 50% 50%;
+  object-position: 0% 50%;
 }
 
 /* Estilo do conteúdo da notícia */

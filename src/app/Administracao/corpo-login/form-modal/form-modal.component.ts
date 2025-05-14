@@ -54,7 +54,10 @@ export class FormModalComponent {
       this.salvarFotoService.uploadImagem(this.selectedFile).subscribe({
         next: (response) => {
           var temp = response.file_path;
-          var list = temp.split("/");
+          if (window.location.hostname === 'localhost') {
+            var list = temp.split('\\');
+          }
+          else var list = temp.split('/');
           this.link_img = list.length > 1 ? list[list.length - 1] : temp ;  // Recebe o caminho da imagem
           console.log('Imagem enviada com sucesso:', response.file_path);
           this.newItem.link_Imgs = this.link_img;  // Atualiza o link da imagem no item
