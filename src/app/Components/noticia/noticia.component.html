@@ -1,6 +1,6 @@
 <div class="container" *ngIf="DATA[0]?.link_Imgs">
   <div class="cabecalho">
-    <h1>Última Notícia</h1>
+    <h1>Notícias ABICCA</h1>
   </div>
 
   <div class="cartao">
@@ -8,7 +8,7 @@
       <img [src]="'Galeria/Noticias/' + DATA[0].link_Imgs[0]!" alt="">
     </div>
     <div class="conteudo">
-      <a href="#" class="titulo">
+      <a [routerLink]="['/noticias', DATA[0].id]"  class="titulo">
         <h4>{{DATA[0].titulo}}</h4>
       </a>
       <div class="data">

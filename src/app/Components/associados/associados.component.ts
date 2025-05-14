@@ -28,6 +28,8 @@ export class AssociadosComponent {
     { name: "TEIJIN", image: "assets/TEIJIN.png" },
     { name: "SR ABICCA", image: "assets/SAORAPHAEL.png" },
     { name: "GERDAU", image: "assets/Gerdau.png" },
+    { name: "ASDO", image: "assets/Anker Schroeder ASDO.png" },
+    { name: "IPH", image: "assets/IPH.png" },
   ]
 
   benefits = [

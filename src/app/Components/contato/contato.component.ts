@@ -6,7 +6,7 @@ import { MapaComponent } from "./mapa/mapa.component";
 @Component({
   selector: 'app-contato',
   standalone: true,
-  imports: [FormularioComponent, EntreEmContatoComponent, MapaComponent],
+  imports: [EntreEmContatoComponent, MapaComponent],
   templateUrl: './contato.component.html',
   styleUrl: './contato.component.css'
 })

@@ -1,9 +1,10 @@
 .corpo {
   display: flex;
   flex-direction: column;
-  background-image: var(--pattern1);
+  background: linear-gradient(135deg, #2c3e50, #1a365d);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  /* background-image: var(--pattern1);
   background-repeat: repeat;
   background-position: center;
-  background-color: var(--terciaria);
-  padding-bottom: 50px;
+  background-color: var(--terciaria); */
 }

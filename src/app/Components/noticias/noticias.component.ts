@@ -5,6 +5,7 @@ import { DynamoDBService } from '../../../aws/DynamoDBService';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { NoticiaService } from '../../../services/noticiaService';
 
 interface pagination {
   pag: number;
@@ -20,11 +21,11 @@ interface pagination {
 export class NoticiasComponent implements OnInit{
 DATA : CampoPainel[] = [];
 listPagnation : pagination[] = [];
-constructor( private ddb : DynamoDBService){}
+constructor( private ddb : DynamoDBService, private noticiaService: NoticiaService){}
 
 
   async ngOnInit(): Promise<void> {
-    await this.ddb.readAllItens().subscribe(result => {
+    await this.noticiaService.readAllItens().subscribe(result => {
       if (result) {
         this.DATA = result.map(item => ({
           id: item['id'],
