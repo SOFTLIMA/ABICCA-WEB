@@ -28,4 +28,8 @@ export class AuthService {
     window.location.href = '/login';
   }
 
+  isLoggedIn(): boolean {
+  return !!localStorage.getItem('token');
+  }
+
 }

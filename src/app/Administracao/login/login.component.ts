@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { environment } from '../../../environments/environment';
+import { AuthService } from '../../../AuthService';
 
 @Component({
   selector: 'app-login',
@@ -21,13 +22,21 @@ import { environment } from '../../../environments/environment';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   email = '';
   senha = '';
   isLoading = false;
   loginErro = false;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private auth: AuthService) {}
+
+  ngOnInit(): void {
+
+    if (this.auth.isLoggedIn()) {
+      this.router.navigate(['/painel']); // redireciona ao painel
+    }
+
+  }
 
   onLogin() {
     this.isLoading = true;
