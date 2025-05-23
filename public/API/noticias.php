@@ -1,18 +1,6 @@
 <?php
-// Permitir acesso de qualquer origem (ou você pode restringir a origem, se preferir)
-header("Access-Control-Allow-Origin: http://localhost:4200");
+include 'cors.php';
 
-// Permitir métodos
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-
-// Permitir cabeçalhos
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
-
-// Se for uma requisição OPTIONS (preflight), apenas retorna e encerra
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200);
-    exit();
-}
 require __DIR__ . '/vendor/autoload.php';
 
 use Dotenv\Dotenv;
@@ -49,15 +37,15 @@ switch ($method) {
     case 'GET':
         $stmt = $pdo->query("SELECT * FROM `$tabela` ORDER BY data DESC");
         $dados = $stmt->fetchAll();
-    
+
         foreach ($dados as &$item) {
             // Converte a data de "YYYY-MM-DD" para "DD/MM/YYYY"
             $item['data'] = DateTime::createFromFormat('Y-m-d', $item['data'])->format('d/m/Y');
-    
+
             // Decodifica as imagens do JSON
             $item['link_Imgs'] = json_decode($item['link_imgs'], true);
         }
-    
+
         echo json_encode($dados);
         break;
 
@@ -72,7 +60,7 @@ switch ($method) {
             json_encode($input['link_Imgs'])
         ]);
         echo json_encode(["status" => "Criado com sucesso"]);
-        break;     
+        break;
 
     case 'PUT':
         $dataFormatada = DateTime::createFromFormat('d/m/Y', $input['data'])->format('Y-m-d');
