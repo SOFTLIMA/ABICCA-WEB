@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="cabecalho">
+    <h1>Liderança</h1>
+  </div>
+
+  <div class="cartao">
+    <div class="partners-grid">
+      <div class="partner-card" *ngFor="let lider of lideres" @fadeIn matRipple>
+        <div class="partner-logo-container">
+          <img [src]="lider.image" [alt]="lider.name" class="partner-logo"/>
+        </div>
+        <div class="nome">{{lider.name}}</div>
+        <div class="cargo">{{lider.cargo}}</div>
+        <p>{{lider.text}}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
-import { ImagensComponent } from "../imagens/imagens.component";
-import { NoticiaComponent } from "../noticia/noticia.component";
-import { NavioComponent } from "../navio/navio.component";
-import { SobreComponent } from "../sobre/sobre.component";
-import { AssociadosComponent } from "../associados/associados.component";
-import { GaleriaComponent } from "../galeria/galeria.component";
-import { AnimacaoRodapeComponent } from "../animacao-rodape/animacao-rodape.component";
-import { Imagens2Component } from '../imagens2/imagens2.component';
+import { Imagens2Component } from './imagens2/imagens2.component';
+import { SobreComponent } from './sobre/sobre.component';
+import { AssociadosComponent } from './associados/associados.component';
+import { AnimacaoRodapeComponent } from './animacao-rodape/animacao-rodape.component';
+import { NoticiaComponent } from './noticia/noticia.component';
+import { LiderancaComponent } from './lideranca/lideranca.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Imagens2Component, NoticiaComponent, NavioComponent, SobreComponent, AssociadosComponent, GaleriaComponent, AnimacaoRodapeComponent],
+  imports: [Imagens2Component, NoticiaComponent, SobreComponent, AssociadosComponent, AnimacaoRodapeComponent, LiderancaComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

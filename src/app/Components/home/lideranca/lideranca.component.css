@@ -1,0 +1,145 @@
+/* Estilo para o container principal */
+.container {
+  background-color: var(--bg-color);
+  height: fit-content;
+  max-width: auto; /* Aumenta a largura do contêiner */
+  padding: 100px 20px 100px; /* Ajusta o preenchimento */
+  border-top: 2px solid var(--quarta);
+}
+
+
+.cabecalho {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Estilo do cabeçalho */
+.cabecalho h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Estilo do cartão de notícia */
+.cartao {
+  background-color: #ffffff;
+  background-image: var(--pattern6);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  min-height: 700px;
+  padding: 20px 0px;
+
+}
+
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  margin: auto;
+  width: 80%;
+  /* border: 1px solid black; */
+
+  @media (max-width: 1280px) {
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+}
+
+.partner-card {
+  /* background-color: var(--card-bg); */
+  border-radius: 10px;
+  box-shadow: 0 8px 5px rgba(0,0,0, 0.12);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(253, 185, 67, 0.50);
+  }
+}
+.partner-card .nome{
+  color: var(--primaria);
+  font-size: 1.75em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.partner-card .cargo{
+  color: var(--quarta);
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.partner-card p{
+  color: var(--primaria);
+  font-size: 1.05em;
+}
+
+.partner-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 1.5rem;
+  height: auto;
+
+  @media (max-width: 768px) {
+    height: 100px;
+    padding: 1rem;
+  }
+}
+
+.partner-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(0.2);
+  transition: filter 0.3s ease, transform 0.3s ease;
+
+  .partner-card:hover & {
+    filter: grayscale(0);
+    transform: scale(1.05);
+  }
+}
+
+@media only screen and  (max-width: 768px){
+
+  .container{
+    padding-top: 4vw;
+  }
+
+  .cabecalho h1{
+    font: 400 6vw Roboto, sans-serif;
+    padding: 5vw 0;
+  }
+
+}
+
+@media only screen and  (min-width: 768px) and (max-width: 1280px){
+  .container{
+    padding-top: 4vw;
+  }
+
+  .cabecalho h1{
+    font: 400 4vw Roboto, sans-serif;
+    padding: 5vw 0;
+  }
+
+}

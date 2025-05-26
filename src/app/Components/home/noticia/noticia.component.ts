@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { CampoPainel } from '../../../Model/PainelADM';
-import { DynamoDBService } from '../../../aws/DynamoDBService';
 import { RouterLink } from '@angular/router';
-import { NoticiaService } from '../../../services/noticiaService';
+import { CampoPainel } from '../../../../Model/PainelADM';
+import { NoticiaService } from '../../../../services/noticiaService';
 
 @Component({
   selector: 'app-noticia',
