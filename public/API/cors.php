@@ -24,7 +24,6 @@ if ($method === 'OPTIONS') {
     if ($origin && strpos($origin, $SITE_ORIGIN) === 0) {
         header("Access-Control-Allow-Origin: $origin");
         header('Access-Control-Allow-Methods: POST, PUT, DELETE');
-        header('Access-Control-Allow-Headers: Content-Type, X-ACCESS-TOKEN');
         header('Access-Control-Max-Age: 86400');
         exit;
     } else {
@@ -57,15 +56,6 @@ if (!$valido) {
     exit;
 }
 
-// Validação do token para métodos sensíveis
-if ($receivedToken !== $ACCESS_TOKEN) {
-    http_response_code(403);
-    echo json_encode([
-        'status' => 'erro',
-        'mensagem' => 'Token de acesso inválido'
-    ]);
-    exit;
-}
 
 // Tudo certo, libera acesso com origem
 header("Access-Control-Allow-Origin: $origin");
