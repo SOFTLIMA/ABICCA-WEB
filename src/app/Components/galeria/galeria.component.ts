@@ -14,7 +14,7 @@ interface carouselImage {
   templateUrl: './galeria.component.html',
   styleUrl: './galeria.component.css'
 })
-export class GaleriaComponent implements OnInit{
+export class GaleriaComponent1 implements OnInit{
 
   faArrowCircleLeft = faArrowCircleLeft;
   faArrowCircleRight = faArrowCircleRight;

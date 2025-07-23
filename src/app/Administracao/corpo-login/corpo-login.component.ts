@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { FormModalComponent } from './form-modal/form-modal.component';
-import { PopupComponent } from '../../Components/popup/popup.component';
+import { PopupComponent } from './popup/popup.component';
 import { NoticiaService } from '../../../services/noticiaService';
 
 @Component({
