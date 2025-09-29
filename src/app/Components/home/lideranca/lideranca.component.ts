@@ -18,12 +18,12 @@ export class LiderancaComponent {
     },
     { name: "Rui Faria",
       cargo: "Vice-presidente",
-      text: "Engenheiro, construiu sua carreira atuando no setor offshore, tendo profundo conhecimento em normas técnicas, correntes, cabos de aço, cabos de fibra, cabos CFRP e materiais para manutenção de estações offshore em geral.",
+      text: "Graduado em Administração e Marketing, possui mais de 35 anos de experiência no setor industrial. É o principal responsável pela implantação e direção da Lankhorst Euronete Brasil. É reconhecido na indústria de cabos sintéticos, sendo referência em negociações e relacionamentos sólidos e duradouros. ",
       image: "Galeria/Lideranca/Rui.jpg"
     },
     { name: " Ricardo Teles Araújo",
       cargo: "Secretário-executivo",
-      text: "Graduado em Administração e Marketing, possui mais de 35 anos de experiência no setor industrial. É o principal responsável pela implantação e direção da Lankhorst Euronete Brasil. É reconhecido na indústria de cabos sintéticos, sendo referência em negociações e relacionamentos sólidos e duradouros. ",
+      text: "Engenheiro, construiu sua carreira atuando no setor offshore, tendo profundo conhecimento em normas técnicas, correntes, cabos de aço, cabos de fibra, cabos CFRP e materiais para manutenção de estações offshore em geral.",
       image: "Galeria/Lideranca/Ricardo.jpg"
     },
   ]
